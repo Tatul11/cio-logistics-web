@@ -1,0 +1,64 @@
+.stickyCta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 990;
+}
+
+.fab {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-white);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: none;
+  text-decoration: none;
+}
+
+.fab:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.quote {
+  background: var(--cio-orange);
+  width: auto;
+  padding: 0 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14.5px;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.quote:hover {
+  background: var(--cio-orange-dk);
+}
+
+@media (max-width: 640px) {
+  .stickyCta {
+    bottom: 16px;
+    right: 16px;
+    gap: 8px;
+  }
+  .fab {
+    width: 48px;
+    height: 48px;
+  }
+  .quote {
+    padding: 0 16px;
+    font-size: 13px;
+  }
+}

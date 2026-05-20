@@ -1,0 +1,207 @@
+.container {
+  width: 100%;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.inputGroup {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 15px;
+  outline: none;
+  transition: all var(--transition-fast);
+  background: var(--bg-gray);
+}
+
+.input:focus {
+  border-color: var(--cio-orange);
+  background: var(--bg-white);
+  box-shadow: 0 0 0 3px rgba(236, 28, 40, 0.1);
+}
+
+.results {
+  margin-top: 32px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  animation: fadeInUp var(--transition-normal) forwards;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.infoTitle {
+  font-size: 18px;
+  color: var(--cio-navy);
+  font-weight: 700;
+}
+
+.statusBadge {
+  background: var(--success-bg);
+  color: var(--success);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: var(--bg-gray);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+}
+
+.summaryItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.summaryValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Timeline/Log styles */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.marker {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-white);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all var(--transition-fast);
+}
+
+.markerActive {
+  border-color: var(--cio-orange);
+  background: var(--cio-orange);
+  box-shadow: 0 0 0 4px rgba(236, 28, 40, 0.2);
+}
+
+.markerCompleted {
+  border-color: var(--success);
+  background: var(--success);
+}
+
+.markerInner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.markerActive .markerInner {
+  background: var(--bg-white);
+}
+
+.markerCompleted .markerInner {
+  background: var(--bg-white);
+}
+
+.logContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.logText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logTitle {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.logTitleCompleted {
+  color: var(--text-dark);
+}
+
+.logDesc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.logTime {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .summaryGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .inputGroup {
+    flex-direction: column;
+  }
+}

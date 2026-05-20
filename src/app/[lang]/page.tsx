@@ -1,0 +1,777 @@
+import React from 'react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { getDictionary } from '@/lib/dictionary';
+import InteractiveMap from '@/components/InteractiveMap/InteractiveMap';
+import TrackingWidget from '@/components/TrackingWidget/TrackingWidget';
+import Calculator from '@/components/Calculator/Calculator';
+import { 
+  Plane, Ship, Truck, Train, Layers, Anchor, AlertTriangle, 
+  HelpCircle, ShieldCheck, Star, Users, Phone, ArrowUpRight, 
+  FileText, CheckCircle2, ChevronRight 
+} from 'lucide-react';
+
+interface PageProps {
+  params: Promise<{ lang: string }>;
+}
+
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const params = await props.params;
+  const rawLang = params.lang || 'en';
+  const lang = (rawLang === 'ru' || rawLang === 'hy' ? rawLang : 'en') as 'en' | 'ru' | 'hy';
+  
+  const titles = {
+    en: "International Freight Forwarding & Logistics - CIO Logistics",
+    ru: "Международные грузоперевозки и логистика - CIO Logistics",
+    hy: "Միջազգային բեռնափոխադրումներ և լոգիստիկա - CIO Logistics",
+  };
+
+  const descriptions = {
+    en: "Reliable international freight forwarding services from Armenia. Air, sea, rail, road transport, customs clearance, and warehousing. member of FIATA, IATA.",
+    ru: "Надежные международные грузоперевозки из Армении. Авиа, море, ж/д, автоперевозки, таможенное оформление и склады. Член FIATA, IATA.",
+    hy: "Հուսալի միջազգային բեռնափոխադրումներ Հայաստանից: Օդային, ծովային, երկաթուղային, ավտոմոբիլային փոխադրումներ, մաքսազերծում: FIATA, IATA անդամ:",
+  };
+
+  return {
+    title: titles[lang],
+    description: descriptions[lang],
+    openGraph: {
+      title: titles[lang],
+      description: descriptions[lang],
+      type: 'website',
+      url: `https://ciologistics.com/${lang}`,
+    },
+  };
+}
+
+export default async function LocalizedHomePage(props: PageProps) {
+  const params = await props.params;
+  const rawLang = params.lang || 'en';
+  const lang = (rawLang === 'ru' || rawLang === 'hy' ? rawLang : 'en') as 'en' | 'ru' | 'hy';
+  const dict = await getDictionary(lang);
+
+  // SEO Organization & FAQ JSON-LD Schema
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ciologistics.com/#organization",
+        "name": "CIO Logistics",
+        "url": "https://ciologistics.com",
+        "logo": "https://ciologistics.com/logo.png",
+        "sameAs": [
+          "https://www.facebook.com/ciologisticsworldwide/",
+          "https://www.instagram.com/CioLogistics/",
+          "https://www.linkedin.com/company/cio-logistics/",
+          "https://www.youtube.com/@CIOLogistics"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+374-95-211-121",
+          "contactType": "customer service",
+          "areaServed": "AM",
+          "availableLanguage": ["en", "ru", "hy"]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `https://ciologistics.com/${lang}/#faq`,
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": dict.faqs.q1,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": dict.faqs.a1
+            }
+          },
+          {
+            "@type": "Question",
+            "name": dict.faqs.q2,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": dict.faqs.a2
+            }
+          },
+          {
+            "@type": "Question",
+            "name": dict.faqs.q3,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": dict.faqs.a3
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+  return (
+    <>
+      {/* Inject JSON-LD Schema */}
+      <script
+        type="application/ld-json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section */}
+      <section 
+        className="section section-navy" 
+        style={{ 
+          overflow: 'hidden', 
+          padding: '120px 0 96px',
+          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative'
+        }}
+      >
+        {/* Background glow overlay */}
+        <div style={{
+          position: 'absolute',
+          top: '-10%',
+          right: '-10%',
+          width: '50vw',
+          height: '50vw',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(236, 28, 40, 0.08) 0%, transparent 70%)',
+          pointerEvents: 'none'
+        }} />
+        
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '56px', alignItems: 'center' }}>
+          {/* Hero Left Content */}
+          <div className="animate-fade-in-up">
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+                {dict.hero.badgeIso}
+              </span>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+                {dict.hero.badgeFiata}
+              </span>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+                {dict.hero.badgeIata}
+              </span>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+                {dict.hero.badgeIru}
+              </span>
+            </div>
+            
+            <h1 style={{ color: '#ffffff', marginBottom: '24px', lineHeight: '1.15' }}>
+              {dict.hero.title} <span style={{ color: 'var(--cio-orange)' }}>{dict.hero.titleAccent}</span>
+            </h1>
+            
+            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.75)', marginBottom: '40px', lineHeight: '1.6' }}>
+              {dict.hero.description}
+            </p>
+            
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
+              <Link href={`/${lang}/quote`} className="btn btn-primary">
+                {dict.hero.getQuote}
+              </Link>
+              <Link href={`/${lang}/#track`} className="btn btn-ghost">
+                {dict.hero.trackShipment}
+              </Link>
+            </div>
+            
+            <div>
+              <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255,255,255,0.4)', display: 'block', marginBottom: '16px' }}>
+                {dict.hero.trustedBy}
+              </span>
+              <div style={{ display: 'flex', gap: '32px', alignItems: 'center', opacity: '0.6', flexWrap: 'wrap' }}>
+                <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>Armenian Brands</span>
+                <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>CIS Global</span>
+                <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>Europe-Trans</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Hero Right Widget - Quote Calculator */}
+          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '430px', width: '100%', marginLeft: 'auto' }}>
+            <Calculator lang={lang} dict={dict} />
+          </div>
+        </div>
+      </section>
+
+      {/* Live rates & Quick Tools strip */}
+      <section className="section-tight" style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg-gray)' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          <div>
+            <strong>{dict.quickTools.liveRates}: </strong>
+            <span style={{ color: 'var(--cio-orange)', fontWeight: 700 }}>{dict.quickTools.ratesValue}</span>
+          </div>
+          <div>
+            <Link href={`/${lang}/contact`} className="btn btn-secondary" style={{ padding: '8px 16px', fontSize: '13px' }}>
+              {dict.quickTools.talkToExpert}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section" id="services">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.services.eyebrow}</span>
+            <h2>{dict.services.title}</h2>
+            <p>{dict.services.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
+            {/* Air Freight Card */}
+            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.air} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                  <Plane size={20} />
+                </div>
+              </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.air}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.airDesc}</p>
+                </div>
+                <Link href={`/${lang}/services/air-freight`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Learn more <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Sea Freight Card */}
+            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AE%D5%B8%D5%BE%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.sea} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                  <Ship size={20} />
+                </div>
+              </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.sea}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.seaDesc}</p>
+                </div>
+                <Link href={`/${lang}/services/sea-freight`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Learn more <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Road Freight Card */}
+            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%81%D5%A1%D5%B4%D5%A1%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.road} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                  <Truck size={20} />
+                </div>
+              </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.road}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.roadDesc}</p>
+                </div>
+                <Link href={`/${lang}/services/road-transport`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Learn more <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Container/Rail Freight Card */}
+            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AF%D5%B8%D5%B6%D5%BF%D5%A5%D5%B6%D5%B5%D5%A5%D6%80%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.rail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                  <Train size={20} />
+                </div>
+              </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.rail}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.railDesc}</p>
+                </div>
+                <Link href={`/${lang}/services/rail-freight`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Learn more <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Groupage Card */}
+            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://ciologistics.com/wp-content/uploads/2024/04/%D5%B0%D5%A1%D5%BE%D5%A1%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                  <Layers size={20} />
+                </div>
+              </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.groupage}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.groupageDesc}</p>
+                </div>
+                <Link href={`/${lang}/services/groupage-cargo`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Learn more <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Heavy & Bulky Card */}
+            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
+              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%A3%D5%A5%D6%80%D5%AE%D5%A1%D5%BE%D5%A1%D5%AC%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.heavy} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                  <Anchor size={20} />
+                </div>
+              </div>
+              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.heavy}</h3>
+                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.heavyDesc}</p>
+                </div>
+                <Link href={`/${lang}/services/heavy-bulky-cargo`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Learn more <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link href={`/${lang}/services`} className="btn btn-secondary">
+              {dict.services.seeAll}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Shipment Tracking Widget section */}
+      <section className="section section-gray" id="track" style={{ padding: '80px 0' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div className="section-head" style={{ marginBottom: '40px' }}>
+            <span className="eyebrow">{dict.quickTools.trackShipment}</span>
+            <h2>Real-time Cargo Tracking</h2>
+            <p>Enter your tracking identifier below to check current transit steps.</p>
+          </div>
+          <TrackingWidget lang={lang} dict={dict} />
+        </div>
+      </section>
+
+      {/* Metrics Dashboard */}
+      <section className="section section-navy" id="metrics">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.metrics.eyebrow}</span>
+            <h2>{dict.metrics.title}</h2>
+            <p>{dict.metrics.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px', textAlign: 'center' }}>
+            <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
+                {dict.metrics.tons}
+              </div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
+                {dict.metrics.tonsLabel}
+              </div>
+            </div>
+
+            <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
+                {dict.metrics.years}
+              </div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
+                {dict.metrics.yearsLabel}
+              </div>
+            </div>
+
+            <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
+                {dict.metrics.ontime}
+              </div>
+              <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
+                {dict.metrics.ontimeLabel}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Map & Routes showcase */}
+      <section className="section" id="routes">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.routes.eyebrow}</span>
+            <h2>{dict.routes.title}</h2>
+            <p>{dict.routes.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '56px', alignItems: 'center' }}>
+            {/* Left side Map */}
+            <InteractiveMap lang={lang} dict={dict} />
+
+            {/* Right side Route lists */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+              <div style={{ padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', color: 'var(--cio-navy)' }}>
+                  🇨🇳 {dict.routes.china}
+                </h4>
+                <div style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+                  {dict.routes.chinaMeta}
+                </div>
+              </div>
+
+              <div style={{ padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', color: 'var(--cio-navy)' }}>
+                  🇷🇺 {dict.routes.russia}
+                </h4>
+                <div style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+                  {dict.routes.russiaMeta}
+                </div>
+              </div>
+
+              <div style={{ padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', color: 'var(--cio-navy)' }}>
+                  🇩🇪 {dict.routes.germany}
+                </h4>
+                <div style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
+                  {dict.routes.germanyMeta}
+                </div>
+              </div>
+
+              <Link href={`/${lang}/routes`} className="btn btn-secondary btn-full">
+                {dict.routes.exploreAll}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Slider */}
+      <section className="section section-gray" id="industries">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.industries.eyebrow}</span>
+            <h2>{dict.industries.title}</h2>
+            <p>{dict.industries.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
+            {[
+              { label: dict.industries.ecommerce, desc: dict.industries.ecommerceDesc, icon: '🛍️' },
+              { label: dict.industries.pharma, desc: dict.industries.pharmaDesc, icon: '💊' },
+              { label: dict.industries.auto, desc: dict.industries.autoDesc, icon: '🚗' },
+              { label: dict.industries.heavy, desc: dict.industries.heavyDesc, icon: '🏗' },
+              { label: dict.industries.food, desc: dict.industries.foodDesc, icon: '🍎' },
+              { label: dict.industries.chemical, desc: dict.industries.chemicalDesc, icon: '⚗️' },
+              { label: dict.industries.construction, desc: dict.industries.constructionDesc, icon: '🏢' },
+              { label: dict.industries.electronics, desc: dict.industries.electronicsDesc, icon: '📱' },
+            ].map((ind, idx) => (
+              <div key={idx} style={{ padding: '24px', background: 'var(--bg-white)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
+                <div style={{ fontSize: '32px', marginBottom: '16px' }}>{ind.icon}</div>
+                <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '8px' }}>{ind.label}</h4>
+                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{ind.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Step by Step Process */}
+      <section className="section" id="process">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.process.eyebrow}</span>
+            <h2>{dict.process.title}</h2>
+            <p>{dict.process.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px', position: 'relative' }}>
+            {[
+              { num: '01', title: dict.process.step1, desc: dict.process.step1Desc },
+              { num: '02', title: dict.process.step2, desc: dict.process.step2Desc },
+              { num: '03', title: dict.process.step3, desc: dict.process.step3Desc },
+              { num: '04', title: dict.process.step4, desc: dict.process.step4Desc },
+              { num: '05', title: dict.process.step5, desc: dict.process.step5Desc },
+            ].map((step, idx) => (
+              <div key={idx} style={{ position: 'relative' }}>
+                <div style={{ fontSize: '36px', fontWeight: 800, color: 'rgba(14,42,71,0.06)', fontFamily: 'var(--font-display)', marginBottom: '8px' }}>
+                  {step.num}
+                </div>
+                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '8px', color: 'var(--cio-navy)' }}>
+                  {step.title}
+                </h4>
+                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case studies with verified metrics */}
+      <section className="section section-gray" id="solutions">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.cases.eyebrow}</span>
+            <h2>{dict.cases.title}</h2>
+            <p>{dict.cases.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+            {/* Case 1 */}
+            <div style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ padding: '24px' }}>
+                <span className="badge" style={{ background: 'var(--cio-navy)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '4px 10px', marginBottom: '16px', display: 'inline-block' }}>
+                  {dict.cases.case1Tag}
+                </span>
+                <h4 style={{ fontSize: '17px', fontWeight: 700, marginBottom: '12px', color: 'var(--cio-navy)' }}>
+                  {dict.cases.case1Title}
+                </h4>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-body)', marginBottom: '24px' }}>
+                  {dict.cases.case1Desc}
+                </p>
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }}>
+                  <div>
+                    <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--text-muted)', display: 'block' }}>{dict.cases.transitTime}</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--cio-orange)' }}>14 Days</strong>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--text-muted)', display: 'block' }}>{dict.cases.doorToDoor}</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--success)' }}>Yes</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Case 2 */}
+            <div style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ padding: '24px' }}>
+                <span className="badge" style={{ background: 'var(--cio-navy)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '4px 10px', marginBottom: '16px', display: 'inline-block' }}>
+                  {dict.cases.case2Tag}
+                </span>
+                <h4 style={{ fontSize: '17px', fontWeight: 700, marginBottom: '12px', color: 'var(--cio-navy)' }}>
+                  {dict.cases.case2Title}
+                </h4>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-body)', marginBottom: '24px' }}>
+                  {dict.cases.case2Desc}
+                </p>
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }}>
+                  <div>
+                    <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--text-muted)', display: 'block' }}>{dict.cases.tempCompliance}</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--success)' }}>100% GDP</strong>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--text-muted)', display: 'block' }}>Transit Time</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--cio-orange)' }}>4 Days</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Case 3 */}
+            <div style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+              <div style={{ padding: '24px' }}>
+                <span className="badge" style={{ background: 'var(--cio-navy)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '4px 10px', marginBottom: '16px', display: 'inline-block' }}>
+                  {dict.cases.case3Tag}
+                </span>
+                <h4 style={{ fontSize: '17px', fontWeight: 700, marginBottom: '12px', color: 'var(--cio-navy)' }}>
+                  {dict.cases.case3Title}
+                </h4>
+                <p style={{ fontSize: '13.5px', color: 'var(--text-body)', marginBottom: '24px' }}>
+                  {dict.cases.case3Desc}
+                </p>
+                <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }}>
+                  <div>
+                    <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--text-muted)', display: 'block' }}>{dict.cases.shippingCost}</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--success)' }}>-32% vs air</strong>
+                  </div>
+                  <div>
+                    <span style={{ fontSize: '10px', textTransform: 'uppercase', color: 'var(--text-muted)', display: 'block' }}>Schedule</span>
+                    <strong style={{ fontSize: '14px', color: 'var(--cio-orange)' }}>Weekly</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Verified Reviews Block */}
+      <section className="section" id="reviews">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.reviews.eyebrow}</span>
+            <h2>{dict.reviews.title}</h2>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '12px' }}>
+              <div style={{ display: 'flex', color: 'var(--cio-orange)' }}>
+                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--cio-orange)" />)}
+              </div>
+              <strong style={{ fontSize: '18px', color: 'var(--cio-navy)' }}>{dict.reviews.score} / 5.0</strong>
+              <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>({dict.reviews.count})</span>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+            {[
+              { text: dict.reviews.rev1, author: dict.reviews.rev1Author, src: dict.reviews.rev1Src },
+              { text: dict.reviews.rev2, author: dict.reviews.rev2Author, src: dict.reviews.rev2Src },
+              { text: dict.reviews.rev3, author: dict.reviews.rev3Author, src: dict.reviews.rev3Src },
+            ].map((rev, idx) => (
+              <div key={idx} style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--shadow-sm)' }}>
+                <p style={{ fontSize: '14.5px', fontStyle: 'italic', color: 'var(--text-body)', marginBottom: '24px', lineHeight: '1.6' }}>
+                  &ldquo;{rev.text}&rdquo;
+                </p>
+                <div>
+                  <h4 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cio-navy)', marginBottom: '2px' }}>{rev.author}</h4>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{rev.src}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO native Accordion FAQ grid */}
+      <section className="section section-gray" id="faq">
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div className="section-head">
+            <span className="eyebrow">{dict.faqs.eyebrow}</span>
+            <h2>{dict.faqs.title}</h2>
+            <p>{dict.faqs.desc}</p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {[
+              { q: dict.faqs.q1, a: dict.faqs.a1 },
+              { q: dict.faqs.q2, a: dict.faqs.a2 },
+              { q: dict.faqs.q3, a: dict.faqs.a3 },
+              { q: dict.faqs.q4, a: dict.faqs.a4 },
+              { q: dict.faqs.q5, a: dict.faqs.a5 },
+              { q: dict.faqs.q6, a: dict.faqs.a6 },
+              { q: dict.faqs.q7, a: dict.faqs.a7 },
+              { q: dict.faqs.q8, a: dict.faqs.a8 },
+            ].map((faq, idx) => (
+              <details
+                key={idx}
+                style={{
+                  background: 'var(--bg-white)',
+                  borderRadius: 'var(--radius)',
+                  border: '1px solid var(--border)',
+                  padding: '20px 24px',
+                  cursor: 'pointer',
+                }}
+              >
+                <summary style={{ fontWeight: 700, fontSize: '15.5px', color: 'var(--cio-navy)', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span>{faq.q}</span>
+                  <ChevronRight size={18} style={{ transform: 'rotate(90deg)', color: 'var(--cio-orange)' }} />
+                </summary>
+                <p style={{ marginTop: '16px', fontSize: '14.5px', color: 'var(--text-body)', lineHeight: '1.6', cursor: 'default' }}>
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications and Compliance */}
+      <section className="section" id="certifications">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.certifications.eyebrow}</span>
+            <h2>{dict.certifications.title}</h2>
+            <p>{dict.certifications.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px', textAlign: 'center' }}>
+            {[
+              { title: dict.certifications.isoTitle, desc: dict.certifications.isoDesc },
+              { title: dict.certifications.fiataTitle, desc: dict.certifications.fiataDesc },
+              { title: dict.certifications.iataTitle, desc: dict.certifications.iataDesc },
+              { title: dict.certifications.iruTitle, desc: dict.certifications.iruDesc },
+              { title: dict.certifications.aeoTitle, desc: dict.certifications.aeoDesc },
+            ].map((cert, idx) => (
+              <div key={idx} style={{ padding: '24px', border: '1px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--bg-gray)' }}>
+                <CheckCircle2 size={32} color="var(--cio-orange)" style={{ margin: '0 auto 16px' }} />
+                <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '6px' }}>{cert.title}</h4>
+                <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{cert.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Insights / Blog section */}
+      <section className="section section-gray" id="insights">
+        <div className="container">
+          <div className="section-head">
+            <span className="eyebrow">{dict.insights.eyebrow}</span>
+            <h2>{dict.insights.title}</h2>
+            <p>{dict.insights.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+            {[
+              { cat: dict.insights.blog1Cat, title: dict.insights.blog1Title, desc: dict.insights.blog1Desc, author: dict.insights.blog1Author, time: dict.insights.blog1Read },
+              { cat: dict.insights.blog2Cat, title: dict.insights.blog2Title, desc: dict.insights.blog2Desc, author: dict.insights.blog2Author, time: dict.insights.blog2Read },
+              { cat: dict.insights.blog3Cat, title: dict.insights.blog3Title, desc: dict.insights.blog3Desc, author: dict.insights.blog3Author, time: dict.insights.blog3Read },
+            ].map((post, idx) => (
+              <article key={idx} style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--shadow-sm)' }}>
+                <div style={{ padding: '28px' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: 'var(--cio-orange)', letterSpacing: '0.5px', display: 'block', marginBottom: '12px' }}>
+                    {post.cat}
+                  </span>
+                  <h4 style={{ fontSize: '17px', fontWeight: 700, marginBottom: '12px', color: 'var(--cio-navy)', lineHeight: '1.4' }}>
+                    {post.title}
+                  </h4>
+                  <p style={{ fontSize: '13.5px', color: 'var(--text-body)', lineHeight: '1.6' }}>
+                    {post.desc}
+                  </p>
+                </div>
+                <div style={{ padding: '20px 28px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', color: 'var(--text-muted)' }}>
+                  <span>{post.author}</span>
+                  <span>{post.time}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA / Contact Section */}
+      <section className="section" id="contact" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section-head" style={{ marginBottom: '48px' }}>
+            <span className="eyebrow">{dict.contact.eyebrow}</span>
+            <h2>{dict.contact.title}</h2>
+            <p>{dict.contact.desc}</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
+            <a href="tel:+37495211121" style={{ padding: '32px 24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-gray)', display: 'block' }}>
+              <Phone size={28} color="var(--cio-orange)" style={{ margin: '0 auto 16px' }} />
+              <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px' }}>{dict.contact.call}</h4>
+              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>+(374) 95 211 121</p>
+            </a>
+
+            <a href="https://wa.me/37495211121" target="_blank" rel="noopener noreferrer" style={{ padding: '32px 24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-gray)', display: 'block' }}>
+              <Star size={28} color="#25D366" style={{ margin: '0 auto 16px' }} />
+              <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px' }}>{dict.contact.whatsapp}</h4>
+              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>{dict.contact.whatsappDesc}</p>
+            </a>
+
+            <a href="mailto:info@ciologistics.com" style={{ padding: '32px 24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-gray)', display: 'block' }}>
+              <FileText size={28} color="var(--cio-blue)" style={{ margin: '0 auto 16px' }} />
+              <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px' }}>{dict.contact.email}</h4>
+              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>info@ciologistics.com</p>
+            </a>
+
+            <a href="https://t.me/ciologistics" target="_blank" rel="noopener noreferrer" style={{ padding: '32px 24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-gray)', display: 'block' }}>
+              <Users size={28} color="#0088cc" style={{ margin: '0 auto 16px' }} />
+              <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '6px' }}>{dict.contact.telegram}</h4>
+              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>@ciologistics</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

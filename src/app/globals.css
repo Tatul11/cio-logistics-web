@@ -1,0 +1,345 @@
+/* ==========================================================================
+   CIO LOGISTICS — GLOBAL DESIGN SYSTEM & BRAND VARIABLE SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --cio-navy:       #0F1B24;   /* Primary corporate deep slate navy */
+  --cio-navy-dark:  #1B262E;   /* Header, footer, dark hero elements */
+  --cio-blue:       #0199F8;   /* Secondary vivid sky blue */
+  --cio-blue-light: #E9F6FF;   /* Light sky-blue background accent */
+  
+  --cio-orange:     #EC1C28;   /* Primary brand red CTA accent */
+  --cio-orange-dk:  #D70006;   /* Deep red hover states */
+  --cio-orange-lt:  #EF2429;   /* Bright red accent highlights */
+
+  /* Neutral Shades */
+  --text-dark:      #111E21;   /* Rich dark slate text */
+  --text-body:      #374148;   /* Soft charcoal body text */
+  --text-muted:     #797979;   /* Gray for labels and labels */
+  --bg-white:       #FFFFFF;   
+  --bg-gray:        #FFF6F6;   /* Premium rose-white tint for sections */
+  --bg-gray-2:      #F8E4E4;   /* Rose border highlights */
+  --border:         #DBDBDB;   /* Muted grid divider lines */
+  --border-focus:   #EC1C28;   /* Red focus states */
+  
+  /* Status Colors */
+  --success:        #0199F8;   /* Vivid blue for successes/updates */
+  --success-bg:     #E9F6FF;   
+  --warning:        #EF2429;   
+  --error:          #EC1C28;   
+  
+  /* Shadows System (Updated with slate tint) */
+  --shadow-sm:      0 1px 3px 0 rgba(15, 27, 36, 0.05), 0 1px 2px 0 rgba(15, 27, 36, 0.03);
+  --shadow-md:      0 4px 6px -1px rgba(15, 27, 36, 0.08), 0 2px 4px -1px rgba(15, 27, 36, 0.04);
+  --shadow-lg:      0 10px 15px -3px rgba(15, 27, 36, 0.1), 0 4px 6px -2px rgba(15, 27, 36, 0.05);
+  --shadow-xl:      0 20px 25px -5px rgba(15, 27, 36, 0.12), 0 10px 10px -5px rgba(15, 27, 36, 0.04);
+  --shadow-inner:   inset 0 2px 4px 0 rgba(15, 27, 36, 0.06);
+
+  /* Border Radii */
+  --radius-sm:      6px;
+  --radius:         10px;
+  --radius-lg:      16px;
+  --radius-full:    9999px;
+
+  /* Layout Constants */
+  --container:      1280px;
+
+  /* Font Families */
+  --font-display:   var(--font-montserrat), 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  --font-body:      var(--font-montserrat), 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   CSS RESETS & BASE LAYOUT
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-body);
+  background: var(--bg-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cio-navy);
+  border: 2px solid var(--bg-gray);
+  border-radius: var(--radius-sm);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cio-blue);
+}
+
+/* Selection highlight */
+::selection {
+  background: var(--cio-orange-lt);
+  color: var(--cio-navy-dark);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-dark);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   GRID & CONTAINER SYSTEM
+   ========================================================================== */
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.section {
+  padding: 96px 0;
+  position: relative;
+}
+
+.section-tight {
+  padding: 64px 0;
+}
+
+.section-gray {
+  background: var(--bg-gray);
+}
+
+.section-navy {
+  background: var(--cio-navy);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.section-navy h2, 
+.section-navy h3, 
+.section-navy h4 {
+  color: var(--bg-white);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cio-orange);
+  margin-bottom: 12px;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+
+.section-head p {
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+.section-navy .section-head p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-primary {
+  background: var(--cio-orange);
+  color: var(--bg-white);
+}
+
+.btn-primary:hover {
+  background: var(--cio-orange-dk);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--cio-navy);
+  border-color: var(--cio-navy);
+}
+
+.btn-secondary:hover {
+  background: var(--cio-navy);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-white {
+  background: var(--bg-white);
+  color: var(--cio-navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-white:hover {
+  background: var(--cio-orange);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--bg-white);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ==========================================================================
+   MICRO-ANIMATIONS & INTERACTIVE EFFECTS
+   ========================================================================== */
+
+/* Fade In Up animation class */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--transition-slow) forwards;
+}
+
+/* Glassmorphism utility card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hover scales */
+.hover-scale {
+  transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Card layout shadows transition */
+.transition-all-custom {
+  transition: all var(--transition-normal);
+}
+
+/* Responsive screen layout */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+}
