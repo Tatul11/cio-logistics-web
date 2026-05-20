@@ -1,7 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getDictionary } from '@/lib/dictionary';
-import { ShieldCheck, Award, Briefcase, Users, Calendar, Target } from 'lucide-react';
+import { ShieldCheck, Award, Target, ArrowRight } from 'lucide-react';
+import styles from './About.module.css';
 
 interface AboutPageProps {
   params: Promise<{ lang: string }>;
@@ -36,105 +37,313 @@ export default async function AboutPage(props: AboutPageProps) {
   const lang = (rawLang === 'ru' || rawLang === 'hy' ? rawLang : 'en') as 'en' | 'ru' | 'hy';
   const dict = await getDictionary(lang);
 
+  // Localized texts for the redesigned 42DM-inspired sections
+  const localDict = {
+    en: {
+      heroTitle: "Your Gateway to Global Logistics Excellence",
+      heroTitleSpan: "CIO Logistics",
+      heroDesc: "Since 2016, CIO Logistics has engineered optimized supply chains, providing reliable multi-modal transport and seamless customs brokerage from Armenia to the world.",
+      heroCta: "Talk to our Experts",
+      badgesLabel: "Accredited member of international transport networks",
+      statsTitle: "We are on a mission to connect Armenia to global trade corridors",
+      stat1Val: "2016",
+      stat1Label: "Founded",
+      stat1Desc: "Est. in Yerevan, Armenia",
+      stat2Val: "120K+",
+      stat2Label: "Tons Shipped",
+      stat2Desc: "Cargo transported annually",
+      stat3Val: "150+",
+      stat3Label: "Countries",
+      stat3Desc: "Global destination reach",
+      stat4Val: "20+",
+      stat4Label: "Specialists",
+      stat4Desc: "In-house customs & freight experts",
+      founderSpeechHeader: "Founder's Address",
+      founderSpeechTitle: "Building Trust, Delivering Commitments",
+      founderSpeechBody: [
+        "\"International freight forwarding is more than moving cargo from point A to point B; it is about building trust and enabling businesses to grow without borders. Since 2016, we have set out to simplify international trade for Armenian companies, establishing strict quality control and a robust global agent network.\"",
+        "\"We handle every container and every shipment with uncompromising commitment to regulatory compliance and quality management. Our goal remains to provide transparent route engineering and first-class customer service to each partner who relies on us.\""
+      ],
+      founderSignature: "Tigran Stepanyan",
+      founderRole: "Founder & CEO, CIO Group LLC",
+      compliancePolicyLink: "Read our Anti-Corruption Policy",
+      timelineTitle: "Our Journey & Milestones",
+      timelineDesc: "How we grew from a local customs broker in Yerevan to a globally accredited multi-modal freight forwarder.",
+      timeline: [
+        { year: "2016", text: "Founded CIO Logistics in Yerevan, starting customs brokerage and local road freight services." },
+        { year: "2018", text: "Expanded services to include multi-modal sea freight via Georgia (Poti/Batumi) and rail corridors from China." },
+        { year: "2020", text: "Obtained official ISO 9001:2015 Quality Management certification, building digital shipment tracking integrations." },
+        { year: "2022", text: "Joined FIATA and IRU as active members, launching temperature-controlled GDP cold-chain logistics for pharmaceutical imports." },
+        { year: "2024 - Present", text: "Accredited as an IATA cargo agent, operating a global logistics bridge to 150+ countries with advanced customs pre-clearance solutions." }
+      ],
+      dreamBigTitle: "Dreaming Big? Let's Make It Happen Together!",
+      dreamBigDesc: "Get your personalized freight rates and route optimization plan within 2 hours from our team.",
+      dreamBigCta: "Kick off your growth"
+    },
+    ru: {
+      heroTitle: "Ваш путь к безупречной глобальной логистике",
+      heroTitleSpan: "CIO Logistics",
+      heroDesc: "С 2016 года CIO Logistics разрабатывает оптимизированные цепочки поставок, предоставляя надежные мультимодальные перевозки и таможенное оформление из Еревана по всему миру.",
+      heroCta: "Связаться с экспертом",
+      badgesLabel: "Аккредитованный член международных транспортных сетей",
+      statsTitle: "Наша миссия — соединить Армению с глобальными торговыми коридорами",
+      stat1Val: "2016",
+      stat1Label: "Основана",
+      stat1Desc: "Офис в Ереване, Армения",
+      stat2Val: "120K+",
+      stat2Label: "Тонн ежегодно",
+      stat2Desc: "Транспортируемый объем грузов",
+      stat3Val: "150+",
+      stat3Label: "Страны",
+      stat3Desc: "Глобальный охват доставки",
+      stat4Val: "20+",
+      stat4Label: "Специалистов",
+      stat4Desc: "Штатные эксперты по таможне и ВЭД",
+      founderSpeechHeader: "Обращение основателя",
+      founderSpeechTitle: "Строим доверие, выполняем обязательства",
+      founderSpeechBody: [
+        "\"Международные грузоперевозки — это не просто перемещение груза из пункта А в пункт Б; это создание доверия и предоставление бизнесу возможности расти без границ. С 2016 года мы стремимся упростить международную торговлю для армянских компаний, внедряя строгий контроль качества и надежную глобальную агентскую сеть.\"",
+        "\"Мы относимся к каждому контейнеру и каждой поставке с бескомпромиссным соблюдением нормативных требований и управления качеством. Наша цель остается неизменной — предоставлять прозрачные маршруты и первоклассное обслуживание каждому партнеру, который полагается на нас.\""
+      ],
+      founderSignature: "Тигран Степанян",
+      founderRole: "Основатель и генеральный директор, ООО СиАйО Групп",
+      compliancePolicyLink: "Читать антикоррупционную политику",
+      timelineTitle: "Наша история и этапы развития",
+      timelineDesc: "Путь от локального таможенного брокера в Ереване до аккредитованного международными организациями экспедитора.",
+      timeline: [
+        { year: "2016", text: "Основание CIO Logistics в Ереване, запуск услуг таможенного брокера и локальных автоперевозок." },
+        { year: "2018", text: "Расширение услуг мультимодальными морскими перевозками через порты Грузии (Поти/Батуми) и ж/д коридорами из Китая." },
+        { year: "2020", text: "Успешное прохождение сертификации по стандарту систем менеджмента качества ISO 9001:2015." },
+        { year: "2022", text: "Вступление в FIATA и IRU в качестве постоянного члена, запуск GDP перевозок для фармацевтики." },
+        { year: "2024 - Наст. время", text: "Получение аккредитации IATA Cargo Agent, построение глобального логистического моста в 150+ стран с ускоренным оформлением." }
+      ],
+      dreamBigTitle: "Мыслите масштабно? Давайте достигнем этого вместе!",
+      dreamBigDesc: "Получите индивидуальный расчет тарифа и оптимизацию маршрута от нашей команды в течение 2 часов.",
+      dreamBigCta: "Начать сотрудничество"
+    },
+    hy: {
+      heroTitle: "Գլոբալ լոգիստիկայի Ձեր լավագույն դարպասը",
+      heroTitleSpan: "CIO Logistics",
+      heroDesc: "2016 թվականից ի վեր CIO Logistics-ը նախագծում է օպտիմալ մատակարարման շղթաներ՝ ապահովելով հուսալի մուլտիմոդալ փոխադրումներ և անխափան մաքսային ձևակերպումներ Հայաստանից դեպի ողջ աշխարհ:",
+      heroCta: "Խոսել մասնագետի հետ",
+      badgesLabel: "Միջազգային տրանսպորտային ցանցերի հավատարմագրված անդամ",
+      statsTitle: "Մեր առաքելությունն է կապել Հայաստանը համաշխարհային առևտրային միջանցքների հետ",
+      stat1Val: "2016",
+      stat1Label: "Հիմնադրվել է",
+      stat1Desc: "Գրասենյակ Երևանում",
+      stat2Val: "120K+",
+      stat2Label: "Տոննա տարեկան",
+      stat2Desc: "Փոխադրված բեռների ծավալը",
+      stat3Val: "150+",
+      stat3Label: "Երկրներ",
+      stat3Desc: "Առաքման համաշխարհային աշխարհագրություն",
+      stat4Val: "20+",
+      stat4Label: "Մասնագետներ",
+      stat4Desc: "Մաքսային ձևակերպման և բեռնափոխադրման փորձագետներ",
+      founderSpeechHeader: "Հիմնադրի ուղերձը",
+      founderSpeechTitle: "Կառուցելով վստահություն, կատարելով պարտավորություններ",
+      founderSpeechBody: [
+        "«Միջազգային բեռնափոխադրումները ավելին են, քան պարզապես բեռի տեղափոխումը A կետից B կետ. դա վստահության կառուցումն է և բիզնեսին առանց սահմանների աճելու հնարավորություն ընձեռելը: 2016 թվականից մեր նպատակն է եղել պարզեցնել միջազգային առևտուրը հայկական ընկերությունների համար՝ ներդնելով որակի խիստ վերահսկողություն և հուսալի համաշխարհային գործակալական ցանց:»",
+        "«Մենք վերաբերվում ենք յուրաքանչյուր կոնտեյների և յուրաքանչյուր փոխադրմանը կարգավորող պահանջների և որակի կառավարման անզիջում համապատասխանությամբ: Մեր նպատակն է ապահովել թափանցիկ երթուղիներ և առաջնակարգ սպասարկում յուրաքանչյուր գործընկերոջ համար, ով վստահում է մեզ:»"
+      ],
+      founderSignature: "Տիգրան Ստեփանյան",
+      founderRole: "Հիմնադիր և գլխավոր տնօրեն, «ՍիԱյՕ Գրուպ» ՍՊԸ",
+      compliancePolicyLink: "Կարդալ հակակոռուպցիոն քաղաքականությունը",
+      timelineTitle: "Մեր պատմությունը և ձեռքբերումները",
+      timelineDesc: "Ինչպես մենք զարգացանք Երևանում տեղական մաքսային բրոքերից մինչև միջազգային մուլտիմոդալ բեռնափոխադրող:",
+      timeline: [
+        { year: "2016", text: "Հիմնադրվել է CIO Logistics-ը Երևանում՝ սկսելով մաքսային բրոքերային և տեղական ավտոփոխադրումների ծառայություններ:" },
+        { year: "2018", text: "Ծառայությունների ընդլայնում մուլտիմոդալ ծովային փոխադրումներով Վրաստանի միջոցով (Փոթի/Բաթումի) և երկաթուղային միջանցքներով Չինաստանից:" },
+        { year: "2020", text: "ISO 9001:2015 Որակի կառավարման համակարգի պաշտոնական սերտիֆիկատի ստացում, բեռների թվային հետևման գործիքների ներդրում:" },
+        { year: "2022", text: "Անդամակցում FIATA-ին և IRU-ին որպես ակտիվ անդամ, դեղագործական ապրանքների GDP սառնարանային լոգիստիկայի գործարկում:" },
+        { year: "2024 - Ներկա", text: "IATA ավիացիոն գործակալի որակավորման ստացում, գլոբալ լոգիստիկ կամուրջի կառուցում դեպի 150+ երկրներ՝ մաքսային արագ ձևակերպմամբ:" }
+      ],
+      dreamBigTitle: "Մեծ նպատակնե՞ր ունեք: Եկեք իրականացնենք դրանք միասին",
+      dreamBigDesc: "Ստացեք Ձեր անհատականացված բեռնափոխադրման սակագները և երթուղու օպտիմալացման պլանը 2 ժամվա ընթացքում մեր թիմից:",
+      dreamBigCta: "Սկսել համագործակցությունը"
+    }
+  }[lang];
+
   return (
     <div>
-      {/* Hero Section */}
-      <section className="section section-navy" style={{ padding: '80px 0', textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <span className="eyebrow">{dict.nav.about}</span>
-          <h1 style={{ fontSize: '36px', marginBottom: '20px' }}>
-            Your Logistics Bridge Between Armenia and the World
-          </h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.8)' }}>
-            Founded in 2016, CIO Logistics has evolved into one of Armenia&apos;s leading international freight forwarding companies. We operate under strict international and local compliance laws, offering premium logistics solutions.
-          </p>
-        </div>
-      </section>
-
-      {/* Corporate Values */}
-      <section className="section">
+      {/* Redesigned Hero Section (42DM structural blueprint) */}
+      <section className={styles.heroSection}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
-            <div style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-              <Target size={32} color="var(--cio-orange)" style={{ marginBottom: '16px' }} />
-              <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>Our Mission</h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                To simplify international trade for Armenian businesses through optimized, secure multi-modal route engineering and transparent customs handling.
-              </p>
+          <div className={styles.heroRow}>
+            <div className={styles.heroContent}>
+              <h1>
+                <span>{localDict.heroTitleSpan}</span>: {localDict.heroTitle}
+              </h1>
+              <p className={styles.heroDesc}>{localDict.heroDesc}</p>
+              
+              <a href="#quote-form-section" className={styles.heroCtaBtn}>
+                {localDict.heroCta} <ArrowRight size={18} />
+              </a>
+
+              {/* Partner Credentials Row */}
+              <div className={styles.partnerLogos}>
+                <div className={styles.partnerLogosTitle}>{localDict.badgesLabel}</div>
+                <div className={styles.logosRow}>
+                  <div className={styles.logoItem}>ISO 9001:2015</div>
+                  <div className={styles.logoItem}>FIATA Member</div>
+                  <div className={styles.logoItem}>IATA Agent</div>
+                  <div className={styles.logoItem}>IRU Registered</div>
+                  <div className={styles.logoItem}>AEO Status</div>
+                </div>
+              </div>
             </div>
 
-            <div style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-              <ShieldCheck size={32} color="var(--success)" style={{ marginBottom: '16px' }} />
-              <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>Uncompromising Compliance</h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                We maintain active certifications with ISO 9001:2015, FIATA, IATA, and IRU, ensuring every shipment complies with EAEU and EU borders regulatory standards.
-              </p>
-            </div>
-
-            <div style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-              <Award size={32} color="var(--cio-blue)" style={{ marginBottom: '16px' }} />
-              <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>Enterprise Quality</h3>
-              <p style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                Serving major pharmaceutical, e-commerce, automotive, and industrial firms with tailored cold-chain, hazardous, and oversized project logistics.
-              </p>
+            {/* Team Grid Cards on Hero Right Side */}
+            <div className={styles.heroTeamGrid}>
+              {[
+                { name: localDict.founderSignature, job: localDict.founderRole, img: "/founder.jpg" },
+                { name: "Maria Jibilyan", job: "Director", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" },
+                { name: "Nairi Seyranyan", job: "Logistics Coordinator", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" },
+                { name: "Garik Yeghiazaryan", job: "Customs Broker", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" }
+              ].map((member, idx) => (
+                <div key={idx} className={styles.teamCard}>
+                  <img src={member.img} alt={member.name} className={styles.teamCardImg} />
+                  <div className={styles.teamCardOverlay}>
+                    <div className={styles.teamCardName}>{member.name}</div>
+                    <div className={styles.teamCardJob}>{member.job}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Certifications Deep Dive */}
-      <section className="section section-gray" id="certifications" style={{ padding: '80px 0' }}>
+      {/* Corporate Mission & Stats Grid Section */}
+      <section className={styles.statsSection}>
         <div className="container">
-          <div className="section-head" style={{ marginBottom: '56px' }}>
-            <span className="eyebrow">{dict.certifications.eyebrow}</span>
+          <div className={styles.statsHeader}>
+            <h2>
+              We are on a mission to <span>connect Armenia</span> to the global trade corridors
+            </h2>
+          </div>
+
+          <div className={styles.statsGrid}>
+            <div className={styles.statItem}>
+              <div className={styles.statVal}>{localDict.stat1Val}</div>
+              <div>
+                <div className={styles.statLabel}>{localDict.stat1Label}</div>
+                <div className={styles.statDesc}>{localDict.stat1Desc}</div>
+              </div>
+            </div>
+
+            <div className={styles.statItem}>
+              <div className={styles.statVal}>{localDict.stat2Val}</div>
+              <div>
+                <div className={styles.statLabel}>{localDict.stat2Label}</div>
+                <div className={styles.statDesc}>{localDict.stat2Desc}</div>
+              </div>
+            </div>
+
+            <div className={styles.statItem}>
+              <div className={styles.statVal}>{localDict.stat3Val}</div>
+              <div>
+                <div className={styles.statLabel}>{localDict.stat3Label}</div>
+                <div className={styles.statDesc}>{localDict.stat3Desc}</div>
+              </div>
+            </div>
+
+            <div className={styles.statItem}>
+              <div className={styles.statVal}>{localDict.stat4Val}</div>
+              <div>
+                <div className={styles.statLabel}>{localDict.stat4Label}</div>
+                <div className={styles.statDesc}>{localDict.stat4Desc}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder Speech Section */}
+      <section className={styles.founderSection}>
+        <div className="container">
+          <div className={styles.founderRow}>
+            <div className={styles.founderImgContainer}>
+              <img src="/founder.jpg" alt={localDict.founderSignature} className={styles.founderImg} />
+              <div className={styles.founderBadge}>
+                <div className={styles.founderName}>{localDict.founderSignature}</div>
+                <div className={styles.founderTitle}>{localDict.founderRole}</div>
+              </div>
+            </div>
+
+            <div className={styles.founderSpeechBlock}>
+              <span className={styles.quoteIcon}>“</span>
+              <div className={styles.founderSpeechHeader}>
+                <span className={styles.eyebrow}>{localDict.founderSpeechHeader}</span>
+                <h3>{localDict.founderSpeechTitle}</h3>
+              </div>
+              <div className={styles.founderSpeechText}>
+                {localDict.founderSpeechBody.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
+              <div className={styles.founderSpeechFooter}>
+                <div className={styles.signatureLabel}>
+                  {localDict.founderSignature}
+                  <span>CEO & Founder, CIO Group LLC</span>
+                </div>
+                <a href="#compliance-policy" className={styles.complianceLink}>
+                  {localDict.compliancePolicyLink} <ArrowRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Milestones Section */}
+      <section className={styles.timelineSection}>
+        <div className="container">
+          <div className={styles.timelineHeader}>
+            <h2>{localDict.timelineTitle}</h2>
+            <p>{localDict.timelineDesc}</p>
+          </div>
+
+          <div className={styles.timelineContainer}>
+            {localDict.timeline.map((item, idx) => (
+              <div key={idx} className={`${styles.timelineItem} ${idx % 2 === 0 ? styles.timelineItemEven : ''}`}>
+                <div className={styles.timelineDot}></div>
+                <div className={styles.timelineContent}>
+                  <span className={styles.timelineYear}>{item.year}</span>
+                  <p className={styles.timelineText}>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications and Compliance Details */}
+      <section className={styles.certDetailsSection} id="certifications">
+        <div className="container">
+          <div className={styles.certHeader}>
             <h2>{dict.certifications.title}</h2>
             <p>{dict.certifications.desc}</p>
           </div>
 
-          {/* Active Memberships & Licensing */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '56px', alignItems: 'center', marginBottom: '80px' }}>
-            <div>
-              <h3 style={{ fontSize: '24px', fontWeight: 800, marginBottom: '20px', color: 'var(--cio-navy)' }}>
-                Active Memberships & Licensing
-              </h3>
-              <p style={{ color: 'var(--text-body)', fontSize: '15px', marginBottom: '24px', lineHeight: '1.6' }}>
-                CIO Logistics is officially registered with international transport bodies, giving our clients legally binding freight contracts (FIATA FBL), direct air cargo booking lines (IATA), and digital TIR routing clearance.
-              </p>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: '16px', listStyle: 'none' }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px' }}>
-                  <span style={{ color: 'var(--cio-orange)', fontWeight: 900 }}>✓</span> <strong>ISO 9001:2015</strong> Quality Management Systems (Certificate #AM-2024-CIO)
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px' }}>
-                  <span style={{ color: 'var(--cio-orange)', fontWeight: 900 }}>✓</span> <strong>FIATA Member</strong> #42301 for international logistics standards
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px' }}>
-                  <span style={{ color: 'var(--cio-orange)', fontWeight: 900 }}>✓</span> <strong>IATA Cargo Agent</strong> certification for global air forwarding
-                </li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px' }}>
-                  <span style={{ color: 'var(--cio-orange)', fontWeight: 900 }}>✓</span> <strong>GDP Certified Operations</strong> for pharmaceutical logistics
-                </li>
-              </ul>
-            </div>
-
-            <div style={{ background: '#fff', padding: '40px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
-              <h4 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '16px', color: 'var(--cio-navy)' }}>
-                Anti-Corruption & Compliance Policy
-              </h4>
-              <p style={{ fontSize: '14px', color: 'var(--text-body)', lineHeight: '1.6', marginBottom: '20px' }} id="corruption">
-                CIO Logistics is committed to conducting operations transparently and honestly. We enforce a zero-tolerance policy towards corruption, bribery, or any form of illegal facilitation payments. Our employees, brokers, and logistics partners undergo routine training in international anti-bribery standards (including FCPA and UK Bribery Act adaptations).
-              </p>
-              <div style={{ fontSize: '13px', color: 'var(--cio-orange)', fontWeight: 700 }}>
-                Questions or reports? Contact: compliance@ciologistics.com
-              </div>
+          {/* Anti-Corruption Policy Block */}
+          <div className={styles.policyBlock} id="compliance-policy">
+            <h3>
+              <ShieldCheck size={24} color="var(--cio-orange)" />
+              Anti-Corruption & Regulatory Compliance Policy
+            </h3>
+            <p className={styles.policyText}>
+              CIO Logistics is committed to conducting operations transparently and honestly. We enforce a zero-tolerance policy towards corruption, bribery, or any form of illegal facilitation payments. Our employees, brokers, and logistics partners undergo routine training in international anti-bribery standards (including FCPA and UK Bribery Act adaptations).
+            </p>
+            <div className={styles.policyContact}>
+              Questions or reports? Contact: compliance@ciologistics.com
             </div>
           </div>
 
-          {/* Standards & Accreditations Badges Grid */}
-          <div style={{ marginBottom: '80px' }}>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '32px', textAlign: 'center' }}>
-              International Quality Standards
-            </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '24px', alignItems: 'center', justifyContent: 'center' }}>
+          {/* Active Memberships Standard Badges Grid */}
+          <div>
+            <div className={styles.badgesSubTitle}>International Quality Standards</div>
+            <div className={styles.badgesGrid}>
               {[
                 { img: "https://ciologistics.com/wp-content/uploads/2024/03/iso-9001-768x768.png", label: "ISO 9001 System" },
                 { img: "https://ciologistics.com/wp-content/uploads/2025/02/certified-company-certificate-iso-90012015-blue-vector-51290540.jpg", label: "ISO Certified" },
@@ -143,20 +352,20 @@ export default async function AboutPage(props: AboutPageProps) {
                 { img: "https://ciologistics.com/wp-content/uploads/2025/02/542_iata.jpg", label: "IATA Member" },
                 { img: "https://ciologistics.com/wp-content/uploads/2025/02/Federation_Internationale_des_Associations_de_Transitaires_et_Assimiles_logo.svg.png", label: "FIATA Federation" }
               ].map((badge, idx) => (
-                <div key={idx} style={{ background: '#fff', padding: '16px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '140px', boxShadow: 'var(--shadow-sm)' }}>
-                  <img src={badge.img} alt={badge.label} style={{ maxHeight: '80px', maxWidth: '100%', objectFit: 'contain', marginBottom: '8px' }} />
-                  <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textAlign: 'center' }}>{badge.label}</span>
+                <div key={idx} className={styles.badgeCard}>
+                  <div className={styles.badgeImgWrapper}>
+                    <img src={badge.img} alt={badge.label} className={styles.badgeImg} />
+                  </div>
+                  <span className={styles.badgeLabel}>{badge.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Official License Gallery */}
+          {/* License Documents Gallery */}
           <div>
-            <h4 style={{ fontSize: '16px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)', marginBottom: '32px', textAlign: 'center' }}>
-              Official Certifications & Qualifications
-            </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px' }}>
+            <div className={styles.badgesSubTitle}>Official Certifications & Qualifications</div>
+            <div className={styles.certsGrid}>
               {[
                 { img: "https://ciologistics.com/wp-content/uploads/2024/03/6-Garik-Yeghiazaryan_page-0001-1.jpg", title: "Customs Broker", name: "G. Yeghiazaryan" },
                 { img: "https://ciologistics.com/wp-content/uploads/2024/03/8-Armen-Ghazaryan-3_page-0001.jpg", title: "Custom Specialist", name: "A. Ghazaryan" },
@@ -169,50 +378,38 @@ export default async function AboutPage(props: AboutPageProps) {
                   href={cert.img} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="transition-all-custom" 
-                  style={{ background: '#fff', padding: '16px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'block', textDecoration: 'none', color: 'inherit', boxShadow: 'var(--shadow-sm)' }}
+                  className={styles.certCard}
                 >
-                  <div style={{ height: '180px', background: '#f5f5f5', borderRadius: '4px', overflow: 'hidden', marginBottom: '12px', border: '1px solid #eaeaea' }}>
-                    <img src={cert.img} alt={cert.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div className={styles.certCardImgWrapper}>
+                    <img src={cert.img} alt={cert.title} className={styles.certCardImg} />
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-navy)' }}>{cert.title}</div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '2px' }}>{cert.name}</div>
+                  <div className={styles.certCardTitle}>{cert.title}</div>
+                  <div className={styles.certCardName}>{cert.name}</div>
                 </a>
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="section" id="team" style={{ padding: '80px 0', borderTop: '1px solid var(--border)' }}>
+      {/* Bottom Dreaming Big Call-to-action Section */}
+      <section className={styles.ctaSection} id="quote-form-section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '56px', alignItems: 'center' }}>
-            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-xl)', border: '1px solid var(--border)' }}>
-              <img 
-                src="https://ciologistics.com/wp-content/uploads/elementor/thumbs/420925252_367072809259501_5700568309223114959_n-qmp93xmmimwy1kx8zz7wt0ie4sc59g16f7hsqj0cpk.jpg" 
-                alt="CIO Logistics Yerevan Team" 
-                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
-              />
-            </div>
-            <div>
-              <span className="eyebrow" style={{ color: 'var(--cio-orange)' }}>Our Team</span>
-              <h2 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '24px', color: 'var(--cio-navy)' }}>
-                Professional Logistics Specialists
-              </h2>
-              <p style={{ color: 'var(--text-body)', fontSize: '16px', lineHeight: '1.7', marginBottom: '20px' }}>
-                At CIO Logistics, our team of dedicated experts in Yerevan, Armenia coordinates complex international supply chains daily. With decades of combined transport planning, customs brokerage, and cargo handling experience, we safeguard your business cargo at every border.
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '28px' }}>
-                <div>
-                  <h5 style={{ fontWeight: 800, color: 'var(--cio-navy)', fontSize: '15px', marginBottom: '8px' }}>Expert Advising</h5>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Direct consulting on cargo routing, optimal tariff classification, and border documentation requirements.</p>
-                </div>
-                <div>
-                  <h5 style={{ fontWeight: 800, color: 'var(--cio-navy)', fontSize: '15px', marginBottom: '8px' }}>24/7 Operations</h5>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Proactive monitoring of air, land, and sea cargo containers from dispatch to delivery.</p>
-                </div>
-              </div>
+          <div className={styles.ctaContainer}>
+            <h2 className={styles.ctaTitle}>
+              {localDict.dreamBigTitle}
+            </h2>
+            <p className={styles.ctaDesc}>
+              {localDict.dreamBigDesc}
+            </p>
+            <div className={styles.ctaButtonRow}>
+              <a href={`/${lang}/contact`} className={styles.ctaBtnPrimary}>
+                {localDict.dreamBigCta} <ArrowRight size={18} />
+              </a>
+              <a href={`/${lang}`} className={styles.ctaBtnSecondary}>
+                Use Quote Calculator
+              </a>
             </div>
           </div>
         </div>
