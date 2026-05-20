@@ -343,3 +343,57 @@ p:last-child {
     padding: 64px 0;
   }
 }
+
+/* ==========================================================================
+   PREMIUM CERTIFICATION CARDS
+   ========================================================================== */
+.cert-card {
+  padding: 32px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-white);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--cio-blue);
+  box-shadow: var(--shadow-lg);
+}
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cio-blue) 0%, var(--cio-orange) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
+.cert-icon-wrapper {
+  margin-bottom: 20px;
+  transition: transform var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 64px;
+}
+
+.cert-card:hover .cert-icon-wrapper {
+  transform: scale(1.1);
+}

@@ -681,18 +681,77 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.certifications.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px', textAlign: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px' }}>
             {[
-              { title: dict.certifications.isoTitle, desc: dict.certifications.isoDesc },
-              { title: dict.certifications.fiataTitle, desc: dict.certifications.fiataDesc },
-              { title: dict.certifications.iataTitle, desc: dict.certifications.iataDesc },
-              { title: dict.certifications.iruTitle, desc: dict.certifications.iruDesc },
-              { title: dict.certifications.aeoTitle, desc: dict.certifications.aeoDesc },
+              { 
+                title: dict.certifications.isoTitle, 
+                desc: dict.certifications.isoDesc,
+                icon: (
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="30" stroke="var(--cio-orange)" strokeWidth="2" strokeDasharray="4 2" />
+                    <circle cx="32" cy="32" r="26" fill="var(--cio-navy)" />
+                    <text x="32" y="30" fill="#fff" fontSize="8" fontWeight="bold" textAnchor="middle">ISO 9001</text>
+                    <text x="32" y="42" fill="var(--cio-orange)" fontSize="6" fontWeight="bold" textAnchor="middle">2015</text>
+                  </svg>
+                )
+              },
+              { 
+                title: dict.certifications.fiataTitle, 
+                desc: dict.certifications.fiataDesc,
+                icon: (
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="28" stroke="var(--cio-blue)" strokeWidth="2" />
+                    <path d="M14 32 C 14 18, 50 18, 50 32 C 50 46, 14 46, 14 32 Z" stroke="var(--cio-blue)" strokeWidth="1" strokeDasharray="2 1" />
+                    <line x1="32" y1="4" x2="32" y2="60" stroke="var(--cio-blue)" strokeWidth="1" />
+                    <line x1="4" y1="32" x2="60" y2="32" stroke="var(--cio-blue)" strokeWidth="1" />
+                    <rect x="12" y="24" width="40" height="16" rx="3" fill="var(--cio-navy)" stroke="var(--cio-blue)" strokeWidth="1.5" />
+                    <text x="32" y="35" fill="#fff" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">FIATA</text>
+                  </svg>
+                )
+              },
+              { 
+                title: dict.certifications.iataTitle, 
+                desc: dict.certifications.iataDesc,
+                icon: (
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 4 C 16.5 4, 4 16.5, 4 32 C 4 47.5, 16.5 60, 32 60 C 47.5 60, 60 47.5, 60 32" stroke="var(--cio-blue)" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M10 24 L54 24 M6 32 L58 32 M10 40 L54 40" stroke="var(--cio-blue)" strokeWidth="1" strokeOpacity="0.4" />
+                    <path d="M24 10 C24 10, 18 20, 18 32 C18 44, 24 54, 24 54 M40 10 C40 10, 46 20, 46 32 C46 44, 40 54, 40 54" stroke="var(--cio-blue)" strokeWidth="1" strokeOpacity="0.4" />
+                    <rect x="14" y="24" width="36" height="16" rx="4" fill="var(--cio-navy)" stroke="var(--cio-orange)" strokeWidth="1.5" />
+                    <text x="32" y="35" fill="#fff" fontSize="9" fontWeight="bold" letterSpacing="0.5" textAnchor="middle">IATA</text>
+                  </svg>
+                )
+              },
+              { 
+                title: dict.certifications.iruTitle, 
+                desc: dict.certifications.iruDesc,
+                icon: (
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="16" width="56" height="32" rx="6" fill="var(--cio-navy)" stroke="var(--cio-blue)" strokeWidth="2" />
+                    <text x="32" y="36" fill="#fff" fontSize="16" fontWeight="bold" fontStyle="italic" letterSpacing="0.5" textAnchor="middle">IRU</text>
+                    <path d="M12 44 L52 44" stroke="var(--cio-orange)" strokeWidth="3" strokeLinecap="round" />
+                  </svg>
+                )
+              },
+              { 
+                title: dict.certifications.aeoTitle, 
+                desc: dict.certifications.aeoDesc,
+                icon: (
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 4 L52 14 L52 38 C52 50, 42 57, 32 60 C22 57, 12 50, 12 38 L12 14 Z" fill="var(--cio-navy)" stroke="var(--cio-blue)" strokeWidth="2" />
+                    <circle cx="32" cy="32" r="12" stroke="var(--cio-orange)" strokeWidth="1" strokeDasharray="3 2" />
+                    <text x="32" y="35" fill="#fff" fontSize="9" fontWeight="extrabold" textAnchor="middle">AEO</text>
+                    <path d="M32 10 L32.5 12 L34.5 12 L33 13 L33.5 15 L32 14 L30.5 15 L31 13 L29.5 12 L31.5 12 Z" fill="var(--cio-orange)" />
+                  </svg>
+                )
+              },
             ].map((cert, idx) => (
-              <div key={idx} style={{ padding: '24px', border: '1px solid var(--border)', borderRadius: 'var(--radius)', background: 'var(--bg-gray)' }}>
-                <CheckCircle2 size={32} color="var(--cio-orange)" style={{ margin: '0 auto 16px' }} />
-                <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '6px' }}>{cert.title}</h4>
-                <p style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{cert.desc}</p>
+              <div key={idx} className="cert-card">
+                <div className="cert-icon-wrapper">
+                  {cert.icon}
+                </div>
+                <h4 style={{ fontSize: '15.5px', fontWeight: 700, marginBottom: '8px', color: 'var(--cio-navy)' }}>{cert.title}</h4>
+                <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', lineHeight: '1.4' }}>{cert.desc}</p>
               </div>
             ))}
           </div>
