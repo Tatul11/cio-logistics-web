@@ -462,6 +462,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.ecommerce, 
                 desc: dict.industries.ecommerceDesc, 
+                href: `/${lang}/industries/e-commerce`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8z" />
@@ -476,6 +477,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.pharma, 
                 desc: dict.industries.pharmaDesc, 
+                href: `/${lang}/industries/pharmaceutical`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <rect x="5" y="11" width="14" height="6" rx="3" transform="rotate(-45 12 14)" />
@@ -488,6 +490,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.auto, 
                 desc: dict.industries.autoDesc, 
+                href: `/${lang}/industries/automotive`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <path d="M2 15h3.5l1.5-3h10l1.5 3H22v3H2v-3z" />
@@ -503,6 +506,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.heavy, 
                 desc: dict.industries.heavyDesc, 
+                href: `/${lang}/industries/heavy-machinery`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <path d="M12 2v8M12 10a2 2 0 0 0 2 2" />
@@ -516,6 +520,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.food, 
                 desc: dict.industries.foodDesc, 
+                href: `/${lang}/industries/food-perishables`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <path d="M3 17a9 9 0 0 1 18 0v1H3v-1z" />
@@ -529,6 +534,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.chemical, 
                 desc: dict.industries.chemicalDesc, 
+                href: `/${lang}/industries/chemical`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <path d="M6 20h12L13 7V3h-2v4L6 20z" />
@@ -541,6 +547,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.construction, 
                 desc: dict.industries.constructionDesc, 
+                href: `/${lang}/industries/construction`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <rect x="4" y="10" width="6" height="11" rx="0.5" />
@@ -555,6 +562,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               { 
                 label: dict.industries.electronics, 
                 desc: dict.industries.electronicsDesc, 
+                href: `/${lang}/industries/electronics`,
                 icon: (
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
                     <rect x="6" y="6" width="12" height="12" rx="1.5" />
@@ -565,11 +573,11 @@ export default async function LocalizedHomePage(props: PageProps) {
                 )
               },
             ].map((ind, idx) => (
-              <div key={idx} style={{ padding: '24px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: 'var(--radius)', border: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
+              <Link key={idx} href={ind.href} className="industry-card" style={{ padding: '24px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: 'var(--radius)', border: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'center', height: '32px', marginBottom: '16px' }}>{ind.icon}</div>
                 <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '8px', color: '#fff' }}>{ind.label}</h4>
-                <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.7)' }}>{ind.desc}</p>
-              </div>
+                <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.7)', margin: 0 }}>{ind.desc}</p>
+              </Link>
             ))}
           </div>
         </div>
