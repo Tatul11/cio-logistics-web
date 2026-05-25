@@ -329,7 +329,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Groupage Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/04/%D5%B0%D5%A1%D5%BE%D5%A1%D6%84%D5%A1%D5%BA%D5%A1%D5%B6-min.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://ciologistics.com/wp-content/uploads/2024/04/%D5%B0%D5%A1%D5%BE%D5%A1%D6%84%D5%A1%D5%AC%D5%A1%D5%B6-min.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 2L2 7l10 5 10-5-10-5z" />
