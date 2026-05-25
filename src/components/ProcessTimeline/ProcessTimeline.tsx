@@ -58,9 +58,13 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
                <div className={`${styles.connector} ${isEven ? styles.connectorRight : styles.connectorLeft} ${isNextActive ? styles.activeConnector : ''}`}></div>
             )}
             
+            {/* Floating Number Badge */}
+            <div className={styles.floatingBadge}>
+               <span className={`${styles.numberBadge} ${isActive ? styles.activeBadge : ''}`}>{step.num}</span>
+            </div>
+            
             <div className={styles.textContent}>
               <div className={`${styles.titleWrap} ${!isEven ? styles.titleWrapOdd : ''}`}>
-                <span className={styles.numberBadge}>{step.num}</span>
                 <h3 className={styles.title}>{step.title}</h3>
               </div>
               <p className={`${styles.desc} ${!isEven ? styles.descOdd : ''}`}>{step.desc}</p>

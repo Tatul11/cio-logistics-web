@@ -151,3 +151,23 @@
     display: none;
   }
 }
+
+.floatingBadge {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+}
+
+.rowEven .floatingBadge {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rowOdd .floatingBadge {
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.activeBadge {
+  box-shadow: 0 0 15px rgba(138, 21, 33, 0.4);
+}
