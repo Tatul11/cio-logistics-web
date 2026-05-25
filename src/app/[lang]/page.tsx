@@ -6,6 +6,7 @@ import InteractiveMap from '@/components/InteractiveMap/InteractiveMap';
 import TrackingWidget from '@/components/TrackingWidget/TrackingWidget';
 import Calculator from '@/components/Calculator/Calculator';
 import Partners from '@/components/Partners/Partners';
+import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -591,28 +592,8 @@ export default async function LocalizedHomePage(props: PageProps) {
             <h2>{dict.process.title}</h2>
             <p>{dict.process.desc}</p>
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px', position: 'relative' }}>
-            {[
-              { num: '01', title: dict.process.step1, desc: dict.process.step1Desc },
-              { num: '02', title: dict.process.step2, desc: dict.process.step2Desc },
-              { num: '03', title: dict.process.step3, desc: dict.process.step3Desc },
-              { num: '04', title: dict.process.step4, desc: dict.process.step4Desc },
-              { num: '05', title: dict.process.step5, desc: dict.process.step5Desc },
-            ].map((step, idx) => (
-              <div key={idx} style={{ position: 'relative' }}>
-                <div style={{ fontSize: '36px', fontWeight: 800, color: 'rgba(14,42,71,0.06)', fontFamily: 'var(--font-display)', marginBottom: '8px' }}>
-                  {step.num}
-                </div>
-                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '8px', color: 'var(--cio-navy)' }}>
-                  {step.title}
-                </h4>
-                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-                  {step.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          
+          <ProcessTimeline dict={dict} />
         </div>
       </section>
 
