@@ -187,7 +187,7 @@ export default async function LocalizedHomePage(props: PageProps) {
           </div>
           
           {/* Hero Right Widget - Quote Calculator */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '375px', width: '100%', marginLeft: 'auto' }}>
+          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '373px', width: '100%', marginLeft: 'auto' }}>
             <Calculator lang={lang} dict={dict} />
           </div>
         </div>
