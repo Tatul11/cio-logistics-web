@@ -59,6 +59,18 @@ export default async function LocalizedLayout(props: LayoutProps) {
         <main className="flex-1">
           {children}
         </main>
+        
+        {/* Global Business Location Map */}
+        <div className="w-full h-[450px] relative bg-gray-100">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.219596935988!2d44.5092557!3d40.204177900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd420a039281%3A0xa17a4f7686410de4!2sCio%20Logistics%20LLC!5e0!3m2!1sen!2sam!4v1779715705039!5m2!1sen!2sam" 
+            className="absolute inset-0 w-full h-full border-0"
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
         <Footer lang={lang} dict={dict} />
         <StickyCTA lang={lang} dict={dict} />
       </body>
