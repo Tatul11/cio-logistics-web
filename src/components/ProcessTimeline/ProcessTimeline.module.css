@@ -149,10 +149,21 @@
 }
 
 /* Active Connector States */
-.activeConnector .curveTop,
-.activeConnector .curveBottom {
-  border-color: #8A1521;
-  border-style: solid;
+.sCurve.activeConnector .curveTop {
+  border-left: 2px solid #8A1521;
+  border-bottom: 2px solid #8A1521;
+}
+.sCurve.activeConnector .curveBottom {
+  border-right: 2px solid #8A1521;
+  border-top: 2px solid #8A1521;
+}
+.zCurve.activeConnector .curveTop {
+  border-right: 2px solid #8A1521;
+  border-bottom: 2px solid #8A1521;
+}
+.zCurve.activeConnector .curveBottom {
+  border-left: 2px solid #8A1521;
+  border-top: 2px solid #8A1521;
 }
 
 @media (max-width: 768px) {
