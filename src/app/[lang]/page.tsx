@@ -120,7 +120,7 @@ export default async function LocalizedHomePage(props: PageProps) {
         className="section section-navy" 
         style={{ 
           overflow: 'hidden', 
-          padding: '120px 0 96px',
+          padding: '90px 0 72px',
           backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -139,10 +139,10 @@ export default async function LocalizedHomePage(props: PageProps) {
           pointerEvents: 'none'
         }} />
         
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '56px', alignItems: 'center' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '44px', alignItems: 'center' }}>
           {/* Hero Left Content */}
           <div className="animate-fade-in-up">
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
               <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
                 {dict.hero.badgeIso}
               </span>
@@ -157,15 +157,15 @@ export default async function LocalizedHomePage(props: PageProps) {
               </span>
             </div>
             
-            <h1 style={{ color: '#ffffff', marginBottom: '24px', lineHeight: '1.15' }}>
+            <h1 style={{ color: '#ffffff', marginBottom: '16px', fontSize: 'clamp(2.1rem, 4.2vw, 3.4rem)', lineHeight: '1.15', fontWeight: 800, letterSpacing: '-0.025em' }}>
               {dict.hero.title} <span style={{ color: 'var(--cio-orange)' }}>{dict.hero.titleAccent}</span>
             </h1>
             
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.75)', marginBottom: '40px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', marginBottom: '24px', lineHeight: '1.6' }}>
               {dict.hero.description}
             </p>
             
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
               <Link href={`/${lang}/quote`} className="btn btn-primary">
                 {dict.hero.getQuote}
               </Link>
@@ -187,7 +187,7 @@ export default async function LocalizedHomePage(props: PageProps) {
           </div>
           
           {/* Hero Right Widget - Quote Calculator */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '430px', width: '100%', marginLeft: 'auto' }}>
+          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '390px', width: '100%', marginLeft: 'auto' }}>
             <Calculator lang={lang} dict={dict} />
           </div>
         </div>
