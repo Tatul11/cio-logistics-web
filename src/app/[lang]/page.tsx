@@ -456,7 +456,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.industries.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
+          <div className="grid-4-cols">
             {[
               { 
                 label: dict.industries.ecommerce, 
