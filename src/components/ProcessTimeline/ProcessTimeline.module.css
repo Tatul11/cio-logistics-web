@@ -149,19 +149,19 @@
 }
 
 /* Active Connector States */
-.sCurve.activeConnector .curveTop {
+.activeConnector .sCurve .curveTop {
   border-left: 2px solid #8A1521;
   border-bottom: 2px solid #8A1521;
 }
-.sCurve.activeConnector .curveBottom {
+.activeConnector .sCurve .curveBottom {
   border-right: 2px solid #8A1521;
   border-top: 2px solid #8A1521;
 }
-.zCurve.activeConnector .curveTop {
+.activeConnector .zCurve .curveTop {
   border-right: 2px solid #8A1521;
   border-bottom: 2px solid #8A1521;
 }
-.zCurve.activeConnector .curveBottom {
+.activeConnector .zCurve .curveBottom {
   border-left: 2px solid #8A1521;
   border-top: 2px solid #8A1521;
 }
