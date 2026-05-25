@@ -6,9 +6,8 @@ import InteractiveMap from '@/components/InteractiveMap/InteractiveMap';
 import TrackingWidget from '@/components/TrackingWidget/TrackingWidget';
 import Calculator from '@/components/Calculator/Calculator';
 import { 
-  Plane, Ship, Truck, Train, Layers, Anchor, AlertTriangle, 
-  HelpCircle, ShieldCheck, Star, Users, Phone, ArrowUpRight, 
-  FileText, CheckCircle2, ChevronRight 
+  AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
+  ArrowUpRight, FileText, CheckCircle2, ChevronRight 
 } from 'lucide-react';
 
 interface PageProps {
@@ -223,7 +222,10 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.air} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Plane size={20} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 13h6l3 7h2l-1.5-7h5.5l1.5 2.5h1.5L19 12l1-3h-1.5L17 11.5h-5.5L13 4.5h-2L8 11.5H2v1.5z" />
+                    <path d="M16 11.5h3" />
+                  </svg>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -242,7 +244,16 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AE%D5%B8%D5%BE%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.sea} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Ship size={20} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 17l1.5 3h17l1.5-3H2z" />
+                    <rect x="4" y="11" width="4" height="6" rx="0.5" />
+                    <rect x="9" y="8" width="5" height="9" rx="0.5" />
+                    <rect x="15" y="11" width="5" height="6" rx="0.5" />
+                    <line x1="6" y1="11" x2="6" y2="17" />
+                    <line x1="11.5" y1="8" x2="11.5" y2="17" />
+                    <line x1="17.5" y1="11" x2="17.5" y2="17" />
+                    <path d="M1 21.5c1.5 0 2-1 3.5-1s2 1 3.5 1 2-1 3.5-1 2 1 3.5 1 2-1 3.5-1 2 1 3.5 1" />
+                  </svg>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -261,7 +272,17 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%81%D5%A1%D5%B4%D5%A1%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.road} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Truck size={20} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 9h4l4 4v5h-2" />
+                    <circle cx="18" cy="18" r="2" />
+                    <path d="M16 18H8" />
+                    <rect x="2" y="6" width="12" height="10" rx="1" />
+                    <circle cx="6" cy="18" r="2" />
+                    <path d="M4 18H2" />
+                    <path d="M18 9l2 3h-4V9h2z" />
+                    <line x1="-1" y1="8" x2="1" y2="8" opacity="0.5" />
+                    <line x1="-2" y1="11" x2="0" y2="11" opacity="0.5" />
+                  </svg>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -280,7 +301,18 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AF%D5%B8%D5%B6%D5%BF%D5%A5%D5%B6%D5%B5%D5%A5%D6%80%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.rail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Train size={20} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="6" width="14" height="11" rx="1" />
+                    <rect x="17" y="10" width="4" height="7" rx="0.5" />
+                    <circle cx="6" cy="19" r="2" />
+                    <circle cx="12" cy="19" r="2" />
+                    <circle cx="18" cy="19" r="2" />
+                    <line x1="3" y1="11" x2="17" y2="11" />
+                    <line x1="3" y1="14" x2="17" y2="14" />
+                    <path d="M17 7.5h-5v-2h5v2z" />
+                    <rect x="18" y="11" width="2" height="2" />
+                    <line x1="1" y1="21" x2="23" y2="21" strokeDasharray="3 2" />
+                  </svg>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -299,7 +331,14 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/04/%D5%B0%D5%A1%D5%BE%D5%A1%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Layers size={20} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 7v10l10 5V12L2 7z" />
+                    <path d="M22 7v10l-10 5V12l10-5z" />
+                    <line x1="12" y1="2" x2="12" y2="12" strokeDasharray="2 1" />
+                    <path d="M7 9.5l10 5" strokeDasharray="2 1" />
+                    <path d="M17 9.5L7 15" strokeDasharray="2 1" />
+                  </svg>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -318,7 +357,17 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%A3%D5%A5%D6%80%D5%AE%D5%A1%D5%BE%D5%A1%D5%AC%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.heavy} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Anchor size={20} />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 17H5v-4h7v4z" />
+                    <path d="M5 13V6h3v7" />
+                    <path d="M8 6h3.5L13 10h-5" />
+                    <line x1="16" y1="4" x2="16" y2="18" strokeWidth="2" />
+                    <path d="M16 15h4v2h-4" />
+                    <rect x="17" y="7" width="5" height="7" rx="0.5" />
+                    <line x1="19.5" y1="7" x2="19.5" y2="14" />
+                    <circle cx="6" cy="18" r="2" />
+                    <circle cx="13" cy="18" r="2" />
+                  </svg>
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -454,17 +503,114 @@ export default async function LocalizedHomePage(props: PageProps) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '24px' }}>
             {[
-              { label: dict.industries.ecommerce, desc: dict.industries.ecommerceDesc, icon: '🛍️' },
-              { label: dict.industries.pharma, desc: dict.industries.pharmaDesc, icon: '💊' },
-              { label: dict.industries.auto, desc: dict.industries.autoDesc, icon: '🚗' },
-              { label: dict.industries.heavy, desc: dict.industries.heavyDesc, icon: '🏗' },
-              { label: dict.industries.food, desc: dict.industries.foodDesc, icon: '🍎' },
-              { label: dict.industries.chemical, desc: dict.industries.chemicalDesc, icon: '⚗️' },
-              { label: dict.industries.construction, desc: dict.industries.constructionDesc, icon: '🏢' },
-              { label: dict.industries.electronics, desc: dict.industries.electronicsDesc, icon: '📱' },
+              { 
+                label: dict.industries.ecommerce, 
+                desc: dict.industries.ecommerceDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8z" />
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                    <line x1="12" y1="22.08" x2="12" y2="12" />
+                    <path d="M12 5.5l5 2.5-5 2.5-5-2.5 5-2.5z" opacity="0.3" fill="var(--cio-orange)" />
+                    <path d="M2 10h4" opacity="0.7" />
+                    <path d="M1 13h3" opacity="0.7" />
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.pharma, 
+                desc: dict.industries.pharmaDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <rect x="5" y="11" width="14" height="6" rx="3" transform="rotate(-45 12 14)" />
+                    <line x1="9" y1="15" x2="15" y2="9" />
+                    <path d="M12 2a9 9 0 0 0 9 9c0 5-9 11-9 11S3 16 3 11a9 9 0 0 0 9-9z" opacity="0.2" fill="var(--cio-orange)" />
+                    <path d="M12 6v6M9 9h6" />
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.auto, 
+                desc: dict.industries.autoDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <path d="M2 15h3.5l1.5-3h10l1.5 3H22v3H2v-3z" />
+                    <path d="M7 12l1-4h8l1 4" />
+                    <circle cx="7" cy="18" r="2.5" />
+                    <circle cx="17" cy="18" r="2.5" />
+                    <circle cx="7" cy="18" r="1" fill="currentColor" />
+                    <circle cx="17" cy="18" r="1" fill="currentColor" />
+                    <path d="M12 12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.heavy, 
+                desc: dict.industries.heavyDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <path d="M12 2v8M12 10a2 2 0 0 0 2 2" />
+                    <path d="M12 12a2 2 0 0 1-2-2" />
+                    <path d="M6 14h12l2 6H4l2-6z" />
+                    <rect x="9" y="12" width="6" height="2" rx="0.5" />
+                    <text x="12" y="19" fontSize="6.5" fontWeight="bold" fill="var(--cio-orange)" textAnchor="middle" style={{ stroke: 'none' }}>KG</text>
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.food, 
+                desc: dict.industries.foodDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <path d="M3 17a9 9 0 0 1 18 0v1H3v-1z" />
+                    <circle cx="12" cy="7" r="1.5" />
+                    <line x1="2" y1="20" x2="22" y2="20" />
+                    <path d="M12 13c1.5 0 2.5 1 2.5 2s-1 2-2.5 2-2.5-1-2.5-2 1-2.5 2.5-2z" opacity="0.3" fill="var(--cio-orange)" />
+                    <path d="M12 13c-1.5-1.5-1.5-3.5 0-5 1.5 1.5 1.5 3.5 0 5z" />
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.chemical, 
+                desc: dict.industries.chemicalDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <path d="M6 20h12L13 7V3h-2v4L6 20z" />
+                    <line x1="9" y1="3" x2="15" y2="3" />
+                    <line x1="7.5" y1="16" x2="16.5" y2="16" strokeDasharray="2 1" />
+                    <path d="M10 13l4 4M12 12l4 4" strokeWidth="1" opacity="0.8" />
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.construction, 
+                desc: dict.industries.constructionDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <rect x="4" y="10" width="6" height="11" rx="0.5" />
+                    <rect x="12" y="6" width="8" height="15" rx="0.5" />
+                    <line x1="7" y1="13" x2="7" y2="18" strokeDasharray="2 2" />
+                    <line x1="15" y1="9" x2="15" y2="18" strokeDasharray="2 2" />
+                    <line x1="17" y1="9" x2="17" y2="18" strokeDasharray="2 2" />
+                    <path d="M3 3h16M7 3v4M19 3v8l-4-4" opacity="0.6" />
+                  </svg>
+                )
+              },
+              { 
+                label: dict.industries.electronics, 
+                desc: dict.industries.electronicsDesc, 
+                icon: (
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
+                    <rect x="6" y="6" width="12" height="12" rx="1.5" />
+                    <path d="M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3" />
+                    <rect x="10" y="10" width="4" height="4" rx="0.5" opacity="0.3" fill="var(--cio-orange)" />
+                    <path d="M12 10v4M10 12h4" />
+                  </svg>
+                )
+              },
             ].map((ind, idx) => (
               <div key={idx} style={{ padding: '24px', background: 'var(--bg-white)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ fontSize: '32px', marginBottom: '16px' }}>{ind.icon}</div>
+                <div style={{ display: 'flex', justifyContent: 'center', height: '32px', marginBottom: '16px' }}>{ind.icon}</div>
                 <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '8px' }}>{ind.label}</h4>
                 <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{ind.desc}</p>
               </div>
