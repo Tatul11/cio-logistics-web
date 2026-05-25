@@ -26,7 +26,24 @@
 
 .textContent {
   flex: 1;
+  display: flex;
   z-index: 2;
+}
+
+.rowEven .textContent {
+  justify-content: flex-end;
+  padding-right: 48px; /* space between text and badge */
+}
+
+.rowOdd .textContent {
+  justify-content: flex-start;
+  padding-left: 48px; /* space between text and badge */
+}
+
+.textInner {
+  max-width: 320px;
+  width: 100%;
+  text-align: left;
 }
 
 .iconContent {
@@ -41,12 +58,6 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
-}
-
-.titleWrapOdd {
-  justify-content: flex-end;
-  text-align: right;
-  flex-direction: row-reverse;
 }
 
 .numberBadge {
@@ -72,10 +83,6 @@
   font-size: 15px;
   color: var(--text-body);
   line-height: 1.6;
-}
-
-.descOdd {
-  text-align: right;
 }
 
 .iconBox {

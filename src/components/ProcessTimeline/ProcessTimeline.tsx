@@ -64,10 +64,10 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
             </div>
             
             <div className={styles.textContent}>
-              <div className={`${styles.titleWrap} ${!isEven ? styles.titleWrapOdd : ''}`}>
+              <div className={styles.textInner}>
                 <h3 className={styles.title}>{step.title}</h3>
+                <p className={styles.desc}>{step.desc}</p>
               </div>
-              <p className={`${styles.desc} ${!isEven ? styles.descOdd : ''}`}>{step.desc}</p>
             </div>
             
             <div className={styles.iconContent}>
