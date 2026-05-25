@@ -7,7 +7,8 @@ import TrackingWidget from '@/components/TrackingWidget/TrackingWidget';
 import Calculator from '@/components/Calculator/Calculator';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
-  ArrowUpRight, FileText, CheckCircle2, ChevronRight 
+  ArrowUpRight, FileText, CheckCircle2, ChevronRight,
+  Plane, Ship, Truck, Train, Package, Weight
 } from 'lucide-react';
 
 interface PageProps {
@@ -186,7 +187,7 @@ export default async function LocalizedHomePage(props: PageProps) {
           </div>
           
           {/* Hero Right Widget - Quote Calculator */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '373px', width: '100%', marginLeft: 'auto' }}>
+          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '371px', width: '100%', marginLeft: 'auto' }}>
             <Calculator lang={lang} dict={dict} />
           </div>
         </div>
@@ -216,16 +217,13 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.services.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
+          <div className="grid-3-cols">
             {/* Air Freight Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.air} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 13h6l3 7h2l-1.5-7h5.5l1.5 2.5h1.5L19 12l1-3h-1.5L17 11.5h-5.5L13 4.5h-2L8 11.5H2v1.5z" />
-                    <path d="M16 11.5h3" />
-                  </svg>
+                  <Plane size={24} />
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -244,16 +242,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AE%D5%B8%D5%BE%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.sea} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 17l1.5 3h17l1.5-3H2z" />
-                    <rect x="4" y="11" width="4" height="6" rx="0.5" />
-                    <rect x="9" y="8" width="5" height="9" rx="0.5" />
-                    <rect x="15" y="11" width="5" height="6" rx="0.5" />
-                    <line x1="6" y1="11" x2="6" y2="17" />
-                    <line x1="11.5" y1="8" x2="11.5" y2="17" />
-                    <line x1="17.5" y1="11" x2="17.5" y2="17" />
-                    <path d="M1 21.5c1.5 0 2-1 3.5-1s2 1 3.5 1 2-1 3.5-1 2 1 3.5 1 2-1 3.5-1 2 1 3.5 1" />
-                  </svg>
+                  <Ship size={24} />
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -272,17 +261,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%81%D5%A1%D5%B4%D5%A1%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.road} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 9h4l4 4v5h-2" />
-                    <circle cx="18" cy="18" r="2" />
-                    <path d="M16 18H8" />
-                    <rect x="2" y="6" width="12" height="10" rx="1" />
-                    <circle cx="6" cy="18" r="2" />
-                    <path d="M4 18H2" />
-                    <path d="M18 9l2 3h-4V9h2z" />
-                    <line x1="-1" y1="8" x2="1" y2="8" opacity="0.5" />
-                    <line x1="-2" y1="11" x2="0" y2="11" opacity="0.5" />
-                  </svg>
+                  <Truck size={24} />
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -301,18 +280,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AF%D5%B8%D5%B6%D5%BF%D5%A5%D5%B6%D5%B5%D5%A5%D6%80%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.rail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="6" width="14" height="11" rx="1" />
-                    <rect x="17" y="10" width="4" height="7" rx="0.5" />
-                    <circle cx="6" cy="19" r="2" />
-                    <circle cx="12" cy="19" r="2" />
-                    <circle cx="18" cy="19" r="2" />
-                    <line x1="3" y1="11" x2="17" y2="11" />
-                    <line x1="3" y1="14" x2="17" y2="14" />
-                    <path d="M17 7.5h-5v-2h5v2z" />
-                    <rect x="18" y="11" width="2" height="2" />
-                    <line x1="1" y1="21" x2="23" y2="21" strokeDasharray="3 2" />
-                  </svg>
+                  <Train size={24} />
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -329,16 +297,9 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Groupage Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/04/%D5%B0%D5%A1%D5%BE%D5%A1%D6%84%D5%A1%D5%AC%D5%A1%D5%B6-min.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="https://ciologistics.com/wp-content/uploads/elementor/thumbs/upakovka-gruza-dlya-perevozki-e1712013843901-qm3bb6b6o3gloim4yhenmtwhaxwqglorrmusnixxss.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path d="M2 7v10l10 5V12L2 7z" />
-                    <path d="M22 7v10l-10 5V12l10-5z" />
-                    <line x1="12" y1="2" x2="12" y2="12" strokeDasharray="2 1" />
-                    <path d="M7 9.5l10 5" strokeDasharray="2 1" />
-                    <path d="M17 9.5L7 15" strokeDasharray="2 1" />
-                  </svg>
+                  <Package size={24} />
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -357,17 +318,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
                 <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%A3%D5%A5%D6%80%D5%AE%D5%A1%D5%BE%D5%A1%D5%AC%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.heavy} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 17H5v-4h7v4z" />
-                    <path d="M5 13V6h3v7" />
-                    <path d="M8 6h3.5L13 10h-5" />
-                    <line x1="16" y1="4" x2="16" y2="18" strokeWidth="2" />
-                    <path d="M16 15h4v2h-4" />
-                    <rect x="17" y="7" width="5" height="7" rx="0.5" />
-                    <line x1="19.5" y1="7" x2="19.5" y2="14" />
-                    <circle cx="6" cy="18" r="2" />
-                    <circle cx="13" cy="18" r="2" />
-                  </svg>
+                  <Weight size={24} />
                 </div>
               </div>
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

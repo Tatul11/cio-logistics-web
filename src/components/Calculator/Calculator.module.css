@@ -3,12 +3,12 @@
   background: var(--bg-white);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 22px;
+  padding: 20px;
   box-shadow: var(--shadow-xl);
 }
 
 .title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--cio-navy);
   margin-bottom: 4px;
@@ -16,10 +16,10 @@
 }
 
 .sub {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .grid {
@@ -36,7 +36,7 @@
 }
 
 .label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--cio-navy);
   text-transform: uppercase;
@@ -44,11 +44,11 @@
 }
 
 .select, .input {
-  padding: 8px 10px;
+  padding: 7px 9px;
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   outline: none;
-  font-size: 13.5px;
+  font-size: 13px;
   background: var(--bg-gray);
   transition: all var(--transition-fast);
 }
@@ -129,7 +129,7 @@
 }
 
 .priceRange {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--bg-white);
   margin-bottom: 6px;
@@ -137,7 +137,7 @@
 }
 
 .transitTime {
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
@@ -164,8 +164,8 @@
 }
 
 .results button.btn {
-  padding: 9px 16px;
-  font-size: 13.5px;
+  padding: 8px 14px;
+  font-size: 13px;
 }
 
 .disclaimer {
