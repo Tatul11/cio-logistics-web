@@ -8,31 +8,32 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute('data-index'));
-            setActiveSteps((prev) => {
-               const newSteps = new Set(prev);
-               for (let i = 0; i <= index; i++) {
-                 newSteps.add(i);
-               }
-               return Array.from(newSteps);
-            });
-          }
-        });
-      },
-      {
-        rootMargin: '-30% 0px -30% 0px',
-        threshold: 0,
-      }
-    );
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+      
+      const stepElements = containerRef.current.querySelectorAll('.process-step-row');
+      const newActiveSteps: number[] = [];
+      
+      // The "trigger line" is roughly the middle of the screen
+      const triggerLine = window.innerHeight * 0.65; 
+      
+      stepElements.forEach((el, index) => {
+        const rect = el.getBoundingClientRect();
+        // If the top of the step has crossed the trigger line, activate it!
+        if (rect.top < triggerLine) {
+          newActiveSteps.push(index);
+        }
+      });
+      
+      setActiveSteps(newActiveSteps);
+    };
 
-    const stepElements = document.querySelectorAll('.process-step-row');
-    stepElements.forEach((el) => observer.observe(el));
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial check on load
+    handleScroll();
 
-    return () => observer.disconnect();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const steps = [
