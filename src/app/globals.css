@@ -269,7 +269,7 @@ p:last-child {
   justify-content: center;
   gap: 8px;
   padding: 14px 28px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;

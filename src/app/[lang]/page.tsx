@@ -9,7 +9,7 @@ import Partners from '@/components/Partners/Partners';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
-  Plane, Ship, Truck, Train, Package, Weight
+  Plane, Ship, Truck, Train, Package, Weight, MapPin
 } from 'lucide-react';
 
 interface PageProps {
@@ -143,17 +143,17 @@ export default async function LocalizedHomePage(props: PageProps) {
         <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '44px', alignItems: 'center' }}>
           {/* Hero Left Content */}
           <div className="animate-fade-in-up">
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeIso}
               </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeFiata}
               </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeIata}
               </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.06)', color: '#fff', fontSize: '12px' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeIru}
               </span>
             </div>
@@ -170,7 +170,8 @@ export default async function LocalizedHomePage(props: PageProps) {
               <Link href={`/${lang}/quote`} className="btn btn-primary">
                 {dict.hero.getQuote}
               </Link>
-              <Link href={`/${lang}/#track`} className="btn btn-ghost">
+              <Link href={`/${lang}/#track`} className="btn btn-ghost" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                <MapPin size={18} />
                 {dict.hero.trackShipment}
               </Link>
             </div>
