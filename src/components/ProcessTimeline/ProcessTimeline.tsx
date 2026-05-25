@@ -1,9 +1,40 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './ProcessTimeline.module.css';
 import { MessagesSquare, Calculator, FileCheck2, Truck, PackageCheck } from 'lucide-react';
 
 export default function ProcessTimeline({ dict }: { dict: any }) {
+  const [activeSteps, setActiveSteps] = useState<number[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute('data-index'));
+            setActiveSteps((prev) => {
+               const newSteps = new Set(prev);
+               for (let i = 0; i <= index; i++) {
+                 newSteps.add(i);
+               }
+               return Array.from(newSteps);
+            });
+          }
+        });
+      },
+      {
+        rootMargin: '-30% 0px -30% 0px',
+        threshold: 0,
+      }
+    );
+
+    const stepElements = document.querySelectorAll('.process-step-row');
+    stepElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   const steps = [
     { num: '#1', title: dict.process.step1, desc: dict.process.step1Desc, icon: <MessagesSquare size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
     { num: '#2', title: dict.process.step2, desc: dict.process.step2Desc, icon: <Calculator size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
@@ -13,14 +44,17 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
   ];
 
   return (
-    <div className={styles.timelineContainer}>
+    <div className={styles.timelineContainer} ref={containerRef}>
       {steps.map((step, index) => {
         const isEven = index % 2 === 0;
+        const isActive = activeSteps.includes(index);
+        const isNextActive = activeSteps.includes(index + 1);
+
         return (
-          <div key={index} className={`${styles.stepRow} ${isEven ? styles.rowEven : styles.rowOdd}`}>
+          <div key={index} data-index={index} className={`process-step-row ${styles.stepRow} ${isEven ? styles.rowEven : styles.rowOdd} ${isActive ? styles.activeStep : ''}`}>
             {/* The line connecting steps */}
             {index < steps.length - 1 && (
-               <div className={`${styles.connector} ${isEven ? styles.connectorRight : styles.connectorLeft}`}></div>
+               <div className={`${styles.connector} ${isEven ? styles.connectorRight : styles.connectorLeft} ${isNextActive ? styles.activeConnector : ''}`}></div>
             )}
             
             <div className={styles.textContent}>
