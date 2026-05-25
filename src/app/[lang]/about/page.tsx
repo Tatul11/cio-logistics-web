@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { getDictionary } from '@/lib/dictionary';
 import { ShieldCheck, Award, Target, ArrowRight } from 'lucide-react';
+import Partners from '@/components/Partners/Partners';
 import styles from './About.module.css';
 
 interface AboutPageProps {
@@ -285,6 +286,8 @@ export default async function AboutPage(props: AboutPageProps) {
           </div>
         </div>
       </section>
+
+      <Partners dict={dict} />
 
       {/* 2. flat-layout-section */}
       <section className={styles.flatLayoutSection}>

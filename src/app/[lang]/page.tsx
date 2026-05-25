@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/dictionary';
 import InteractiveMap from '@/components/InteractiveMap/InteractiveMap';
 import TrackingWidget from '@/components/TrackingWidget/TrackingWidget';
 import Calculator from '@/components/Calculator/Calculator';
+import Partners from '@/components/Partners/Partners';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -207,6 +208,9 @@ export default async function LocalizedHomePage(props: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <Partners dict={dict} />
 
       {/* Services Section */}
       <section className="section" id="services">
