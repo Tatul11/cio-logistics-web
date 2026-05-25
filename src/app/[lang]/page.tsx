@@ -195,14 +195,14 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Live rates & Quick Tools strip */}
-      <section className="section-tight" style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg-gray)' }}>
+      <section className="section-tight" style={{ borderBottom: 'none', background: 'var(--cio-orange)', color: '#fff' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
           <div>
-            <strong>{dict.quickTools.liveRates}: </strong>
-            <span style={{ color: 'var(--cio-orange)', fontWeight: 700 }}>{dict.quickTools.ratesValue}</span>
+            <strong style={{ color: '#fff' }}>{dict.quickTools.liveRates}: </strong>
+            <span style={{ color: '#fff', fontWeight: 700 }}>{dict.quickTools.ratesValue}</span>
           </div>
           <div>
-            <Link href={`/${lang}/contact`} className="btn btn-secondary" style={{ padding: '8px 16px', fontSize: '13px' }}>
+            <Link href={`/${lang}/contact`} className="btn" style={{ background: '#fff', color: 'var(--cio-orange)', padding: '8px 16px', fontSize: '13px', border: 'none' }}>
               {dict.quickTools.talkToExpert}
             </Link>
           </div>
@@ -213,7 +213,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       <Partners dict={dict} />
 
       {/* Services Section */}
-      <section className="section" id="services">
+      <section className="section section-gray" id="services">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">{dict.services.eyebrow}</span>
@@ -346,7 +346,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Shipment Tracking Widget section */}
-      <section className="section section-gray" id="track" style={{ padding: '80px 0' }}>
+      <section className="section" id="track" style={{ padding: '80px 0' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <div className="section-head" style={{ marginBottom: '40px' }}>
             <span className="eyebrow">{dict.quickTools.trackShipment}</span>
@@ -398,7 +398,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Interactive Map & Routes showcase */}
-      <section className="section" id="routes">
+      <section className="section section-gray" id="routes">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">{dict.routes.eyebrow}</span>
@@ -448,7 +448,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Industries Slider */}
-      <section className="section section-gray" id="industries">
+      <section className="section section-navy" id="industries">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">{dict.industries.eyebrow}</span>
@@ -564,10 +564,10 @@ export default async function LocalizedHomePage(props: PageProps) {
                 )
               },
             ].map((ind, idx) => (
-              <div key={idx} style={{ padding: '24px', background: 'var(--bg-white)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
+              <div key={idx} style={{ padding: '24px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: 'var(--radius)', border: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ display: 'flex', justifyContent: 'center', height: '32px', marginBottom: '16px' }}>{ind.icon}</div>
-                <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '8px' }}>{ind.label}</h4>
-                <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>{ind.desc}</p>
+                <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '8px', color: '#fff' }}>{ind.label}</h4>
+                <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.7)' }}>{ind.desc}</p>
               </div>
             ))}
           </div>
@@ -696,7 +696,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Verified Reviews Block */}
-      <section className="section" id="reviews">
+      <section className="section section-navy" id="reviews">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">{dict.reviews.eyebrow}</span>
@@ -705,8 +705,8 @@ export default async function LocalizedHomePage(props: PageProps) {
               <div style={{ display: 'flex', color: 'var(--cio-orange)' }}>
                 {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--cio-orange)" />)}
               </div>
-              <strong style={{ fontSize: '18px', color: 'var(--cio-navy)' }}>{dict.reviews.score} / 5.0</strong>
-              <span style={{ color: 'var(--text-muted)', fontSize: '14px' }}>({dict.reviews.count})</span>
+              <strong style={{ fontSize: '18px', color: '#fff' }}>{dict.reviews.score} / 5.0</strong>
+              <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>({dict.reviews.count})</span>
             </div>
           </div>
 
@@ -716,13 +716,13 @@ export default async function LocalizedHomePage(props: PageProps) {
               { text: dict.reviews.rev2, author: dict.reviews.rev2Author, src: dict.reviews.rev2Src },
               { text: dict.reviews.rev3, author: dict.reviews.rev3Author, src: dict.reviews.rev3Src },
             ].map((rev, idx) => (
-              <div key={idx} style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--shadow-sm)' }}>
-                <p style={{ fontSize: '14.5px', fontStyle: 'italic', color: 'var(--text-body)', marginBottom: '24px', lineHeight: '1.6' }}>
+              <div key={idx} style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(255, 255, 255, 0.05)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--shadow-sm)' }}>
+                <p style={{ fontSize: '14.5px', fontStyle: 'italic', color: 'rgba(255, 255, 255, 0.9)', marginBottom: '24px', lineHeight: '1.6' }}>
                   &ldquo;{rev.text}&rdquo;
                 </p>
                 <div>
-                  <h4 style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cio-navy)', marginBottom: '2px' }}>{rev.author}</h4>
-                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{rev.src}</span>
+                  <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>{rev.author}</h4>
+                  <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.6)' }}>{rev.src}</span>
                 </div>
               </div>
             ))}
