@@ -52,30 +52,34 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
         const isNextActive = activeSteps.includes(index + 1);
 
         return (
-          <div key={index} data-index={index} className={`process-step-row ${styles.stepRow} ${isEven ? styles.rowEven : styles.rowOdd} ${isActive ? styles.activeStep : ''}`}>
-            {/* The line connecting steps */}
-            {index < steps.length - 1 && (
-               <div className={`${styles.connector} ${isEven ? styles.connectorRight : styles.connectorLeft} ${isNextActive ? styles.activeConnector : ''}`}></div>
-            )}
-            
-            {/* Floating Number Badge */}
-            <div className={styles.floatingBadge}>
-               <span className={`${styles.numberBadge} ${isActive ? styles.activeBadge : ''}`}>{step.num}</span>
-            </div>
-            
-            <div className={styles.textContent}>
-              <div className={styles.textInner}>
-                <h3 className={styles.title}>{step.title}</h3>
+          <React.Fragment key={index}>
+            <div data-index={index} className={`process-step-row ${styles.stepRow} ${isEven ? styles.rowEven : styles.rowOdd} ${isActive ? styles.activeStep : ''}`}>
+              
+              <div className={styles.textCol}>
+                <div className={styles.titleWrap}>
+                  <span className={styles.numberBadge}>{step.num}</span>
+                  <h3 className={styles.title}>{step.title}</h3>
+                </div>
                 <p className={styles.desc}>{step.desc}</p>
               </div>
+              
+              <div className={styles.iconCol}>
+                 <div className={styles.iconBox}>
+                    {step.icon}
+                 </div>
+              </div>
             </div>
-            
-            <div className={styles.iconContent}>
-               <div className={styles.iconBox}>
-                  {step.icon}
+
+            {/* The line connecting steps */}
+            {index < steps.length - 1 && (
+               <div className={`${styles.connectorContainer} ${isNextActive ? styles.activeConnector : ''}`}>
+                  <div className={isEven ? styles.sCurve : styles.zCurve}>
+                    <div className={styles.curveTop}></div>
+                    <div className={styles.curveBottom}></div>
+                  </div>
                </div>
-            </div>
-          </div>
+            )}
+          </React.Fragment>
         );
       })}
     </div>
