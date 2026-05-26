@@ -1,9 +1,8 @@
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--cio-navy) 0%, #1a2a3a 100%);
+  background-color: var(--cio-navy);
   color: var(--bg-white);
   padding: 180px 20px 140px;
-  background-image: url('https://ciologistics.com/wp-content/uploads/2024/03/hero-bg-scaled.webp');
   background-size: cover;
   background-position: center;
 }

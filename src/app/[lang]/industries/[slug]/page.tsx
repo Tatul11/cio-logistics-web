@@ -37,7 +37,10 @@ export default async function IndustryPage(props: IndustryPageProps) {
   return (
     <div className={styles.wrapper}>
       {/* Dark Hero Section */}
-      <section className={styles.hero}>
+      <section 
+        className={styles.hero}
+        style={{ backgroundImage: `url(${industryData.image})` }}
+      >
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{industryData.title}</h1>
