@@ -45,6 +45,11 @@ export default async function IndustryPage(props: IndustryPageProps) {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{industryData.title}</h1>
           <p className={styles.heroIntro}>{industryData.intro1}</p>
+          <div className={styles.heroCtaWrap}>
+            <Link href={`/${lang}/quote`} className="btn btn-primary" style={{ display: 'inline-flex', padding: '12px 28px', marginTop: '32px' }}>
+              Cost Calculation
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -54,12 +59,6 @@ export default async function IndustryPage(props: IndustryPageProps) {
         {/* LEFT: Article Content */}
         <article className={styles.article}>
           
-          <div className={styles.ctaWrap}>
-            <Link href={`/${lang}/quote`} className="btn btn-primary" style={{ display: 'inline-flex', padding: '12px 24px' }}>
-              Cost Calculation
-            </Link>
-          </div>
-
           <p>{industryData.intro2}</p>
 
           <img 

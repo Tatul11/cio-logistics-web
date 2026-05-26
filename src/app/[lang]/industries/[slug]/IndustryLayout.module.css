@@ -10,7 +10,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(22, 33, 44, 0.85); /* Dark overlay */
+  background: rgba(22, 33, 44, 0.6); /* Dark overlay */
   z-index: 1;
 }
 
