@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './Header.module.css';
-import { Phone, Mail, MapPin, Search, Menu, X, ChevronDown, User, Globe } from 'lucide-react';
+import { 
+  Phone, Mail, MapPin, Search, Menu, X, ChevronDown, User, ArrowRight,
+  Plane, Ship, Truck, Train, Package, Anchor, AlertTriangle, Box, FileCheck, Warehouse,
+  ShoppingCart, Activity, Car, Factory, Coffee, FlaskConical, HardHat, Cpu
+} from 'lucide-react';
 
 interface HeaderProps {
   lang: 'en' | 'ru' | 'hy';
@@ -25,11 +29,9 @@ export default function Header({ lang, dict }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Helper to switch language prefix in current path
   const changeLanguage = (newLang: 'en' | 'ru' | 'hy') => {
     if (!pathname) return;
     const pathParts = pathname.split('/');
-    // pathParts[0] is empty, pathParts[1] is the locale
     pathParts[1] = newLang;
     const newPath = pathParts.join('/');
     router.push(newPath);
@@ -40,16 +42,16 @@ export default function Header({ lang, dict }: HeaderProps) {
       label: dict.nav.services,
       href: `/${lang}/services`,
       mega: [
-        { label: `✈️ ${dict.services.air}`, href: `/${lang}/services/air-freight` },
-        { label: `🚢 ${dict.services.sea}`, href: `/${lang}/services/sea-freight` },
-        { label: `🚛 ${dict.services.road}`, href: `/${lang}/services/road-transport` },
-        { label: `🚂 ${dict.services.rail}`, href: `/${lang}/services/rail-freight`, isNew: true },
-        { label: `📦 ${dict.services.groupage}`, href: `/${lang}/services/groupage-cargo` },
-        { label: `🏗️ ${dict.services.heavy}`, href: `/${lang}/services/heavy-bulky-cargo` },
-        { label: `⚠️ ${dict.services.dangerous}`, href: `/${lang}/services/dangerous-goods` },
-        { label: `📦 ${dict.services.container}`, href: `/${lang}/services/container-shipping` },
-        { label: `🛃 ${dict.services.customs}`, href: `/${lang}/services/customs-clearance` },
-        { label: `🏭 ${dict.services.warehousing}`, href: `/${lang}/services/warehousing` },
+        { title: dict.services.air, desc: "Fast global delivery for urgent cargo", href: `/${lang}/services/air-freight`, icon: <Plane size={20} /> },
+        { title: dict.services.sea, desc: "Cost-effective ocean transit", href: `/${lang}/services/sea-freight`, icon: <Ship size={20} /> },
+        { title: dict.services.road, desc: "Reliable overland transport", href: `/${lang}/services/road-transport`, icon: <Truck size={20} /> },
+        { title: dict.services.rail, desc: "Efficient train logistics", href: `/${lang}/services/rail-freight`, icon: <Train size={20} />, isNew: true },
+        { title: dict.services.groupage, desc: "Consolidated LTL shipping", href: `/${lang}/services/groupage-cargo`, icon: <Package size={20} /> },
+        { title: dict.services.heavy, desc: "Oversized project cargo", href: `/${lang}/services/heavy-bulky-cargo`, icon: <Anchor size={20} /> },
+        { title: dict.services.dangerous, desc: "Certified hazardous handling", href: `/${lang}/services/dangerous-goods`, icon: <AlertTriangle size={20} /> },
+        { title: dict.services.container, desc: "FCL container solutions", href: `/${lang}/services/container-shipping`, icon: <Box size={20} /> },
+        { title: dict.services.customs, desc: "Seamless border clearance", href: `/${lang}/services/customs-clearance`, icon: <FileCheck size={20} /> },
+        { title: dict.services.warehousing, desc: "Secure storage & distribution", href: `/${lang}/services/warehousing`, icon: <Warehouse size={20} /> },
       ],
       megaTitle: dict.nav.services,
     },
@@ -57,11 +59,11 @@ export default function Header({ lang, dict }: HeaderProps) {
       label: dict.nav.routes,
       href: `/${lang}/routes`,
       mega: [
-        { label: `🇨🇳 ${dict.routes.china}`, href: `/${lang}/routes/china-to-armenia` },
-        { label: `🇷🇺 ${dict.routes.russia}`, href: `/${lang}/routes/russia-to-armenia` },
-        { label: `🇩🇪 ${dict.routes.germany}`, href: `/${lang}/routes/germany-to-armenia` },
-        { label: `🇺🇸 ${dict.routes.usa}`, href: `/${lang}/routes/usa-to-armenia` },
-        { label: `🇦🇪 ${dict.routes.uae}`, href: `/${lang}/routes/uae-to-armenia` },
+        { title: dict.routes.china, desc: "Direct from Shenzhen & Shanghai", href: `/${lang}/routes/china-to-armenia`, icon: <MapPin size={20} /> },
+        { title: dict.routes.russia, desc: "Moscow & regional connections", href: `/${lang}/routes/russia-to-armenia`, icon: <MapPin size={20} /> },
+        { title: dict.routes.germany, desc: "European hub routes", href: `/${lang}/routes/germany-to-armenia`, icon: <MapPin size={20} /> },
+        { title: dict.routes.usa, desc: "Transatlantic freight lines", href: `/${lang}/routes/usa-to-armenia`, icon: <MapPin size={20} /> },
+        { title: dict.routes.uae, desc: "Middle East transit hub", href: `/${lang}/routes/uae-to-armenia`, icon: <MapPin size={20} /> },
       ],
       megaTitle: dict.nav.routes,
     },
@@ -69,14 +71,14 @@ export default function Header({ lang, dict }: HeaderProps) {
       label: dict.nav.industries,
       href: `/${lang}/industries`,
       mega: [
-        { label: `🛍️ ${dict.industries.ecommerce}`, href: `/${lang}/industries/ecommerce` },
-        { label: `💊 ${dict.industries.pharma}`, href: `/${lang}/industries/pharmaceutical` },
-        { label: `🚗 ${dict.industries.auto}`, href: `/${lang}/industries/automotive` },
-        { label: `🏗️ ${dict.industries.heavy}`, href: `/${lang}/industries/industrial` },
-        { label: `🍎 ${dict.industries.food}`, href: `/${lang}/industries/food-perishables` },
-        { label: `⚗️ ${dict.industries.chemical}`, href: `/${lang}/industries/chemical` },
-        { label: `🏢 ${dict.industries.construction}`, href: `/${lang}/industries/construction` },
-        { label: `📱 ${dict.industries.electronics}`, href: `/${lang}/industries/electronics` },
+        { title: dict.industries.ecommerce, desc: "B2C & B2B fulfillment", href: `/${lang}/industries/ecommerce`, icon: <ShoppingCart size={20} /> },
+        { title: dict.industries.pharma, desc: "Temperature-controlled transit", href: `/${lang}/industries/pharmaceutical`, icon: <Activity size={20} /> },
+        { title: dict.industries.auto, desc: "Parts & vehicle transport", href: `/${lang}/industries/automotive`, icon: <Car size={20} /> },
+        { title: dict.industries.heavy, desc: "Heavy machinery logistics", href: `/${lang}/industries/industrial`, icon: <Factory size={20} /> },
+        { title: dict.industries.food, desc: "Perishable goods handling", href: `/${lang}/industries/food-perishables`, icon: <Coffee size={20} /> },
+        { title: dict.industries.chemical, desc: "Specialized material transport", href: `/${lang}/industries/chemical`, icon: <FlaskConical size={20} /> },
+        { title: dict.industries.construction, desc: "Building supply chains", href: `/${lang}/industries/construction`, icon: <HardHat size={20} /> },
+        { title: dict.industries.electronics, desc: "High-value tech security", href: `/${lang}/industries/electronics`, icon: <Cpu size={20} /> },
       ],
       megaTitle: dict.nav.industries,
     },
@@ -153,12 +155,23 @@ export default function Header({ lang, dict }: HeaderProps) {
                       </button>
                       <div className={styles.megaMenu}>
                         <div className={styles.megaTitle}>{item.megaTitle}</div>
-                        {item.mega.map((sub, subIdx) => (
-                          <Link key={subIdx} href={sub.href} className={styles.megaLink}>
-                            {sub.label}
-                            {sub.isNew && <span className={styles.megaBadge}>NEW</span>}
-                          </Link>
-                        ))}
+                        <div className={styles.megaGrid}>
+                          {item.mega.map((sub, subIdx) => (
+                            <Link key={subIdx} href={sub.href} className={styles.megaLink}>
+                              <div className={styles.megaIconWrapper}>
+                                {sub.icon}
+                              </div>
+                              <div className={styles.megaTextWrapper}>
+                                <div className={styles.megaItemTitleWrap}>
+                                  <span className={styles.megaItemTitle}>{sub.title}</span>
+                                  <ArrowRight size={14} className={styles.megaArrow} />
+                                  {sub.isNew && <span className={styles.megaBadge}>NEW</span>}
+                                </div>
+                                <span className={styles.megaItemDesc}>{sub.desc}</span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </>
                   ) : (

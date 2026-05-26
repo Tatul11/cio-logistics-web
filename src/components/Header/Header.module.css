@@ -189,10 +189,10 @@
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: var(--bg-white);
-  min-width: 520px;
-  padding: 24px;
+  min-width: 720px;
+  padding: 32px;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
   border: 1px solid var(--border);
   display: none;
   opacity: 0;
@@ -202,41 +202,94 @@
 }
 
 .navItem:hover .megaMenu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 24px;
+  display: block;
   opacity: 1;
   transform: translateX(-50%) translateY(0px);
   pointer-events: auto;
 }
 
 .megaTitle {
-  grid-column: 1 / -1;
   font-size: 11px;
   font-weight: 700;
   color: var(--cio-orange);
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 0 10px 8px;
+  padding: 0 10px 16px;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.megaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
 }
 
 .megaLink {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-  color: var(--text-body);
-  font-size: 14px;
-  font-weight: 600;
-  transition: all var(--transition-fast);
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+  text-decoration: none;
 }
 
 .megaLink:hover {
   background: var(--bg-gray);
-  color: var(--cio-orange);
+}
+
+.megaIconWrapper {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(138, 21, 33, 0.05);
+  color: #8A1521;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.megaLink:hover .megaIconWrapper {
+  background: #8A1521;
+  color: white;
+  transform: scale(1.05);
+}
+
+.megaTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.megaItemTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.megaItemTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cio-navy);
+}
+
+.megaArrow {
+  color: var(--text-muted);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.megaLink:hover .megaArrow {
+  transform: translateX(4px);
+  color: #8A1521;
+}
+
+.megaItemDesc {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.4;
 }
 
 .megaBadge {
