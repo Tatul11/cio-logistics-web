@@ -1,0 +1,295 @@
+.wrapper {
+  background-color: var(--bg-body);
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  background-color: var(--cio-navy);
+  color: var(--bg-white);
+  padding: 180px 20px 140px;
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(22, 33, 44, 0.65); /* Dark overlay */
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
+  color: var(--bg-white);
+  line-height: 1.2;
+}
+
+.heroIntro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0;
+}
+
+.heroCtaWrap {
+  margin-top: 32px;
+}
+
+.pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  max-width: 1200px;
+  margin: -60px auto 80px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .pageContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+}
+
+.article {
+  background: var(--bg-white);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  color: var(--text-body);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.article p {
+  margin-bottom: 24px;
+}
+
+.articleImage {
+  width: 100%;
+  border-radius: var(--radius);
+  margin: 32px 0;
+  box-shadow: var(--shadow-sm);
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+.benefitsTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cio-navy);
+  margin: 40px 0 24px 0;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefitsList li {
+  background: var(--bg-body);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.benefitsList li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--cio-orange);
+}
+
+.checkIcon {
+  color: var(--cio-orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.navCard {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.navCardTitle {
+  background: var(--bg-body);
+  padding: 20px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cio-navy);
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+}
+
+.navLink {
+  padding: 12px 24px;
+  color: var(--text-body);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.navLink:hover {
+  background: rgba(220, 38, 38, 0.05); /* Soft red hover */
+  color: var(--cio-orange);
+  border-left-color: var(--cio-orange);
+}
+
+.navLinkActive {
+  background: rgba(220, 38, 38, 0.05);
+  color: var(--cio-orange);
+  border-left-color: var(--cio-orange);
+  font-weight: 700;
+}
+
+/* Contact Widget in Sidebar */
+.contactWidget {
+  background: linear-gradient(135deg, var(--cio-navy) 0%, #1a2a3a 100%);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  color: var(--bg-white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.contactWidget::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--cio-orange) 0%, transparent 70%);
+  opacity: 0.15;
+}
+
+.contactWidgetIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--cio-orange);
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.contactWidgetTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.contactWidgetText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 24px 0;
+}
+
+.contactWidgetPhone {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--bg-white);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.contactWidgetPhone:hover {
+  color: var(--cio-orange);
+}
+
+/* Component Sections (Certifications, CTA) */
+.sectionBlock {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.certListRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.certBadgeItem {
+  background: rgba(30, 58, 138, 0.05);
+  border: 1px solid rgba(30, 58, 138, 0.1);
+  color: var(--cio-navy);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ctaBanner {
+  background: linear-gradient(135deg, var(--cio-orange) 0%, #b91c1c 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+  margin-top: 60px;
+  box-shadow: var(--shadow-md);
+}
+
+.ctaBanner h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.ctaBanner p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}

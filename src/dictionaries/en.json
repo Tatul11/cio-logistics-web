@@ -247,6 +247,148 @@
       "conclusion": "We protect your technological innovations with impenetrable security protocols and lightning-fast transit times."
     }
   },
+  "serviceDetails": {
+    "air-freight": {
+      "title": "Air Freight Logistics with CIO",
+      "intro1": "When time is critical and every hour counts, air freight is the fastest and most secure mode of transport. CIO Logistics provides comprehensive global air freight solutions, ensuring your high-value and time-sensitive cargo reaches its destination efficiently.",
+      "intro2": "As an IATA-accredited agent, we have direct access to top-tier airlines, allowing us to secure priority capacity, optimized routing, and competitive pricing. Whether it is urgent medical supplies, electronic components, or automotive parts, our air freight team manages the entire process door-to-door.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/air-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F-1536x864.jpg",
+      "benefitsTitle": "Key Advantages of Our Air Freight Services",
+      "benefits": [
+        "Speed & Reliability: Unmatched transit times for urgent shipments globally.",
+        "Global Network: Access to 150+ countries through top-tier airline partnerships.",
+        "High Security: Advanced airport security protocols for valuable cargo.",
+        "Real-Time Tracking: 24/7 visibility from origin to final destination.",
+        "Customs Expertise: Expedited border clearance to prevent airport delays."
+      ]
+    },
+    "sea-freight": {
+      "title": "Global Ocean Freight & Maritime Logistics",
+      "intro1": "Ocean freight remains the most cost-effective and environmentally friendly method for transporting large volumes of cargo over long distances. CIO Logistics offers highly reliable Full Container Load (FCL) and Less than Container Load (LCL) sea freight services.",
+      "intro2": "We leverage our strong partnerships with major global shipping lines and our strategic access to key ports like Poti and Batumi to connect your supply chain to global markets. We manage port drayage, customs documentation, and seamless multimodal connections.",
+      "image": "https://ciologistics.com/wp-content/uploads/revslider/Tranzkart-Home-10/truck-port-img1.jpg",
+      "benefitsTitle": "Why Choose Our Ocean Freight Solutions",
+      "benefits": [
+        "Cost Efficiency: The most economical choice for bulk and heavy shipments.",
+        "Capacity: Unrestricted ability to move massive quantities of goods.",
+        "Flexibility: Both FCL (Full) and LCL (Shared) container options available.",
+        "Multimodal Integration: Seamlessly transfers to rail or road upon port arrival.",
+        "Global Reach: Connecting you to major commercial ports worldwide."
+      ]
+    },
+    "road-transport": {
+      "title": "Reliable Overland Road Transport",
+      "intro1": "Road transport is the backbone of regional supply chains, offering unparalleled flexibility and door-to-door convenience. CIO Logistics operates a vast, modern fleet capable of handling diverse cargo across complex geographical routes.",
+      "intro2": "Our overland logistics services are tailored for routes connecting Armenia with Europe, Russia, and the Middle East. With a focus on Just-In-Time delivery, we utilize GPS-tracked vehicles and highly trained drivers to guarantee your cargo arrives safely and on schedule.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/CIO-Logistics-performs-ground-transportation-of-combined-and-combined-cargoes-1170x694.jpg",
+      "benefitsTitle": "Benefits of Our Road Freight Services",
+      "benefits": [
+        "Door-to-Door Delivery: Direct transportation without intermediate unloading.",
+        "High Flexibility: Easily adaptable routing to avoid delays and traffic.",
+        "Diverse Fleet: Standard trailers, mega-trailers, and temperature-controlled reefers.",
+        "Full Visibility: Continuous GPS tracking and proactive status updates.",
+        "Regional Expertise: Deep knowledge of regional border crossings and regulations."
+      ]
+    },
+    "rail-freight": {
+      "title": "Efficient Train & Rail Logistics",
+      "intro1": "Rail freight offers a perfect balance between the speed of air transport and the cost-efficiency of ocean freight. It is a highly reliable, eco-friendly solution for long-distance continental shipping, particularly along the new Silk Road.",
+      "intro2": "CIO Logistics excels in managing block trains and single container rail shipments connecting China and Europe to the Caucasus. Our rail solutions are highly resilient against weather disruptions and offer predictable, scheduled transit times.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/lracucich-info-1-scaled.jpg",
+      "benefitsTitle": "Advantages of Intermodal Rail Freight",
+      "benefits": [
+        "Eco-Friendly: Significantly lower carbon footprint compared to road or air.",
+        "Predictable Schedules: Highly reliable transit times immune to road congestion.",
+        "Cost-Effective: Substantial savings for long-distance heavy cargo vs. air freight.",
+        "High Capacity: Ability to transport massive volumes simultaneously.",
+        "Enhanced Security: Lower risk of theft and accidents during transit."
+      ]
+    },
+    "groupage-cargo": {
+      "title": "Consolidated Groupage (LTL/LCL) Shipping",
+      "intro1": "You don't need to fill an entire truck or container to benefit from premium logistics. Groupage shipping (LTL/LCL) allows you to pay only for the exact space your cargo occupies, making it highly economical for smaller shipments.",
+      "intro2": "CIO Logistics operates regular, scheduled consolidation hubs across Europe and Asia. We meticulously combine compatible shipments, manage the consolidated customs clearance, and ensure swift distribution upon arrival.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/02/357492506_262947136338736_9028766854490386974_n-1170x694.jpg",
+      "benefitsTitle": "Why Use Our Groupage Solutions",
+      "benefits": [
+        "Maximum Economy: Share transport costs with other shippers.",
+        "Frequent Departures: Regular weekly schedules from major global hubs.",
+        "Flexibility: Ideal for small to medium-sized business inventory needs.",
+        "End-to-End Service: We handle consolidation, transport, and final mile delivery.",
+        "Customs Simplified: Streamlined clearance for consolidated manifests."
+      ]
+    },
+    "heavy-bulky-cargo": {
+      "title": "Oversized & Project Cargo Logistics",
+      "intro1": "Transporting out-of-gauge, extremely heavy, or complex industrial machinery requires specialized engineering, precise planning, and heavy-duty assets. Ordinary transport methods simply do not apply to project cargo.",
+      "intro2": "CIO Logistics has a dedicated Project Cargo team that conducts rigorous route surveys, secures all necessary municipal permits, and coordinates specialized lifting and transport equipment (like lowboys and SPMTs) to move the impossible safely.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/CIO-Logistics-performs-ground-transportation-of-combined-and-combined-cargoes-1170x694.jpg",
+      "benefitsTitle": "Our Heavy Lift Capabilities",
+      "benefits": [
+        "Route Engineering: Exhaustive road, bridge, and obstacle surveys prior to transport.",
+        "Permitting & Escorts: Full management of police escorts and legal road permits.",
+        "Specialized Fleet: Access to heavy-duty modular trailers and high-capacity cranes.",
+        "Risk Management: Comprehensive insurance and rigorous safety protocols.",
+        "Turnkey Solutions: From factory dismantling to site installation."
+      ]
+    },
+    "dangerous-goods": {
+      "title": "Certified Dangerous Goods Transport (ADR)",
+      "intro1": "The transportation of hazardous materials is strictly regulated and carries zero margin for error. It demands highly trained personnel, certified vehicles, and meticulous documentation to ensure public and environmental safety.",
+      "intro2": "CIO Logistics is fully certified to transport a wide classification of dangerous goods (ADR for road, IMDG for sea, DGR for air). Our compliance team ensures that packaging, labeling, and routing meet all international regulatory standards.",
+      "image": "https://ciologistics.com/wp-content/uploads/revslider/Tranzkart-Home-10/truck-port-img1.jpg",
+      "benefitsTitle": "Why Trust Us with Hazardous Cargo",
+      "benefits": [
+        "Full Compliance: Strict adherence to ADR, IMDG, and IATA DGR regulations.",
+        "Certified Drivers: Highly trained personnel with specialized hazmat endorsements.",
+        "Proper Documentation: Expert preparation of all required safety declarations.",
+        "Emergency Protocols: Robust incident response plans and safety equipment.",
+        "Specialized Fleet: Vehicles equipped with necessary hazard controls."
+      ]
+    },
+    "container-shipping": {
+      "title": "FCL Container Logistics",
+      "intro1": "Full Container Load (FCL) shipping provides exclusive use of a container for your goods, offering enhanced security, faster transit times without consolidation delays, and simplified handling.",
+      "intro2": "CIO Logistics manages FCL shipments seamlessly from door-to-door. We provide the right container type for your needs—whether standard, high-cube, open-top, or refrigerated—and handle all port operations and intermodal transfers.",
+      "image": "https://ciologistics.com/wp-content/uploads/revslider/Tranzkart-Home-10/truck-port-img1.jpg",
+      "benefitsTitle": "Advantages of FCL Shipping",
+      "benefits": [
+        "Exclusive Use: The entire container is dedicated solely to your cargo.",
+        "Reduced Handling: Goods are loaded once and sealed until final delivery.",
+        "Faster Transit: No waiting for consolidation or deconsolidation at hubs.",
+        "High Security: Sealed containers drastically reduce the risk of theft or damage.",
+        "Versatility: Various container types available for different cargo profiles."
+      ]
+    },
+    "customs-clearance": {
+      "title": "Seamless Customs Brokerage & Clearance",
+      "intro1": "Navigating complex international customs regulations can be the biggest bottleneck in global trade. Incorrect classification or missing documents can lead to severe delays, fines, and confiscated shipments.",
+      "intro2": "CIO Logistics acts as your expert customs broker. With our team of licensed in-house specialists and direct digital integration with customs authorities, we ensure your cargo clears borders smoothly, legally, and rapidly.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/lracucich-info-1-scaled.jpg",
+      "benefitsTitle": "Our Customs Clearance Expertise",
+      "benefits": [
+        "Expert Classification: Accurate HS code determination to optimize tariffs.",
+        "Documentation Prep: Flawless handling of commercial invoices and certificates.",
+        "Digital Processing: Electronic declarations for accelerated clearance times.",
+        "Compliance Consulting: Advisory services on import/export trade laws.",
+        "Duty Optimization: Identifying legally applicable tax exemptions and benefits."
+      ]
+    },
+    "warehousing": {
+      "title": "Secure Warehousing & Distribution",
+      "intro1": "A dynamic supply chain requires more than just transport; it requires strategic storage and inventory management. Modern warehousing acts as the critical buffer that balances supply with market demand.",
+      "intro2": "CIO Logistics offers state-of-the-art warehousing facilities equipped with advanced Warehouse Management Systems (WMS). We provide secure storage, order fulfillment, pick-and-pack services, and cross-docking to optimize your distribution.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/02/357492506_262947136338736_9028766854490386974_n-1170x694.jpg",
+      "benefitsTitle": "Our Warehousing Capabilities",
+      "benefits": [
+        "High Security: 24/7 CCTV surveillance and restricted access controls.",
+        "Inventory Management: Real-time visibility through digital WMS platforms.",
+        "Value-Added Services: Labeling, packaging, and quality control inspections.",
+        "Cross-Docking: Rapid transfer of goods from inbound to outbound transport.",
+        "Climate Control: Specialized zones for temperature-sensitive inventory."
+      ]
+    }
+  },
   "process": {
     "eyebrow": "Simple Process",
     "title": "From Request to Delivery — How We Work",
