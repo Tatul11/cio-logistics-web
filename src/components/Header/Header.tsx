@@ -99,9 +99,14 @@ export default function Header({ lang, dict }: HeaderProps) {
             <a href="mailto:info@ciologistics.com" className={styles.contactLink}>
               <Mail size={14} /> info@ciologistics.com
             </a>
-            <span className={`${styles.contactLink} ${styles.hideMobile}`}>
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Cio+Logistics+LLC+Nairi+Zaryan+22a,+Yerevan" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`${styles.contactLink} ${styles.hideMobile}`}
+            >
               <MapPin size={14} /> {dict.nav.yerevanHQ}
-            </span>
+            </a>
           </div>
           <div className={styles.rightSide}>
             <div className={styles.langSwitcher}>
