@@ -221,15 +221,15 @@ export default function Header({ lang, dict }: HeaderProps) {
                   {item.label}
                 </Link>
                 {item.mega && (
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', paddingLeft: '12px' }}>
-                    {item.mega.slice(0, 6).map((sub, subIdx) => (
-                      <Link
-                        key={subIdx}
-                        href={sub.href}
-                        style={{ fontSize: '13px', color: 'var(--text-body)', fontWeight: 500 }}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '24px' }}>
+                    {item.mega.map((sub, subIdx) => (
+                      <Link 
+                        key={subIdx} 
+                        href={sub.href} 
+                        className={styles.navLink}
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        {sub.label}
+                        {sub.title}
                       </Link>
                     ))}
                   </div>
