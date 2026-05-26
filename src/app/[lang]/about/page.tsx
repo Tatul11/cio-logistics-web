@@ -428,8 +428,8 @@ export default async function AboutPage(props: AboutPageProps) {
         </div>
         <div className={styles.desktopImage}>
           <img 
-            src="https://images.unsplash.com/photo-1521791136368-1a86cd2743c5?q=80&w=1200&auto=format&fit=crop" 
-            alt="CIO Logistics Team Collaboration" 
+            src="https://ciologistics.com/wp-content/uploads/2024/02/357492506_262947136338736_9028766854490386974_n-1170x694.jpg" 
+            alt="CIO Logistics Team" 
           />
         </div>
       </section>
