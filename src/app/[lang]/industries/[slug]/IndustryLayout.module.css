@@ -2,7 +2,7 @@
   position: relative;
   background: linear-gradient(135deg, var(--cio-navy) 0%, #1a2a3a 100%);
   color: var(--bg-white);
-  padding: 120px 20px 100px;
+  padding: 180px 20px 140px;
   background-image: url('https://ciologistics.com/wp-content/uploads/2024/03/hero-bg-scaled.webp');
   background-size: cover;
   background-position: center;
@@ -23,10 +23,19 @@
 }
 
 .heroTitle {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0;
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 20px 0;
   color: var(--bg-white);
+  line-height: 1.2;
+}
+
+.heroIntro {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0;
 }
 
 .pageContainer {

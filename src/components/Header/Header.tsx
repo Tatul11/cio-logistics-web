@@ -71,10 +71,10 @@ export default function Header({ lang, dict }: HeaderProps) {
       label: dict.nav.industries,
       href: `/${lang}/industries`,
       mega: [
-        { title: dict.industries.ecommerce, desc: "B2C & B2B fulfillment", href: `/${lang}/industries/ecommerce`, icon: <ShoppingCart size={20} /> },
+        { title: dict.industries.ecommerce, desc: "B2C & B2B fulfillment", href: `/${lang}/industries/e-commerce`, icon: <ShoppingCart size={20} /> },
         { title: dict.industries.pharma, desc: "Temperature-controlled transit", href: `/${lang}/industries/pharmaceutical`, icon: <Activity size={20} /> },
         { title: dict.industries.auto, desc: "Parts & vehicle transport", href: `/${lang}/industries/automotive`, icon: <Car size={20} /> },
-        { title: dict.industries.heavy, desc: "Heavy machinery logistics", href: `/${lang}/industries/industrial`, icon: <Factory size={20} /> },
+        { title: dict.industries.heavy, desc: "Heavy machinery logistics", href: `/${lang}/industries/heavy-machinery`, icon: <Factory size={20} /> },
         { title: dict.industries.food, desc: "Perishable goods handling", href: `/${lang}/industries/food-perishables`, icon: <Coffee size={20} /> },
         { title: dict.industries.chemical, desc: "Specialized material transport", href: `/${lang}/industries/chemical`, icon: <FlaskConical size={20} /> },
         { title: dict.industries.construction, desc: "Building supply chains", href: `/${lang}/industries/construction`, icon: <HardHat size={20} /> },

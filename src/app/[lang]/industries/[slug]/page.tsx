@@ -41,6 +41,7 @@ export default async function IndustryPage(props: IndustryPageProps) {
         <div className={styles.heroOverlay}></div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>{industryData.title}</h1>
+          <p className={styles.heroIntro}>{industryData.intro1}</p>
         </div>
       </section>
 
@@ -49,7 +50,6 @@ export default async function IndustryPage(props: IndustryPageProps) {
         
         {/* LEFT: Article Content */}
         <article className={styles.article}>
-          <p>{industryData.intro1}</p>
           
           <div className={styles.ctaWrap}>
             <Link href={`/${lang}/quote`} className="btn btn-primary" style={{ display: 'inline-flex', padding: '12px 24px' }}>
