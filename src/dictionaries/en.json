@@ -125,6 +125,128 @@
     "electronics": "Electronics",
     "electronicsDesc": "High-value secure"
   },
+  "industryDetails": {
+    "e-commerce": {
+      "title": "Transportation Logistics For Online Stores",
+      "intro1": "Transportation logistics plays a key role in the success of online stores, especially with the steadily growing e-commerce market. A reliable logistics partner, such as CIO Logistics, offers not just the delivery of goods, but also creates a competitive advantage for the business.",
+      "intro2": "Based on the experience of CIO Logistics, a leading company in seamless fulfillment solutions, the article illustrates how logistics can fully satisfy the requirements of e-commerce. With a diverse fleet of vehicles, CIO Logistics focuses heavily on fast and safe delivery of small and medium parcels.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/ecommerce-warehouse.webp",
+      "benefitsTitle": "The key benefits of working with CIO Logistics include:",
+      "benefits": [
+        "Supply chain efficiency: We optimize routing and operations, reducing delivery time to a minimum.",
+        "Risk management: Professional handling minimizes potential losses and damages.",
+        "Technological excellence: Live GPS tracking and API integrations guarantee full transparency.",
+        "Cost optimization: Leveraging volume networks to ensure competitive shipping rates.",
+        "Scalability: Easily handle peak season volumes and sudden spikes in demand."
+      ],
+      "conclusion": "Constant striving to improve service has already made CIO Logistics a reliable partner for many online stores and major trading platforms, who entrust us with the logistics of their shipments."
+    },
+    "pharmaceutical": {
+      "title": "Temperature-Controlled Pharmaceutical Logistics",
+      "intro1": "The pharmaceutical industry demands the highest level of precision, security, and compliance. Transporting life-saving medications, vaccines, and medical devices requires an unbroken cold chain and absolute adherence to strict GDP guidelines.",
+      "intro2": "CIO Logistics provides specialized medical transport solutions equipped with real-time temperature monitoring and dedicated security protocols. Our fleet and warehousing facilities are fully certified to handle delicate pharma cargo across international borders without compromising efficacy.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/pharma-logistics.webp",
+      "benefitsTitle": "Why top healthcare providers trust CIO Logistics:",
+      "benefits": [
+        "Unbroken Cold Chain: Active and passive temperature control ranging from -20°C to +25°C.",
+        "Full Compliance: Strict adherence to GDP, GMP, and global healthcare regulations.",
+        "Real-Time Monitoring: 24/7 visibility on location, temperature, and humidity metrics.",
+        "Security: Tamper-evident protocols and escorted transit for high-value medications.",
+        "Priority Customs Clearance: Fast-track borders to prevent delays on life-saving goods."
+      ],
+      "conclusion": "We understand that in pharmaceutical logistics, timing and temperature are quite literally matters of life and death. Our dedicated healthcare division ensures your cargo is treated with the utmost care."
+    },
+    "automotive": {
+      "title": "Just-In-Time Automotive Supply Chain Solutions",
+      "intro1": "The automotive manufacturing industry operates on extremely tight schedules. A single delayed component can halt an entire production line, costing millions. Precision and reliability are non-negotiable.",
+      "intro2": "CIO Logistics excels in Just-In-Time (JIT) and Just-In-Sequence (JIS) deliveries for OEMs, Tier 1, and Tier 2 suppliers. Whether it is shipping complete vehicles (RoRo), oversized stamping dies, or critical microchips, we engineer robust supply chain flows.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/auto-logistics.webp",
+      "benefitsTitle": "Our automotive logistics capabilities include:",
+      "benefits": [
+        "Just-In-Time (JIT): Synchronized deliveries to keep production lines running lean.",
+        "Finished Vehicles: Specialized auto-carriers for safe transport of finished cars.",
+        "Spare Parts Distribution: Rapid aftermarket fulfillment and reverse logistics.",
+        "Emergency Freight: 24/7 dedicated hot-shot services and chartered flights for critical shortages.",
+        "Visibility: End-to-end component tracking integrated directly with your ERP systems."
+      ],
+      "conclusion": "From the assembly line to the dealership showroom, CIO Logistics drives your automotive supply chain forward with speed and unmatched precision."
+    },
+    "heavy-machinery": {
+      "title": "Project Cargo & Heavy Machinery Transport",
+      "intro1": "Moving oversized, out-of-gauge, and incredibly heavy industrial equipment requires meticulous planning, engineering expertise, and specialized transportation assets.",
+      "intro2": "CIO Logistics is an industry leader in Project Cargo. We handle everything from factory relocations and mining equipment to wind turbine blades and massive transformers. Our team conducts detailed route surveys, secures permits, and manages specialized lifting operations.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/heavy-machinery.webp",
+      "benefitsTitle": "Comprehensive heavy lift services:",
+      "benefits": [
+        "Route Surveys: Extensive road and bridge load capacity analysis prior to transit.",
+        "Specialized Fleet: Access to multi-axle trailers, lowboys, and heavy-duty flatbeds.",
+        "Permits & Escorts: Complete management of police escorts and oversized transit permits.",
+        "Lifting & Rigging: Expert crane operations and heavy lifting engineering at origin and destination.",
+        "Multimodal Project Management: Seamless transitions from ocean breakbulk to inland road transport."
+      ],
+      "conclusion": "No matter the size, weight, or complexity of your cargo, our heavy lift specialists have the engineering know-how to deliver it safely to any site."
+    },
+    "food-perishables": {
+      "title": "Fresh & Frozen Perishables Logistics",
+      "intro1": "Transporting food and perishable agricultural products requires speed and a pristine, uninterrupted cold chain to maintain freshness, extend shelf life, and prevent spoilage.",
+      "intro2": "CIO Logistics offers end-to-end refrigerated transport solutions for fresh produce, frozen meats, dairy, and beverages. Our modern reefer fleet ensures exact climate control, while our rapid customs processing prevents border delays.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/food-logistics.webp",
+      "benefitsTitle": "Our perishables logistics advantages:",
+      "benefits": [
+        "Reefer Fleet: State-of-the-art refrigerated containers and trailers.",
+        "Multi-Temperature: Dual-zone trailers for transporting frozen and chilled goods simultaneously.",
+        "Hygiene Standards: Strict sanitation protocols compliant with HACCP and global food safety standards.",
+        "Fast-Track Customs: Specialized handling for phytosanitary and veterinary border inspections.",
+        "Traceability: Farm-to-fork tracking ensures complete supply chain transparency."
+      ],
+      "conclusion": "We preserve the quality and integrity of your food products from the moment they leave the farm until they reach the supermarket shelf."
+    },
+    "chemical": {
+      "title": "Safe & Compliant Chemical Transportation",
+      "intro1": "The chemical industry demands logistics partners who prioritize safety, environmental protection, and strict regulatory compliance. Transporting hazardous materials requires certified expertise.",
+      "intro2": "CIO Logistics is fully certified to transport a wide range of chemical products, including flammable, corrosive, and toxic materials (ADR/IMDG/DGR). Our drivers and operators undergo rigorous, continuous safety training.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/chemical-logistics.webp",
+      "benefitsTitle": "Secure chemical logistics features:",
+      "benefits": [
+        "ADR Certified: Fully licensed vehicles and drivers for hazardous goods transport.",
+        "Specialized Equipment: ISO tanks, flexitanks, and robust containment trailers.",
+        "Safety Protocols: 24/7 emergency response readiness and dedicated safety advisors.",
+        "Compliance: Expert handling of MSDS documentation and international transport regulations.",
+        "Temperature Control: Heated and cooled transport for temperature-sensitive chemical compounds."
+      ],
+      "conclusion": "Safety is our absolute highest priority. We ensure your chemical supply chain operates securely, responsibly, and without incident."
+    },
+    "construction": {
+      "title": "Logistics for the Construction Industry",
+      "intro1": "Construction projects run on strict deadlines. Delivering raw materials, structural components, and heavy equipment to job sites exactly when needed is critical to keeping the project on budget.",
+      "intro2": "CIO Logistics supports large-scale infrastructure and commercial construction projects with robust supply chain solutions. We manage the flow of bulk materials, steel structures, and heavy earth-moving equipment directly to active construction sites.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/construction-logistics.webp",
+      "benefitsTitle": "How we support construction projects:",
+      "benefits": [
+        "Site Deliveries: Coordinated delivery schedules to congested or remote job sites.",
+        "Bulk Transport: Efficient hauling of aggregates, cement, and raw building materials.",
+        "Equipment Moves: Safe transport of cranes, excavators, and bulldozers.",
+        "Staging & Warehousing: Off-site storage of materials to prevent job-site clutter.",
+        "Dedicated Project Managers: A single point of contact coordinating all logistics phases."
+      ],
+      "conclusion": "We build strong logistical foundations so you can focus on building everything else. Your materials arrive precisely when the crane is ready for them."
+    },
+    "electronics": {
+      "title": "High-Tech & Electronics Logistics",
+      "intro1": "Consumer electronics, semiconductors, and high-tech components are high-value, fragile, and prime targets for theft. They require a logistics partner who understands absolute security and gentle handling.",
+      "intro2": "CIO Logistics provides highly secure, end-to-end transport for the technology sector. From raw component sourcing in Asia to final product distribution in Europe, we deploy advanced security measures and air-ride suspension vehicles.",
+      "image": "https://ciologistics.com/wp-content/uploads/2024/03/electronics-logistics.webp",
+      "benefitsTitle": "Secure high-tech logistics solutions:",
+      "benefits": [
+        "Maximum Security: GPS-tracked vehicles, team drivers, and geo-fenced transit routes.",
+        "Damage Prevention: Air-ride suspension and specialized packaging to protect fragile tech.",
+        "Speed to Market: Express air freight and priority road freight for product launches.",
+        "Reverse Logistics: Efficient handling of returns, repairs, and electronic waste recycling.",
+        "White Glove Service: Inside delivery, uncrating, and debris removal for sensitive equipment."
+      ],
+      "conclusion": "We protect your technological innovations with impenetrable security protocols and lightning-fast transit times."
+    }
+  },
   "process": {
     "eyebrow": "Simple Process",
     "title": "From Request to Delivery — How We Work",

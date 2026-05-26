@@ -1,0 +1,186 @@
+.hero {
+  position: relative;
+  background-color: var(--cio-navy);
+  color: var(--bg-white);
+  padding: 100px 20px 80px;
+  background-image: url('https://ciologistics.com/wp-content/uploads/2024/03/hero-bg-scaled.webp');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 4px solid var(--cio-red);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(22, 33, 44, 0.85); /* Dark overlay */
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--bg-white);
+}
+
+.pageContainer {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
+  align-items: start;
+}
+
+/* LEFT COLUMN - ARTICLE */
+.article {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.article p {
+  margin-bottom: 24px;
+}
+
+.articleImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 32px 0;
+  box-shadow: var(--shadow-md);
+}
+
+.benefitsTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cio-navy);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.benefitsList li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.benefitsList li::before {
+  content: "•";
+  color: var(--cio-red);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.ctaWrap {
+  margin: 40px 0;
+}
+
+/* RIGHT COLUMN - SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Sidebar Nav Widget */
+.widget {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.widgetHeader {
+  background: var(--cio-red);
+  color: var(--bg-white);
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.widgetList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widgetList li {
+  border-bottom: 1px solid var(--border);
+}
+
+.widgetList li:last-child {
+  border-bottom: none;
+}
+
+.widgetLink {
+  display: block;
+  padding: 14px 20px;
+  color: var(--cio-navy);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.widgetLink:hover, .widgetLinkActive {
+  background: var(--bg-gray);
+  color: var(--cio-red);
+  padding-left: 24px;
+}
+
+/* Contact Widget */
+.contactWidget {
+  background: #E8ECEF;
+  padding: 30px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.contactWidget h3 {
+  font-size: 20px;
+  color: var(--cio-navy);
+  margin-bottom: 12px;
+}
+
+.contactWidget p {
+  font-size: 14px;
+  color: var(--text-body);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.contactIcon {
+  width: 48px;
+  height: 48px;
+  background: var(--cio-red);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+@media (max-width: 991px) {
+  .pageContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
