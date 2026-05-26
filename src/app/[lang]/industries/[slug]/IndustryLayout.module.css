@@ -1,12 +1,11 @@
 .hero {
   position: relative;
-  background-color: var(--cio-navy);
+  background: linear-gradient(135deg, var(--cio-navy) 0%, #1a2a3a 100%);
   color: var(--bg-white);
-  padding: 100px 20px 80px;
+  padding: 120px 20px 100px;
   background-image: url('https://ciologistics.com/wp-content/uploads/2024/03/hero-bg-scaled.webp');
   background-size: cover;
   background-position: center;
-  border-bottom: 4px solid var(--cio-red);
 }
 
 .heroOverlay {
@@ -60,32 +59,43 @@
 }
 
 .benefitsTitle {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--cio-navy);
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 48px;
+  margin-bottom: 24px;
 }
 
 .benefitsList {
   list-style: none;
   padding: 0;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .benefitsList li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-white);
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.benefitsList li::before {
-  content: "•";
+.benefitsList li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.checkIcon {
   color: var(--cio-red);
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  top: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .ctaWrap {
@@ -102,80 +112,103 @@
 /* Sidebar Nav Widget */
 .widget {
   background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0,0,0,0.02);
   overflow: hidden;
+  padding: 12px;
 }
 
 .widgetHeader {
-  background: var(--cio-red);
-  color: var(--bg-white);
-  padding: 16px 20px;
-  font-weight: 700;
-  font-size: 16px;
+  color: var(--cio-navy);
+  padding: 16px 12px 20px;
+  font-weight: 800;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .widgetList {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.widgetList li {
-  border-bottom: 1px solid var(--border);
-}
-
-.widgetList li:last-child {
-  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .widgetLink {
   display: block;
-  padding: 14px 20px;
-  color: var(--cio-navy);
+  padding: 14px 16px;
+  color: var(--text-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
+  border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  border-left: 3px solid transparent;
 }
 
-.widgetLink:hover, .widgetLinkActive {
+.widgetLink:hover {
   background: var(--bg-gray);
+  color: var(--cio-navy);
+}
+
+.widgetLinkActive {
+  background: rgba(138, 21, 33, 0.05);
   color: var(--cio-red);
-  padding-left: 24px;
+  border-left-color: var(--cio-red);
 }
 
 /* Contact Widget */
 .contactWidget {
-  background: #E8ECEF;
-  padding: 30px;
-  border-radius: var(--radius-sm);
+  background: var(--cio-navy);
+  padding: 40px 30px;
+  border-radius: var(--radius-lg);
   text-align: center;
+  color: var(--bg-white);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactWidget::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(138,21,33,0.4) 0%, rgba(0,0,0,0) 70%);
+  transform: translate(30%, -30%);
+  border-radius: 50%;
 }
 
 .contactWidget h3 {
-  font-size: 20px;
-  color: var(--cio-navy);
-  margin-bottom: 12px;
+  font-size: 22px;
+  color: var(--bg-white);
+  margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .contactWidget p {
   font-size: 14px;
-  color: var(--text-body);
-  margin-bottom: 24px;
-  line-height: 1.5;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+  line-height: 1.6;
 }
 
 .contactIcon {
-  width: 48px;
-  height: 48px;
-  background: var(--cio-red);
-  color: white;
+  width: 64px;
+  height: 64px;
+  background: rgba(138, 21, 33, 0.2);
+  color: var(--cio-red);
+  border: 1px solid rgba(138, 21, 33, 0.5);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
+  margin: 0 auto 24px;
 }
 
 @media (max-width: 991px) {

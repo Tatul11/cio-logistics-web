@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Phone, FileText } from 'lucide-react';
+import { Phone, FileText, CheckCircle2 } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './IndustryLayout.module.css';
 import Partners from '@/components/Partners/Partners';
@@ -73,13 +73,16 @@ export default async function IndustryPage(props: IndustryPageProps) {
               const parts = benefit.split(':');
               return (
                 <li key={idx}>
-                  {parts.length > 1 ? (
-                    <>
-                      <strong>{parts[0]}:</strong>{parts.slice(1).join(':')}
-                    </>
-                  ) : (
-                    benefit
-                  )}
+                  <CheckCircle2 size={20} className={styles.checkIcon} />
+                  <div>
+                    {parts.length > 1 ? (
+                      <>
+                        <strong>{parts[0]}:</strong>{parts.slice(1).join(':')}
+                      </>
+                    ) : (
+                      benefit
+                    )}
+                  </div>
                 </li>
               );
             })}
