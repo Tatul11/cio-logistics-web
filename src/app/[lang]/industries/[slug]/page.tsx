@@ -90,6 +90,19 @@ export default async function IndustryPage(props: IndustryPageProps) {
             })}
           </ul>
 
+          {industryData.products && industryData.products.length > 0 && (
+            <div className={styles.productsWrap}>
+              <h3>{industryData.productsTitle || "Commonly Transported Products"}</h3>
+              <div className={styles.productsGrid}>
+                {industryData.products.map((product: string, idx: number) => (
+                  <span key={idx} className={styles.productTag}>
+                    {product}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           <p>{industryData.conclusion}</p>
 
           <div className={styles.ctaWrap}>

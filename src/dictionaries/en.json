@@ -139,6 +139,8 @@
         "Cost optimization: Leveraging volume networks to ensure competitive shipping rates.",
         "Scalability: Easily handle peak season volumes and sudden spikes in demand."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Consumer goods", "Clothing & footwear", "Household items", "Cosmetics", "Small electronics & accessories", "Retailer replenishment shipments", "Marketplace & online retail inventory", "Fashion collections"],
       "conclusion": "Constant striving to improve service has already made CIO Logistics a reliable partner for many online stores and major trading platforms, who entrust us with the logistics of their shipments."
     },
     "pharmaceutical": {
@@ -154,6 +156,8 @@
         "Security: Tamper-evident protocols and escorted transit for high-value medications.",
         "Priority Customs Clearance: Fast-track borders to prevent delays on life-saving goods."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Medicines & OTC products", "Medical supplies & devices", "Healthcare products & inventory", "Temperature-controlled pharmaceutical distribution", "Hospital supply deliveries", "Diagnostic kits", "Large pharmaceutical imports", "Medical consumables"],
       "conclusion": "We understand that in pharmaceutical logistics, timing and temperature are quite literally matters of life and death. Our dedicated healthcare division ensures your cargo is treated with the utmost care."
     },
     "automotive": {
@@ -169,6 +173,8 @@
         "Emergency Freight: 24/7 dedicated hot-shot services and chartered flights for critical shortages.",
         "Visibility: End-to-end component tracking integrated directly with your ERP systems."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Spare parts & components", "Filters & brake pads", "Batteries (subject to DG classification)", "Lubricants", "Accessories", "Tires", "Vehicle components"],
       "conclusion": "From the assembly line to the dealership showroom, CIO Logistics drives your automotive supply chain forward with speed and unmatched precision."
     },
     "heavy-machinery": {
@@ -184,6 +190,8 @@
         "Lifting & Rigging: Expert crane operations and heavy lifting engineering at origin and destination.",
         "Multimodal Project Management: Seamless transitions from ocean breakbulk to inland road transport."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Small machinery parts & tools", "Hydraulic & industrial components", "Industrial equipment & generators", "Agricultural & mining machinery", "Machine spare parts", "Construction machinery & production lines", "Factory equipment"],
       "conclusion": "No matter the size, weight, or complexity of your cargo, our heavy lift specialists have the engineering know-how to deliver it safely to any site."
     },
     "food-perishables": {
@@ -199,6 +207,8 @@
         "Fast-Track Customs: Specialized handling for phytosanitary and veterinary border inspections.",
         "Traceability: Farm-to-fork tracking ensures complete supply chain transparency."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Packaged food & canned goods", "Beverages & confectionery", "Meat, fruits, & vegetables", "Frozen foods & products", "Specialty food products & ingredients", "Dry food products", "Bulk food imports", "Agricultural products"],
       "conclusion": "We preserve the quality and integrity of your food products from the moment they leave the farm until they reach the supermarket shelf."
     },
     "chemical": {
@@ -214,6 +224,8 @@
         "Compliance: Expert handling of MSDS documentation and international transport regulations.",
         "Temperature Control: Heated and cooled transport for temperature-sensitive chemical compounds."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Industrial & bulk chemicals", "Detergents & cleaning agents", "Paints & adhesives (subject to DG classification)", "Industrial raw materials", "Packaging & specialty chemicals", "Laboratory chemicals & additives", "Polymers & resins", "Raw materials for manufacturing"],
       "conclusion": "Safety is our absolute highest priority. We ensure your chemical supply chain operates securely, responsibly, and without incident."
     },
     "construction": {
@@ -229,6 +241,8 @@
         "Staging & Warehousing: Off-site storage of materials to prevent job-site clutter.",
         "Dedicated Project Managers: A single point of contact coordinating all logistics phases."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Hardware & hand tools", "Fittings & plumbing supplies", "Electrical & lighting equipment", "Cement & insulation", "Steel products & pipes", "Construction materials", "Specialized building materials & fixtures", "Tiles & sanitary ware", "Large construction material imports"],
       "conclusion": "We build strong logistical foundations so you can focus on building everything else. Your materials arrive precisely when the crane is ready for them."
     },
     "electronics": {
@@ -244,6 +258,8 @@
         "Reverse Logistics: Efficient handling of returns, repairs, and electronic waste recycling.",
         "White Glove Service: Inside delivery, uncrating, and debris removal for sensitive equipment."
       ],
+      "productsTitle": "Commonly Transported Products",
+      "products": ["Mobile phones & computers", "Networking & telecom equipment", "Accessories", "Consumer electronics & appliances", "Electronic components & PC parts", "Full shipments of electronics", "Telecommunications equipment"],
       "conclusion": "We protect your technological innovations with impenetrable security protocols and lightning-fast transit times."
     }
   },
