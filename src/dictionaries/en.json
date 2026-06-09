@@ -576,6 +576,18 @@
       ]
     }
   },
+  "homeAbout": {
+    "eyebrow": "- More about us -",
+    "title": "CIO Logistics Company Will Deliver Your Goods!",
+    "subtitle": "We ensure that our customers receive the most secure and on-time transportation of any type of goods.",
+    "doc1": "Trucking Permit",
+    "doc2": "DOT Number",
+    "doc3": "Unified Carrier Registration",
+    "p1": "CIO Logistics Company expands targeted, complete logistics services aimed to meet each client's special set of challenges, products, and systems since 2016.",
+    "p2": "Many companies with diversified and complicated transportation needs trust our advanced technologies in providing comprehensive, cost-effective logistics strategies.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "We always find the most suitable and cost-effective way of transporting your goods around the globe. We strive to be your reliable partners."
+  },
   "footer": {
     "desc": "Your trusted international freight forwarding partner since 2016. Moving 120,000+ tons annually across 150+ countries with FIATA, IATA & ISO 9001 certifications.",
     "stayUpdated": "Stay Updated",

@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/dictionary';
 import InteractiveMap from '@/components/InteractiveMap/InteractiveMap';
 import TrackingWidget from '@/components/TrackingWidget/TrackingWidget';
 import Calculator from '@/components/Calculator/Calculator';
+import styles from './HomeAbout.module.css';
 import Partners from '@/components/Partners/Partners';
 import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
 import { 
@@ -51,6 +52,8 @@ export default async function LocalizedHomePage(props: PageProps) {
   const rawLang = params.lang || 'en';
   const lang = (rawLang === 'ru' || rawLang === 'hy' ? rawLang : 'en') as 'en' | 'ru' | 'hy';
   const dict = await getDictionary(lang);
+  const enDict = await getDictionary('en');
+  const homeAbout = (dict as any).homeAbout || (enDict as any).homeAbout;
 
   // SEO Organization & FAQ JSON-LD Schema
   const jsonLd = {
@@ -207,6 +210,63 @@ export default async function LocalizedHomePage(props: PageProps) {
             <Link href={`/${lang}/contact`} className="btn" style={{ background: '#fff', color: 'var(--cio-orange)', padding: '8px 16px', fontSize: '13px', border: 'none' }}>
               {dict.quickTools.talkToExpert}
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className={styles.section}>
+        <div className={styles.container}>
+          
+          {/* Left Side: Image Map */}
+          <div className={styles.imageWrap}>
+            {/* Using a faded world map SVG pattern or image if available, fallback to radial gradient */}
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
+              alt="World Map Background" 
+              className={styles.worldMapBg} 
+              style={{ filter: 'brightness(0) saturate(100%) invert(29%) sepia(85%) saturate(3015%) hue-rotate(345deg) brightness(97%) contrast(97%)' }}
+            />
+            {/* Real container image (using placeholder from their uploads) */}
+            <img 
+              src="https://ciologistics.com/wp-content/uploads/2024/02/357492506_262947136338736_9028766854490386974_n-1170x694.jpg" 
+              alt="Cargo Containers" 
+              className={styles.mainImage} 
+            />
+          </div>
+
+          {/* Right Side: Content */}
+          <div className={styles.content}>
+            <div className={styles.eyebrow}>{homeAbout.eyebrow}</div>
+            <h2 className={styles.title}>{homeAbout.title}</h2>
+            <p className={styles.subtitle}>{homeAbout.subtitle}</p>
+
+            <div className={styles.docsList}>
+              <div className={styles.docLink}>
+                <FileText size={16} />
+                {homeAbout.doc1}
+              </div>
+              <div className={styles.docLink}>
+                <FileText size={16} />
+                {homeAbout.doc2}
+              </div>
+              <div className={styles.docLink}>
+                <FileText size={16} />
+                {homeAbout.doc3}
+              </div>
+            </div>
+
+            <p className={styles.paragraph}>{homeAbout.p1}</p>
+            <p className={styles.paragraph}>{homeAbout.p2}</p>
+
+            <div className={styles.missionBlock}>
+              <div className={styles.missionSquare}></div>
+              <div>
+                <h3 className={styles.missionTitle}>{homeAbout.missionTitle}</h3>
+                <p className={styles.missionDesc}>{homeAbout.missionDesc}</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
