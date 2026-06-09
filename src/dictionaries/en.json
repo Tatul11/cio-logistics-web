@@ -526,6 +526,56 @@
     "q8": "Do you provide warehousing in Armenia?",
     "a8": "Yes, we operate bonded and general warehouses in Yerevan with temperature-controlled zones, pick & pack, and inventory management for e-commerce clients."
   },
+  "servicesLanding": {
+    "heroEyebrow": "- Our services -",
+    "heroTitle": "Our Transportation Services",
+    "heroSubtitle": "We deliver your goods on time, anywhere in the world.",
+    "requestService": "Request a Service",
+    "whatWeOffer": {
+      "eyebrow": "- Features -",
+      "title": "What Do We Offer?",
+      "intro1": "Our company offers the widest range of logistics services. We will help to transport any goods anywhere in the world.",
+      "intro2": "Our logistics company does everything to ensure that you receive high-quality transportation services. We deliver goods to more than 100 countries around the world.",
+      "intro3": "By contacting our specialists, you can get any necessary services for cargo transportation at a favorable price. Our employees work to ensure that you are always satisfied with the result.",
+      "trackingTitle": "Tracking",
+      "trackingDesc": "Automatic information about the location.",
+      "installmentTitle": "Installment",
+      "installmentDesc": "Installment system for regular customers.",
+      "insuranceTitle": "Insurance",
+      "insuranceDesc": "Cargo insurance on preferential terms.",
+      "legalTitle": "Legal Support",
+      "legalDesc": "All required documents are always in order.",
+      "bottomText1": "Using our services, you will always know where your cargo is. Thanks to online cargo tracking, you will know exactly where the transport is and when it will arrive at its destination.",
+      "bottomText2": "All cargoes in our company are 100% insured thanks to our reliable insurance partners. Before transporting goods, we conclude an agreement with the client, which specifies all the conditions for cooperation.",
+      "bottomText3": "* If you have any questions about our services, you can contact support representatives. Our managers are always ready to help you."
+    },
+    "typesOfCargo": {
+      "eyebrow": "- What we deliver -",
+      "title": "Types of Cargo",
+      "subtitle": "Learn more about cargo types we transport.",
+      "intro": "Our company offers transportation of a wide variety of cargo types. In particular, we can transport goods for which an appropriate license is required. Our logistics company has received permits for the transportation of various goods. Familiarize yourself with these documents below.",
+      "doc1": "Trucking Permit",
+      "doc2": "DOT Number",
+      "doc3": "Unified Carrier Registration",
+      "bulletsIntro": "Our logistics company transports a wide variety of goods as quickly and reliably as possible. We have everything necessary for such operations and work in accordance with all legal requirements. We have:",
+      "bullets": [
+        "All types of transport: trains, planes, ships and trucks;",
+        "Vehicles equipped for any type of cargo;",
+        "Innovative loading terminals in 100+ countries;",
+        "Highly qualified personnel with vast experience;",
+        "Handling and order fulfillment with WMS;",
+        "Nationwide OTR truckload and LTL coverage;",
+        "Cross-docking opportunities."
+      ],
+      "cargoTypes": [
+        "Perishable goods",
+        "Bulk and loading cargoes",
+        "General or artificial cargoes",
+        "Gas-based fuels",
+        "Chemical, hazardous, and toxic products"
+      ]
+    }
+  },
   "footer": {
     "desc": "Your trusted international freight forwarding partner since 2016. Moving 120,000+ tons annually across 150+ countries with FIATA, IATA & ISO 9001 certifications.",
     "stayUpdated": "Stay Updated",
