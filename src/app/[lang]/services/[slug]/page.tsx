@@ -152,9 +152,9 @@ export default async function ServicePage(props: ServicePageProps) {
             <div className={styles.contactWidgetIcon}>
               <Phone size={24} />
             </div>
-            <h4 className={styles.contactWidgetTitle}>{dict.nav?.supportTitle || "Need Assistance?"}</h4>
+            <h4 className={styles.contactWidgetTitle}>{(dict.nav as any)?.supportTitle || "Need Assistance?"}</h4>
             <p className={styles.contactWidgetText}>
-              {dict.nav?.supportText || "Our logistics experts are available 24/7 to solve your transport challenges."}
+              {(dict.nav as any)?.supportText || "Our logistics experts are available 24/7 to solve your transport challenges."}
             </p>
             <a href="tel:+37495211121" className={styles.contactWidgetPhone}>
               +(374) 95 211 121

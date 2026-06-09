@@ -18,17 +18,27 @@ export default async function IndustryPage(props: IndustryPageProps) {
   const rawLang = params.lang || 'en';
   const lang = (rawLang === 'ru' || rawLang === 'hy' ? rawLang : 'en') as 'en' | 'ru' | 'hy';
   const dict = await getDictionary(lang);
+  const enDict = await getDictionary('en');
 
   // Fallback to English dictionary if the current language doesn't have the industryDetails yet
   let currentDict: any = dict;
   if (!currentDict.industryDetails) {
-    currentDict = await getDictionary('en');
+    currentDict = enDict;
   }
 
   const industryData = currentDict.industryDetails?.[params.slug as keyof typeof currentDict.industryDetails];
 
   if (!industryData) {
     notFound();
+  }
+
+  // Fallback products array to English if missing in current language
+  if (!industryData.products) {
+    const enIndustryData = (enDict as any).industryDetails?.[params.slug as keyof typeof currentDict.industryDetails];
+    if (enIndustryData && enIndustryData.products) {
+      industryData.products = enIndustryData.products;
+      industryData.productsTitle = enIndustryData.productsTitle;
+    }
   }
 
   // Generate list of all industries for the sidebar navigation
