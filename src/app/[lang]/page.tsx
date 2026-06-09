@@ -214,6 +214,9 @@ export default async function LocalizedHomePage(props: PageProps) {
         </div>
       </section>
 
+      {/* Partners Section (They Trust Us) */}
+      <Partners dict={dict} />
+
       {/* About Us Section */}
       <section className={styles.section}>
         <div className={styles.container}>
@@ -270,9 +273,6 @@ export default async function LocalizedHomePage(props: PageProps) {
           </div>
         </div>
       </section>
-
-      {/* Partners Section */}
-      <Partners dict={dict} />
 
       {/* Services Section */}
       <section className="section section-gray" id="services">
