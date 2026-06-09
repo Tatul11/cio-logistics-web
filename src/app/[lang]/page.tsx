@@ -126,7 +126,7 @@ export default async function LocalizedHomePage(props: PageProps) {
         style={{ 
           overflow: 'hidden', 
           padding: '90px 0 72px',
-          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp")',
+          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("/images/chuttersnap-9cCeS9Sg6nU-unsplash.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative'
@@ -232,7 +232,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             />
             {/* Real container image (using placeholder from their uploads) */}
             <img 
-              src="https://ciologistics.com/wp-content/uploads/2024/02/357492506_262947136338736_9028766854490386974_n-1170x694.jpg" 
+              src="/images/chuttersnap-fN603qcEA7g-unsplash.webp" 
               alt="Cargo Containers" 
               className={styles.mainImage} 
             />
@@ -287,7 +287,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Air Freight Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%85%D5%A4%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.air} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/chuttersnap-kyCNGGKCvyw-unsplash.webp" alt={dict.services.air} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <Plane size={24} />
                 </div>
@@ -306,7 +306,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Sea Freight Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AE%D5%B8%D5%BE%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.sea} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/elevate-dI-aXC7DWpQ-unsplash.webp" alt={dict.services.sea} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <Ship size={24} />
                 </div>
@@ -325,7 +325,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Road Freight Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D6%81%D5%A1%D5%B4%D5%A1%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-min.webp" alt={dict.services.road} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/elias--lYi5Qg0xP0-unsplash.webp" alt={dict.services.road} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <Truck size={24} />
                 </div>
@@ -344,7 +344,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Container/Rail Freight Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%AF%D5%B8%D5%B6%D5%BF%D5%A5%D5%B6%D5%B5%D5%A5%D6%80%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.rail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/frank-mckenna-tjX_sniNzgQ-unsplash.webp" alt={dict.services.rail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <Train size={24} />
                 </div>
@@ -363,7 +363,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Groupage Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/elementor/thumbs/upakovka-gruza-dlya-perevozki-e1712013843901-qm3bb6b6o3gloim4yhenmtwhaxwqglorrmusnixxss.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/john-simmons-XFLk8qZ-6MA-unsplash.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <Package size={24} />
                 </div>
@@ -382,7 +382,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             {/* Heavy & Bulky Card */}
             <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
               <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="https://ciologistics.com/wp-content/uploads/2024/03/%D5%A3%D5%A5%D6%80%D5%AE%D5%A1%D5%BE%D5%A1%D5%AC%D5%A1%D5%B5%D5%AB%D5%B6-min-1.webp" alt={dict.services.heavy} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/marcin-jozwiak-kGoPcmpPT7c-unsplash.webp" alt={dict.services.heavy} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
                   <Weight size={24} />
                 </div>

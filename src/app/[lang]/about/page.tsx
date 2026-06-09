@@ -353,8 +353,8 @@ export default async function AboutPage(props: AboutPageProps) {
 
             <div className={styles.ourHistorySectionImage}>
               <img 
-                src="https://ciologistics.com/wp-content/uploads/elementor/thumbs/420925252_367072809259501_5700568309223114959_n-qmp93xmmimwy1kx8zz7wt0ie4sc59g16f7hsqj0cpk.jpg" 
-                alt="CIO Logistics Yerevan Headquarters Team" 
+                src="/images/bent-van-aeken-0A7YwYhZhWw-unsplash.webp" 
+                alt="CIO Logistics Operations" 
               />
             </div>
 
@@ -428,8 +428,8 @@ export default async function AboutPage(props: AboutPageProps) {
         </div>
         <div className={styles.desktopImage}>
           <img 
-            src="https://ciologistics.com/wp-content/uploads/2024/02/357492506_262947136338736_9028766854490386974_n-1170x694.jpg" 
-            alt="CIO Logistics Team" 
+            src="/images/bernd-dittrich-AA1HmM6FzVE-unsplash.webp" 
+            alt="International Logistics Operations" 
           />
         </div>
       </section>
