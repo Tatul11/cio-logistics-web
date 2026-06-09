@@ -41,13 +41,21 @@
    ========================================= */
 .servicesList {
   background: var(--bg-body);
-  padding: 0;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .serviceCard {
   display: flex;
   align-items: stretch;
   background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .serviceCard:nth-child(even) {
