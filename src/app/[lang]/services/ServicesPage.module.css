@@ -9,8 +9,12 @@
    ========================================= */
 .hero {
   padding: 180px 20px 100px;
-  background-color: var(--bg-gray);
+  background-color: var(--cio-navy);
+  background-size: cover;
+  background-position: center;
+  position: relative;
   text-align: center;
+  color: white;
 }
 
 .heroEyebrow {
@@ -20,20 +24,26 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
 }
 
 .heroTitle {
   font-size: 48px;
   font-weight: 800;
-  color: var(--cio-navy);
+  color: white;
   margin: 0 0 24px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .heroSubtitle {
   font-size: 18px;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================================

@@ -33,7 +33,10 @@ export default async function ServicesPage(props: ServicesPageProps) {
     <div className={styles.wrapper}>
       
       {/* 1. Hero Section */}
-      <section className={styles.hero}>
+      <section 
+        className={styles.hero}
+        style={{ backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.8), rgba(15, 27, 36, 0.8)), url("/images/caleb-ruiter-EmEQ6kK_5P0-unsplash.webp")' }}
+      >
         <div className={styles.heroEyebrow}>{servicesLanding.heroEyebrow}</div>
         <h1 className={styles.heroTitle}>{servicesLanding.heroTitle}</h1>
         <p className={styles.heroSubtitle}>{servicesLanding.heroSubtitle}</p>

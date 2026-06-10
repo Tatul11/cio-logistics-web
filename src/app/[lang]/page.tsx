@@ -126,7 +126,7 @@ export default async function LocalizedHomePage(props: PageProps) {
         style={{ 
           overflow: 'hidden', 
           padding: '90px 0 72px',
-          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("/images/chuttersnap-9cCeS9Sg6nU-unsplash.webp")',
+          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("/images/william-william-NndKt2kF1L4-unsplash.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           position: 'relative'

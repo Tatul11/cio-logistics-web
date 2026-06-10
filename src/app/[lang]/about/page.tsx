@@ -225,7 +225,10 @@ export default async function AboutPage(props: AboutPageProps) {
   return (
     <div className={styles.pageWrapper}>
       {/* 1. team-section-about */}
-      <section className={styles.teamSectionAbout}>
+      <section 
+        className={styles.teamSectionAbout}
+        style={{ backgroundImage: 'linear-gradient(135deg, rgba(15, 27, 36, 0.85) 0%, rgba(23, 41, 54, 0.85) 100%), url("/images/shaah-shahidh--subrrYxv8A-unsplash.webp")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
         <div className="container">
           <div className={styles.teamSectionAboutRow}>
             <div className={styles.teamSectionAboutContent}>

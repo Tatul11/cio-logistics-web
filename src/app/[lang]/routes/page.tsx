@@ -77,17 +77,34 @@ export default async function RoutesPage(props: RoutesPageProps) {
   ];
 
   return (
-    <div style={{ background: 'var(--bg-gray)', padding: '64px 0' }}>
-      <div className="container">
-        
-        {/* Page title */}
-        <div className="section-head" style={{ marginBottom: '56px' }}>
-          <span className="eyebrow">{dict.routes.eyebrow}</span>
-          <h1>International Freight Corridors</h1>
-          <p>
+    <>
+      <section 
+        style={{ 
+          padding: '180px 20px 100px', 
+          backgroundColor: 'var(--cio-navy)',
+          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.8), rgba(15, 27, 36, 0.8)), url("/images/arno-senoner-u2OdNnrksIk-unsplash.webp")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          textAlign: 'center',
+          color: 'white'
+        }}
+      >
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <span style={{ color: 'var(--cio-red)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', display: 'block' }}>
+            {dict.routes.eyebrow}
+          </span>
+          <h1 style={{ fontSize: '48px', fontWeight: 800, margin: '0 0 24px 0' }}>
+            International Freight Corridors
+          </h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.8)', maxWidth: '600px', margin: '0 auto' }}>
             CIO Logistics designs, manages, and operates logistics channels connecting Armenia to global markets. Select a route to see timing, border checkpoints, and transport modes.
           </p>
         </div>
+      </section>
+
+      <div style={{ background: 'var(--bg-gray)', padding: '64px 0' }}>
+        <div className="container">
 
         {/* Map showcase */}
         <div style={{ marginBottom: '64px' }}>
@@ -143,9 +160,9 @@ export default async function RoutesPage(props: RoutesPageProps) {
               </div>
             </div>
           ))}
+          </div>
         </div>
-
       </div>
-    </div>
+    </>
   );
 }

@@ -38,19 +38,37 @@ export default async function QuotePage(props: QuotePageProps) {
   const dict = await getDictionary(lang);
 
   return (
-    <div style={{ background: 'var(--bg-gray)', padding: '64px 0' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '56px', alignItems: 'start' }}>
-        
+    <>
+      <section 
+        style={{ 
+          padding: '160px 20px 80px', 
+          backgroundColor: 'var(--cio-navy)',
+          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.8), rgba(15, 27, 36, 0.8)), url("/images/bernd-dittrich-mXG463mXYGI-unsplash.webp")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          position: 'relative',
+          textAlign: 'center',
+          color: 'white'
+        }}
+      >
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <span style={{ color: 'var(--cio-red)', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', display: 'block' }}>
+            {dict.routes.eyebrow || 'Get a Quote'}
+          </span>
+          <h1 style={{ fontSize: '48px', fontWeight: 800, margin: '0 0 24px 0' }}>
+            Request a Custom Commercial Offer
+          </h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255, 255, 255, 0.8)', maxWidth: '600px', margin: '0 auto' }}>
+            Fill in the parameters below. Our pricing desks will review your cargo dimensions, routing restrictions, and customs codes to build a binding, optimized contract proposal in under 2 hours.
+          </p>
+        </div>
+      </section>
+
+      <div style={{ background: 'var(--bg-gray)', padding: '64px 0' }}>
+        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '56px', alignItems: 'start' }}>
         {/* Left Side Quote Widget wrapper */}
         <div>
           <div style={{ background: '#fff', borderRadius: 'var(--radius-lg)', padding: '40px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-lg)', marginBottom: '32px' }}>
-            <h1 style={{ fontSize: '28px', color: 'var(--cio-navy)', marginBottom: '16px' }}>
-              Request a Custom Commercial Offer
-            </h1>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '32px', fontSize: '15px' }}>
-              Fill in the parameters below. Our pricing desks will review your cargo dimensions, routing restrictions, and customs codes to build a binding, optimized contract proposal in under 2 hours.
-            </p>
-            
             <Calculator lang={lang} dict={dict} />
           </div>
         </div>
@@ -98,5 +116,6 @@ export default async function QuotePage(props: QuotePageProps) {
 
       </div>
     </div>
+    </>
   );
 }
