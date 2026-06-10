@@ -1,6 +1,10 @@
 .section {
   padding: 100px 20px;
   background-color: var(--bg-white);
+  background-image: url("/images/white-black-military-topographic-contour-map-vector-graphic-abstract-background_87538-4604.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container {

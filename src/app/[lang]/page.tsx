@@ -223,13 +223,6 @@ export default async function LocalizedHomePage(props: PageProps) {
           
           {/* Left Side: Image Map */}
           <div className={styles.imageWrap}>
-            {/* Using a faded world map as background element */}
-            <img 
-              src="/images/1734.webp" 
-              alt="World Map Background" 
-              className={styles.worldMapBg} 
-              aria-hidden="true"
-            />
             {/* Real container image (using placeholder from their uploads) */}
             <img 
               src="/images/chuttersnap-fN603qcEA7g-unsplash.webp" 
