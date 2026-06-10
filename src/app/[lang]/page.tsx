@@ -223,12 +223,12 @@ export default async function LocalizedHomePage(props: PageProps) {
           
           {/* Left Side: Image Map */}
           <div className={styles.imageWrap}>
-            {/* Using a faded world map SVG pattern or image if available, fallback to radial gradient */}
+            {/* Using a faded world map as background element */}
             <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
+              src="/images/1734.webp" 
               alt="World Map Background" 
               className={styles.worldMapBg} 
-              style={{ filter: 'brightness(0) saturate(100%) invert(29%) sepia(85%) saturate(3015%) hue-rotate(345deg) brightness(97%) contrast(97%)' }}
+              aria-hidden="true"
             />
             {/* Real container image (using placeholder from their uploads) */}
             <img 
