@@ -144,8 +144,8 @@ export default async function LocalizedHomePage(props: PageProps) {
           pointerEvents: 'none'
         }} />
         
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '44px', alignItems: 'center' }}>
-          {/* Hero Left Content */}
+        <div className="container" style={{ maxWidth: '800px' }}>
+          {/* Hero Content */}
           <div className="animate-fade-in-up">
             <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
               <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
@@ -166,7 +166,7 @@ export default async function LocalizedHomePage(props: PageProps) {
               {dict.hero.title} <span style={{ color: 'var(--cio-orange)' }}>{dict.hero.titleAccent}</span>
             </h1>
             
-            <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', marginBottom: '24px', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', marginBottom: '24px', lineHeight: '1.6', maxWidth: '600px' }}>
               {dict.hero.description}
             </p>
             
@@ -190,11 +190,6 @@ export default async function LocalizedHomePage(props: PageProps) {
                 <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>Europe-Trans</span>
               </div>
             </div>
-          </div>
-          
-          {/* Hero Right Widget - Quote Calculator */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '150ms', maxWidth: '371px', width: '100%', marginLeft: 'auto' }}>
-            <Calculator lang={lang} dict={dict} />
           </div>
         </div>
       </section>
