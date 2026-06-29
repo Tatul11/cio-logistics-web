@@ -5,6 +5,7 @@ import { Phone, FileText, CheckCircle2, ArrowRight, Download, ChevronRight, Shie
 import { getDictionary } from '@/lib/dictionary';
 import styles from './IndustryLayout.module.css';
 import Partners from '@/components/Partners/Partners';
+import OtherIndustries from '@/components/OtherIndustries/OtherIndustries';
 
 interface IndustryPageProps {
   params: Promise<{
@@ -361,6 +362,9 @@ export default async function IndustryPage(props: IndustryPageProps) {
           </Link>
         </div>
       </div>
+
+      {/* OTHER INDUSTRIES SLIDER COMPONENT */}
+      <OtherIndustries currentSlug={params.slug} lang={lang} dict={dict} />
 
       {/* 8. BOTTOM CTA BANNER */}
       <section className={styles.bottomCta}>
