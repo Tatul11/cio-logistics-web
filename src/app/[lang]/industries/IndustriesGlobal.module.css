@@ -1,0 +1,516 @@
+/* ==========================================================================
+   GLOBAL INDUSTRIES PAGE STYLES
+   Matches exact blueprint example layout with CIO brand styling
+   ========================================================================== */
+
+.wrapper {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* 1. HERO SECTION */
+.hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 140px 20px 80px;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 27, 36, 0.92) 0%, rgba(15, 27, 36, 0.75) 100%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroBreadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+}
+
+.heroBreadcrumbs a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.heroBreadcrumbs a:hover {
+  color: #ffffff;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  background: rgba(236, 28, 40, 0.9);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  font-size: clamp(36px, 5.5vw, 56px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  max-width: 760px;
+}
+
+.heroSubtitle {
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 0 36px;
+}
+
+.heroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.btnGhostHero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btnGhostHero:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+}
+
+/* Hero Bottom Stats */
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 600px;
+}
+
+@media (min-width: 600px) {
+  .heroStats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.heroStatNum {
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.heroStatLabel {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* 2. INDUSTRIES LISTING GRID SECTION */
+.sectionSectors {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 56px;
+}
+
+@media (min-width: 768px) {
+  .sectionHeaderRow {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.eyebrow {
+  color: var(--cio-red);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin: 0;
+}
+
+.headerLink {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cio-navy);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.headerLink:hover {
+  color: var(--cio-red);
+}
+
+.sectorsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .sectorsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectorsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.sectorCard {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.sectorCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -4px rgba(15, 27, 36, 0.1);
+  border-color: rgba(236, 28, 40, 0.3);
+}
+
+.cardTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+/* SIGNATURE RED DASH LINE (Matches user image input_file_1.png) */
+.redDash {
+  width: 32px;
+  height: 3px;
+  background: var(--cio-red);
+  border-radius: 2px;
+}
+
+.cardIconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(236, 28, 40, 0.08);
+  color: var(--cio-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectorTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin: 0 0 6px;
+}
+
+.sectorSubtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cio-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.sectorDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4B5563;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.tagsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.tagPill {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  background: #F3F4F6;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.cardLink {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cio-red);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.sectorCard:hover .cardLink {
+  transform: translateX(4px);
+}
+
+/* 3. WHY IT MATTERS / SPECIALIZED HANDLING SECTION */
+.sectionWhy {
+  background: #F8F9FA;
+  padding: 100px 20px;
+  border-top: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.whyContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.whyHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .whyGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.whyCard {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.whyCardTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin: 16px 0 12px;
+}
+
+.whyCardText {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4B5563;
+  margin: 0;
+}
+
+/* 4. CERTIFICATIONS STRIP */
+.sectionCerts {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.certsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.certItem {
+  background: #ffffff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 18px 28px;
+  min-width: 160px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.certTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin: 0 0 4px;
+}
+
+.certDesc {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* 5. FAQ SECTION */
+.sectionFaq {
+  background: #ffffff;
+  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.faqItem {
+  background: #F8F9FA;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faqItem[open] {
+  border-color: var(--cio-red);
+  background: #ffffff;
+}
+
+.faqSummary {
+  padding: 22px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cio-navy);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqSummary::after {
+  content: '+';
+  font-size: 20px;
+  color: var(--cio-red);
+  font-weight: 700;
+}
+
+.faqItem[open] .faqSummary::after {
+  content: '−';
+}
+
+.faqAnswer {
+  padding: 0 24px 24px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4B5563;
+  border-top: 1px solid #F3F4F6;
+  padding-top: 16px;
+}
+
+/* 6. BOTTOM CTA BANNER */
+.bottomCta {
+  background: var(--cio-navy);
+  color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.bottomCtaContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .bottomCtaContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.bottomCtaTitle {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.bottomCtaDesc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}

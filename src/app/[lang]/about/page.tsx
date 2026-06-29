@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { getDictionary } from '@/lib/dictionary';
 import { ShieldCheck, Award, Target, ArrowRight } from 'lucide-react';
 import Partners from '@/components/Partners/Partners';
+import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import styles from './About.module.css';
 
 interface AboutPageProps {
@@ -438,31 +439,7 @@ export default async function AboutPage(props: AboutPageProps) {
       </section>
 
       {/* 7. testimonials-section */}
-      <section className={styles.testimonialsSection}>
-        <div className="container">
-          <div className={styles.testimonialsSectionTitle}>
-            <h2>
-              <span>{localDict.testimonialsSubtitle}</span> — {localDict.testimonialsTitle}
-            </h2>
-          </div>
-
-          <div className={styles.testimonialsSectionRow}>
-            {[
-              { text: dict.reviews.rev1, author: dict.reviews.rev1Author, src: dict.reviews.rev1Src },
-              { text: dict.reviews.rev2, author: dict.reviews.rev2Author, src: dict.reviews.rev2Src },
-              { text: dict.reviews.rev3, author: dict.reviews.rev3Author, src: dict.reviews.rev3Src }
-            ].map((review, idx) => (
-              <div key={idx} className={styles.testimonialCard}>
-                <p className={styles.testimonialText}>"{review.text}"</p>
-                <div className={styles.testimonialMeta}>
-                  <span className={styles.testimonialAuthor}>{review.author}</span>
-                  <span className={styles.testimonialSource}>{review.src}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GoogleReviews dict={dict} />
 
       {/* Certifications and Compliance Details */}
       <section className={styles.certificationsSection} id="certifications">

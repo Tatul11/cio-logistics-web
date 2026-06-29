@@ -8,6 +8,7 @@ import Calculator from '@/components/Calculator/Calculator';
 import styles from './HomeAbout.module.css';
 import Partners from '@/components/Partners/Partners';
 import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
+import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -741,39 +742,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Verified Reviews Block */}
-      <section className="section section-navy" id="reviews">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">{dict.reviews.eyebrow}</span>
-            <h2>{dict.reviews.title}</h2>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '12px' }}>
-              <div style={{ display: 'flex', color: 'var(--cio-orange)' }}>
-                {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="var(--cio-orange)" />)}
-              </div>
-              <strong style={{ fontSize: '18px', color: '#fff' }}>{dict.reviews.score} / 5.0</strong>
-              <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>({dict.reviews.count})</span>
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
-            {[
-              { text: dict.reviews.rev1, author: dict.reviews.rev1Author, src: dict.reviews.rev1Src },
-              { text: dict.reviews.rev2, author: dict.reviews.rev2Author, src: dict.reviews.rev2Src },
-              { text: dict.reviews.rev3, author: dict.reviews.rev3Author, src: dict.reviews.rev3Src },
-            ].map((rev, idx) => (
-              <div key={idx} style={{ padding: '32px', borderRadius: 'var(--radius)', border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(255, 255, 255, 0.05)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--shadow-sm)' }}>
-                <p style={{ fontSize: '14.5px', fontStyle: 'italic', color: 'rgba(255, 255, 255, 0.9)', marginBottom: '24px', lineHeight: '1.6' }}>
-                  &ldquo;{rev.text}&rdquo;
-                </p>
-                <div>
-                  <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>{rev.author}</h4>
-                  <span style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.6)' }}>{rev.src}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <GoogleReviews dict={dict} />
 
       {/* SEO native Accordion FAQ grid */}
       <section className="section section-gray" id="faq">

@@ -1,0 +1,218 @@
+/* ==========================================================================
+   GOOGLE BUSINESS REVIEWS SECTION STYLES
+   Matches exact 42DM / Blueprint template review layout
+   ========================================================================== */
+
+.section {
+  background: var(--cio-navy);
+  color: #ffffff;
+  padding: 90px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .headerRow {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.eyebrow {
+  color: var(--cio-red);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.ratingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+@media (min-width: 768px) {
+  .ratingBox {
+    align-items: flex-end;
+  }
+}
+
+.ratingScoreRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ratingScore {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stars {
+  display: flex;
+  color: #ffb800;
+  gap: 2px;
+}
+
+.ratingSubtitle {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(236, 28, 40, 0.4);
+}
+
+.redDash {
+  width: 32px;
+  height: 3px;
+  background: var(--cio-red);
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.cardStars {
+  display: flex;
+  color: #ffb800;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 28px;
+  flex-grow: 1;
+}
+
+.authorRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(236, 28, 40, 0.15);
+  border: 1px solid rgba(236, 28, 40, 0.4);
+  color: var(--cio-red);
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.authorName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.sourceBadge {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.googleDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4285f4;
+}
+
+.footerRow {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.googleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.googleBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
