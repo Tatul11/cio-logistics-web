@@ -271,23 +271,9 @@ export default async function LocalizedHomePage(props: PageProps) {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="section section-gray" id="services">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">{dict.services.eyebrow}</span>
-            <h2>{dict.services.title}</h2>
-            <p>{dict.services.desc}</p>
-          </div>
-
-          <ServicesShowcase dict={dict} lang={lang} />
-          
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link href={`/${lang}/services`} className="btn btn-secondary">
-              {dict.services.seeAll}
-            </Link>
-          </div>
-        </div>
+      {/* Services Section (Sticky Horizontal Scroll) */}
+      <section className="section-gray" id="services">
+        <ServicesShowcase dict={dict} lang={lang} />
       </section>
 
       {/* Shipment Tracking Widget section */}

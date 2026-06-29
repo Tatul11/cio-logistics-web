@@ -11,9 +11,8 @@ interface ServicesShowcaseProps {
 
 export default function ServicesShowcase({ dict, lang }: ServicesShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const services = [
     {
@@ -60,172 +59,173 @@ export default function ServicesShowcase({ dict, lang }: ServicesShowcaseProps) 
     }
   ];
 
-  // Helper to smoothly scroll track to specific index
-  const scrollToCard = (idx: number) => {
-    if (trackRef.current && cardsRef.current[idx]) {
-      const track = trackRef.current;
-      const card = cardsRef.current[idx];
-      const targetLeft = card.offsetLeft - (track.clientWidth / 2) + (card.clientWidth / 2);
-      track.scrollTo({ left: targetLeft, behavior: 'smooth' });
-    }
-  };
-
-  // Scroll listener to automatically advance active card as user scrolls down the webpage
+  // Handle sticky window scroll mapping directly to horizontal track translation
   useEffect(() => {
-    const handleWindowScroll = () => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
+    const handleScroll = () => {
+      if (!wrapperRef.current || !trackRef.current) return;
+      const rect = wrapperRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
-      // If section is actively scrolling through viewport
-      if (rect.top < windowHeight * 0.75 && rect.bottom > windowHeight * 0.25) {
-        const totalScrollable = rect.height + windowHeight * 0.4;
-        const scrolled = (windowHeight * 0.75 - rect.top);
-        const progress = Math.max(0, Math.min(1, scrolled / totalScrollable));
-        const idx = Math.min(services.length - 1, Math.floor(progress * services.length));
-        
-        setActiveIndex((prevIdx) => {
-          if (prevIdx !== idx) {
-            scrollToCard(idx);
-            return idx;
-          }
-          return prevIdx;
-        });
-      }
+      const totalScrollable = wrapperRef.current.offsetHeight - windowHeight;
+
+      if (totalScrollable <= 0) return;
+
+      // Calculate vertical progress between 0 and 1 while pinned
+      const scrolled = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / totalScrollable));
+
+      // Translate horizontal track proportional to vertical progress
+      const maxScroll = trackRef.current.scrollWidth - trackRef.current.clientWidth;
+      trackRef.current.scrollLeft = progress * maxScroll;
+
+      // Update active card index
+      const idx = Math.min(services.length - 1, Math.floor(progress * services.length));
+      setActiveIndex(idx);
     };
 
-    window.addEventListener('scroll', handleWindowScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleWindowScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [services.length]);
-
-  // Horizontal swipe listener inside the carousel track
-  const handleTrackScroll = () => {
-    if (!trackRef.current) return;
-    const track = trackRef.current;
-    const trackCenter = track.scrollLeft + (track.clientWidth / 2);
-    let closestIdx = 0;
-    let minDiff = Infinity;
-    
-    cardsRef.current.forEach((card, i) => {
-      if (!card) return;
-      const cardCenter = card.offsetLeft + (card.clientWidth / 2);
-      const diff = Math.abs(trackCenter - cardCenter);
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestIdx = i;
-      }
-    });
-
-    if (closestIdx !== activeIndex) {
-      setActiveIndex(closestIdx);
-    }
-  };
 
   const selectIndex = (idx: number) => {
     setActiveIndex(idx);
-    scrollToCard(idx);
+    if (!wrapperRef.current) return;
+    const windowHeight = window.innerHeight;
+    const totalScrollable = wrapperRef.current.offsetHeight - windowHeight;
+    const targetProgress = idx / (services.length - 1);
+    const targetScrollY = wrapperRef.current.offsetTop + (targetProgress * totalScrollable);
+    window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
   };
 
   return (
-    <div ref={containerRef}>
-      {/* Interactive Navigation Bar */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
-        <div style={{ fontSize: '14.5px', color: 'var(--text-muted)', fontWeight: 600 }}>
-          ⚡ Scroll down or swipe horizontally to explore active services
-        </div>
-        <div style={{ display: 'flex', gap: '12px' }}>
-          <button 
-            onClick={() => selectIndex(activeIndex > 0 ? activeIndex - 1 : services.length - 1)}
-            className="btn"
-            style={{ width: '44px', height: '44px', padding: 0, borderRadius: '8px', background: 'var(--bg-white)', border: '1px solid var(--border)', color: 'var(--cio-navy)' }}
-            aria-label="Previous Service"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button 
-            onClick={() => selectIndex(activeIndex < services.length - 1 ? activeIndex + 1 : 0)}
-            className="btn"
-            style={{ width: '44px', height: '44px', padding: 0, borderRadius: '8px', background: 'var(--bg-white)', border: '1px solid var(--border)', color: 'var(--cio-navy)' }}
-            aria-label="Next Service"
-          >
-            <ChevronRight size={20} />
-          </button>
-        </div>
-      </div>
-
-      {/* Horizontal Services Carousel Track */}
+    <div ref={wrapperRef} style={{ height: '320vh', position: 'relative' }}>
       <div 
-        ref={trackRef}
-        onScroll={handleTrackScroll}
         style={{ 
+          position: 'sticky', 
+          top: '75px', 
+          height: 'calc(100vh - 75px)', 
           display: 'flex', 
-          gap: '28px', 
-          overflowX: 'auto', 
-          scrollSnapType: 'x mandatory', 
-          padding: '20px 10px 36px 10px',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          WebkitOverflowScrolling: 'touch'
+          flexDirection: 'column', 
+          justifyContent: 'center', 
+          overflow: 'hidden',
+          padding: '20px 0'
         }}
       >
-        {services.map((srv, idx) => {
-          const isActive = idx === activeIndex;
-          return (
-            <div 
-              key={idx}
-              ref={(el) => { cardsRef.current[idx] = el; }}
-              onClick={() => selectIndex(idx)}
-              style={{ 
-                width: 'clamp(310px, 85vw, 380px)',
-                flexShrink: 0,
-                scrollSnapAlign: 'center',
-                display: 'flex', 
-                flexDirection: 'column', 
-                borderRadius: '16px', 
-                border: isActive ? '3px solid var(--cio-orange)' : '1px solid var(--border)', 
-                background: 'var(--bg-white)', 
-                boxShadow: isActive ? '0 25px 50px rgba(236, 28, 40, 0.22)' : 'var(--shadow-sm)', 
-                overflow: 'hidden',
-                cursor: 'pointer',
-                transform: isActive ? 'scale(1.05) translateY(-6px)' : 'scale(0.95)',
-                filter: isActive ? 'blur(0px)' : 'blur(2px)',
-                opacity: isActive ? 1 : 0.55,
-                transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                zIndex: isActive ? 10 : 1
-              }}
-            >
-              <div style={{ height: '210px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img 
-                  src={srv.image} 
-                  alt={srv.title} 
-                  style={{ 
-                    width: '100%', 
-                    height: '100%', 
-                    objectFit: 'cover',
-                    transform: isActive ? 'scale(1.1)' : 'scale(1)',
-                    transition: 'transform 0.7s ease'
-                  }} 
-                />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '44px', height: '44px', borderRadius: '8px', background: isActive ? 'var(--cio-orange)' : 'rgba(255, 255, 255, 0.95)', color: isActive ? '#FFFFFF' : 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)', transition: 'all 0.3s ease' }}>
-                  {srv.icon}
-                </div>
-              </div>
-              <div style={{ padding: '28px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '21px', fontWeight: 800, marginBottom: '12px', color: isActive ? 'var(--cio-orange)' : 'var(--cio-navy)', transition: 'color 0.3s ease' }}>
-                    {srv.title}
-                  </h3>
-                  <p style={{ fontSize: '15px', color: 'var(--text-muted)', marginBottom: '24px', lineHeight: '1.6' }}>
-                    {srv.desc}
-                  </p>
-                </div>
-                <Link href={srv.href} style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  Learn more <ArrowUpRight size={16} />
-                </Link>
-              </div>
+        <div className="container" style={{ width: '100%', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', maxHeight: '820px' }}>
+          
+          {/* Section Header */}
+          <div className="section-head" style={{ marginBottom: '16px' }}>
+            <span className="eyebrow">{dict?.services?.eyebrow || "WHAT WE MOVE"}</span>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', marginBottom: '8px' }}>
+              {dict?.services?.title || "Moving Your Products Across All Borders"}
+            </h2>
+            <p style={{ fontSize: '15px', color: 'var(--text-muted)' }}>
+              {dict?.services?.desc || "Comprehensive freight forwarding solutions tailored to your industry."}
+            </p>
+          </div>
+
+          {/* Interactive Navigation Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
+            <div style={{ fontSize: '14.5px', color: 'var(--text-muted)', fontWeight: 600 }}>
+              ⚡ Scroll down vertically to pan horizontally through services ({activeIndex + 1}/{services.length})
             </div>
-          );
-        })}
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button 
+                onClick={() => selectIndex(activeIndex > 0 ? activeIndex - 1 : services.length - 1)}
+                className="btn"
+                style={{ width: '44px', height: '44px', padding: 0, borderRadius: '8px', background: 'var(--bg-white)', border: '1px solid var(--border)', color: 'var(--cio-navy)' }}
+                aria-label="Previous Service"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button 
+                onClick={() => selectIndex(activeIndex < services.length - 1 ? activeIndex + 1 : 0)}
+                className="btn"
+                style={{ width: '44px', height: '44px', padding: 0, borderRadius: '8px', background: 'var(--bg-white)', border: '1px solid var(--border)', color: 'var(--cio-navy)' }}
+                aria-label="Next Service"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal Services Carousel Track */}
+          <div 
+            ref={trackRef}
+            style={{ 
+              display: 'flex', 
+              gap: '28px', 
+              overflowX: 'hidden', 
+              padding: '10px 4px 20px 4px',
+              willChange: 'scroll-position'
+            }}
+          >
+            {services.map((srv, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <div 
+                  key={idx}
+                  onClick={() => selectIndex(idx)}
+                  style={{ 
+                    width: 'clamp(300px, 80vw, 360px)',
+                    flexShrink: 0,
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    borderRadius: '16px', 
+                    border: isActive ? '3px solid var(--cio-orange)' : '1px solid var(--border)', 
+                    background: 'var(--bg-white)', 
+                    boxShadow: isActive ? '0 20px 40px rgba(236, 28, 40, 0.22)' : 'var(--shadow-sm)', 
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transform: isActive ? 'scale(1.04) translateY(-4px)' : 'scale(0.96)',
+                    filter: isActive ? 'blur(0px)' : 'blur(2px)',
+                    opacity: isActive ? 1 : 0.55,
+                    transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                    zIndex: isActive ? 10 : 1
+                  }}
+                >
+                  <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                    <img 
+                      src={srv.image} 
+                      alt={srv.title} 
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        objectFit: 'cover',
+                        transform: isActive ? 'scale(1.1)' : 'scale(1)',
+                        transition: 'transform 0.7s ease'
+                      }} 
+                    />
+                    <div style={{ position: 'absolute', top: '16px', left: '16px', width: '44px', height: '44px', borderRadius: '8px', background: isActive ? 'var(--cio-orange)' : 'rgba(255, 255, 255, 0.95)', color: isActive ? '#FFFFFF' : 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)', transition: 'all 0.3s ease' }}>
+                      {srv.icon}
+                    </div>
+                  </div>
+                  <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div>
+                      <h3 style={{ fontSize: '20px', fontWeight: 800, marginBottom: '10px', color: isActive ? 'var(--cio-orange)' : 'var(--cio-navy)', transition: 'color 0.3s ease' }}>
+                        {srv.title}
+                      </h3>
+                      <p style={{ fontSize: '14.5px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>
+                        {srv.desc}
+                      </p>
+                    </div>
+                    <Link href={srv.href} style={{ fontSize: '14px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      Learn more <ArrowUpRight size={16} />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* See All Button */}
+          <div style={{ textAlign: 'center', marginTop: '16px' }}>
+            <Link href={`/${lang}/services`} className="btn btn-secondary">
+              {dict?.services?.seeAll || "Explore All Logistics Services"}
+            </Link>
+          </div>
+
+        </div>
       </div>
     </div>
   );
