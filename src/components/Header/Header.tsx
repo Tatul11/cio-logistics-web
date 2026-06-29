@@ -155,11 +155,20 @@ export default function Header({ lang, dict }: HeaderProps) {
                 <li key={idx} className={styles.navItem}>
                   {item.mega ? (
                     <>
-                      <button className={styles.navLink}>
+                      <Link href={item.href} className={styles.navLink}>
                         {item.label} <ChevronDown className={styles.caret} size={12} />
-                      </button>
+                      </Link>
                       <div className={styles.megaMenu}>
-                        <div className={styles.megaTitle}>{item.megaTitle}</div>
+                        <Link 
+                          href={item.href} 
+                          className={styles.megaTitle}
+                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', textDecoration: 'none', color: 'var(--cio-navy)' }}
+                        >
+                          <span>{item.megaTitle}</span>
+                          <span style={{ fontSize: '13px', color: 'var(--cio-red)', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 600 }}>
+                            View All <ArrowRight size={14} />
+                          </span>
+                        </Link>
                         <div className={styles.megaGrid}>
                           {item.mega.map((sub, subIdx) => (
                             <Link key={subIdx} href={sub.href} className={styles.megaLink}>
