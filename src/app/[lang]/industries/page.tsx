@@ -34,6 +34,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'e-commerce',
       title: dict?.industries?.ecommerce || "E-Commerce & Retail",
       subtitle: "Fast, DDP & FBA",
+      image: "/images/andy-li-CpsTAUPoScw-unsplash.webp",
       desc: "Integrated B2B and B2C fulfillment pipelines connecting global manufacturing hubs directly to Amazon FBA, retail warehouses, and end consumers.",
       tags: ["Consumer goods", "Fashion", "Electronics"],
       icon: <ShoppingCart size={20} />
@@ -42,6 +43,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'pharmaceutical',
       title: dict?.industries?.pharma || "Pharmaceutical & Healthcare",
       subtitle: "GDP Cold Chain",
+      image: "/images/arno-senoner-u2OdNnrksIk-unsplash.webp",
       desc: "Unbroken temperature-controlled transit (+2°C to +8°C and +15°C to +25°C) with real-time temperature telemetry and priority customs clearance.",
       tags: ["Vaccines", "Medical devices", "Biotech"],
       icon: <Activity size={20} />
@@ -50,6 +52,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'automotive',
       title: dict?.industries?.auto || "Automotive & Parts",
       subtitle: "JIT & Spare Parts",
+      image: "/images/arno-senoner-yqu6tJkSQ_k-unsplash.webp",
       desc: "Just-In-Time delivery protocols for assembly lines, heavy auto components, tires, and high-value luxury vehicle transportation.",
       tags: ["OEM parts", "Batteries", "Vehicles"],
       icon: <Car size={20} />
@@ -58,6 +61,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'heavy-machinery',
       title: dict?.industries?.heavy || "Heavy Machinery & Industrial",
       subtitle: "Oversized & Project",
+      image: "/images/aron-yigin-lNpAmLA_bvQ-unsplash.webp",
       desc: "Turnkey project cargo management, flat rack container lashing, route surveys, and specialized crane equipment for oversized industrial machinery.",
       tags: ["Excavators", "Generators", "Turbines"],
       icon: <Factory size={20} />
@@ -66,6 +70,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'food-perishables',
       title: dict?.industries?.food || "Food & Perishables",
       subtitle: "Reefer & Fresh",
+      image: "/images/aron-yigin-sNY6B9NsPP8-unsplash.webp",
       desc: "Sanitary and phytosanitary certified handling for fresh produce, frozen meat, dairy, and beverages using active reefer container monitoring.",
       tags: ["Fresh produce", "Frozen goods", "Beverages"],
       icon: <Coffee size={20} />
@@ -74,6 +79,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'chemical',
       title: dict?.industries?.chemical || "Chemical & Hazardous",
       subtitle: "ADR & IMDG Certified",
+      image: "/images/bent-van-aeken-0A7YwYhZhWw-unsplash.webp",
       desc: "Full legal compliance and certified safety handling for Class 1-9 dangerous goods, liquid bulk ISO tanks, and industrial chemical additives.",
       tags: ["Class 3 liquids", "Industrial", "Fertilizers"],
       icon: <FlaskConical size={20} />
@@ -82,6 +88,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'construction',
       title: dict?.industries?.construction || "Construction & Materials",
       subtitle: "Bulk & Supply Chain",
+      image: "/images/bernd-dittrich-AA1HmM6FzVE-unsplash.webp",
       desc: "Reliable high-volume supply chain scheduling for raw materials, steel pipes, timber, cement, and prefabricated building structures.",
       tags: ["Steel & metal", "Raw bulk", "Timber"],
       icon: <HardHat size={20} />
@@ -90,6 +97,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       slug: 'electronics',
       title: dict?.industries?.electronics || "High-Tech & Electronics",
       subtitle: "High-Security & Fragile",
+      image: "/images/bernd-dittrich-LKvT6sCkuPU-unsplash.webp",
       desc: "Air ride suspension trucking, armed security escort options, and GPS-tracked container seals for sensitive telecommunications and servers.",
       tags: ["Servers", "Semiconductors", "Telecom"],
       icon: <Cpu size={20} />
@@ -165,29 +173,35 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
         <div className={styles.sectorsGrid}>
           {sectorsData.map((sector) => (
             <div key={sector.slug} className={styles.sectorCard}>
-              <div>
-                <div className={styles.cardTopRow}>
-                  {/* SIGNATURE RED DASH LINE */}
-                  <div className={styles.redDash}></div>
-                  <div className={styles.cardIconBox}>
-                    {sector.icon}
+              <div className={styles.cardImageWrap}>
+                <img src={sector.image} alt={sector.title} className={styles.cardImage} />
+              </div>
+
+              <div className={styles.cardBody}>
+                <div>
+                  <div className={styles.cardTopRow}>
+                    {/* SIGNATURE RED DASH LINE */}
+                    <div className={styles.redDash}></div>
+                    <div className={styles.cardIconBox}>
+                      {sector.icon}
+                    </div>
+                  </div>
+
+                  <h3 className={styles.sectorTitle}>{sector.title}</h3>
+                  <div className={styles.sectorSubtitle}>{sector.subtitle}</div>
+                  <p className={styles.sectorDesc}>{sector.desc}</p>
+                  
+                  <div className={styles.tagsWrap}>
+                    {sector.tags.map((t, idx) => (
+                      <span key={idx} className={styles.tagPill}>{t}</span>
+                    ))}
                   </div>
                 </div>
 
-                <h3 className={styles.sectorTitle}>{sector.title}</h3>
-                <div className={styles.sectorSubtitle}>{sector.subtitle}</div>
-                <p className={styles.sectorDesc}>{sector.desc}</p>
-                
-                <div className={styles.tagsWrap}>
-                  {sector.tags.map((t, idx) => (
-                    <span key={idx} className={styles.tagPill}>{t}</span>
-                  ))}
-                </div>
+                <Link href={`/${lang}/industries/${sector.slug}`} className={styles.cardLink}>
+                  Learn More <ArrowRight size={15} />
+                </Link>
               </div>
-
-              <Link href={`/${lang}/industries/${sector.slug}`} className={styles.cardLink}>
-                Learn More <ArrowRight size={15} />
-              </Link>
             </div>
           ))}
         </div>
