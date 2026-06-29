@@ -213,7 +213,7 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
         <div className={styles.whyContainer}>
           <div className={styles.whyHeader}>
             <span className={styles.eyebrow}>WHY IT MATTERS</span>
-            <h2 className={styles.sectionTitle}>Specialized handling, not one-size-fits-all</h2>
+            <h2 className={styles.sectionTitle} style={{ color: '#FFFFFF' }}>Specialized handling, not one-size-fits-all</h2>
           </div>
 
           <div className={styles.whyGrid}>

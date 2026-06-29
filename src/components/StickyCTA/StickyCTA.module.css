@@ -11,7 +11,7 @@
 .fab {
   width: 56px;
   height: 56px;
-  border-radius: var(--radius-full);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +36,7 @@
   background: var(--cio-orange);
   width: auto;
   padding: 0 24px;
-  border-radius: 100px;
+  border-radius: 8px;
   font-weight: 700;
   font-size: 14.5px;
   gap: 8px;

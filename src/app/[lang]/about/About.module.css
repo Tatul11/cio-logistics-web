@@ -150,9 +150,31 @@
   }
 }
 
+@keyframes peopleAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .teamItem {
   position: relative;
+  animation: peopleAppear 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
+
+.teamItem:nth-child(1) { animation-delay: 0.1s; }
+.teamItem:nth-child(2) { animation-delay: 0.2s; }
+.teamItem:nth-child(3) { animation-delay: 0.3s; }
+.teamItem:nth-child(4) { animation-delay: 0.4s; }
+.teamItem:nth-child(5) { animation-delay: 0.5s; }
+.teamItem:nth-child(6) { animation-delay: 0.6s; }
+.teamItem:nth-child(7) { animation-delay: 0.7s; }
+.teamItem:nth-child(8) { animation-delay: 0.8s; }
+.teamItem:nth-child(9) { animation-delay: 0.9s; }
 
 .ourTeamSectionItem {
   position: relative;
@@ -163,13 +185,13 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   background-size: cover;
   background-position: center;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .ourTeamSectionItem:hover {
-  transform: translateY(-5px);
-  border-color: var(--cio-blue);
-  box-shadow: 0 10px 20px rgba(1, 153, 248, 0.2);
+  transform: translateY(-8px) scale(1.03);
+  border-color: var(--cio-orange);
+  box-shadow: 0 15px 30px rgba(236, 28, 40, 0.25);
 }
 
 .ourTeamSectionItemFooter {

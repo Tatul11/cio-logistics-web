@@ -9,6 +9,7 @@ import styles from './HomeAbout.module.css';
 import Partners from '@/components/Partners/Partners';
 import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
+import ServicesShowcase from '@/components/ServicesShowcase/ServicesShowcase';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -145,20 +146,20 @@ export default async function LocalizedHomePage(props: PageProps) {
           pointerEvents: 'none'
         }} />
         
-        <div className="container" style={{ maxWidth: '800px' }}>
-          {/* Hero Content */}
-          <div className="animate-fade-in-up">
+        <div className="container" style={{ display: 'flex', justifyContent: 'flex-start' }}>
+          {/* Hero Content aligned to far left corner */}
+          <div className="animate-fade-in-up" style={{ maxWidth: '820px', textAlign: 'left', width: '100%' }}>
             <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeIso}
               </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeFiata}
               </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeIata}
               </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
                 {dict.hero.badgeIru}
               </span>
             </div>
@@ -279,121 +280,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.services.desc}</p>
           </div>
 
-          <div className="grid-3-cols">
-            {/* Air Freight Card */}
-            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
-              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="/images/chuttersnap-kyCNGGKCvyw-unsplash.webp" alt={dict.services.air} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Plane size={24} />
-                </div>
-              </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.air}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.airDesc}</p>
-                </div>
-                <Link href={`/${lang}/services/air-freight`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Learn more <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Sea Freight Card */}
-            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
-              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="/images/elevate-dI-aXC7DWpQ-unsplash.webp" alt={dict.services.sea} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Ship size={24} />
-                </div>
-              </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.sea}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.seaDesc}</p>
-                </div>
-                <Link href={`/${lang}/services/sea-freight`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Learn more <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Road Freight Card */}
-            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
-              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="/images/elias--lYi5Qg0xP0-unsplash.webp" alt={dict.services.road} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Truck size={24} />
-                </div>
-              </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.road}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.roadDesc}</p>
-                </div>
-                <Link href={`/${lang}/services/road-transport`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Learn more <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Container/Rail Freight Card */}
-            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
-              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="/images/frank-mckenna-tjX_sniNzgQ-unsplash.webp" alt={dict.services.rail} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Train size={24} />
-                </div>
-              </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.rail}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.railDesc}</p>
-                </div>
-                <Link href={`/${lang}/services/rail-freight`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Learn more <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Groupage Card */}
-            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
-              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="/images/john-simmons-XFLk8qZ-6MA-unsplash.webp" alt={dict.services.groupage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Package size={24} />
-                </div>
-              </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.groupage}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.groupageDesc}</p>
-                </div>
-                <Link href={`/${lang}/services/groupage-cargo`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Learn more <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Heavy & Bulky Card */}
-            <div className="transition-all-custom" style={{ display: 'flex', flexDirection: 'column', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'var(--bg-white)', boxShadow: 'var(--shadow-sm)', overflow: 'hidden' }}>
-              <div style={{ height: '180px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-                <img src="/images/marcin-jozwiak-kGoPcmpPT7c-unsplash.webp" alt={dict.services.heavy} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.95)', color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                  <Weight size={24} />
-                </div>
-              </div>
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>{dict.services.heavy}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '20px', lineHeight: '1.5' }}>{dict.services.heavyDesc}</p>
-                </div>
-                <Link href={`/${lang}/services/heavy-bulky-cargo`} style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  Learn more <ArrowUpRight size={14} />
-                </Link>
-              </div>
-            </div>
-          </div>
+          <ServicesShowcase dict={dict} lang={lang} />
           
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
             <Link href={`/${lang}/services`} className="btn btn-secondary">

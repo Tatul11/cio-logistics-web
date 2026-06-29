@@ -67,7 +67,7 @@
   font-size: 18px;
   width: 50px;
   height: 50px;
-  border-radius: 9999px !important;
+  border-radius: 8px !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -78,19 +78,18 @@
 
 .activeStep .numberBadge {
   background: var(--cio-orange);
-  transform: scale(1.18);
-  box-shadow: 0 0 25px rgba(236, 28, 40, 0.65);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(236, 28, 40, 0.4);
 }
 
-.title {
-  font-size: 24px;
+.stepTitle {
+  font-size: 22px;
   font-weight: 800;
   color: var(--cio-navy);
-  margin: 0;
-  transition: color 0.4s ease;
+  transition: color 0.3s ease;
 }
 
-.activeStep .title {
+.activeStep .stepTitle {
   color: var(--cio-orange);
 }
 
@@ -104,7 +103,7 @@
   background: white;
   width: 140px;
   height: 140px;
-  border-radius: var(--radius-full);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;

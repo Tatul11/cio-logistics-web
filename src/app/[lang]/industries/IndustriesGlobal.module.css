@@ -344,10 +344,11 @@
 
 /* 3. WHY IT MATTERS / SPECIALIZED HANDLING SECTION */
 .sectionWhy {
-  background: #F8F9FA;
+  background: #0F1B24;
+  color: #FFFFFF;
   padding: 100px 20px;
-  border-top: 1px solid #E5E7EB;
-  border-bottom: 1px solid #E5E7EB;
+  border-top: 3px solid var(--cio-orange);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .whyContainer {
@@ -359,6 +360,10 @@
   text-align: center;
   max-width: 700px;
   margin: 0 auto 56px;
+}
+
+.whyHeader h2 {
+  color: #FFFFFF !important;
 }
 
 .whyGrid {
@@ -374,30 +379,32 @@
 }
 
 .whyCard {
-  background: #ffffff;
-  border: 1px solid #E5E7EB;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 36px 32px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .whyCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-6px);
+  border-color: var(--cio-orange);
+  box-shadow: 0 20px 40px rgba(236, 28, 40, 0.2);
 }
 
 .whyCardTitle {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
-  color: var(--cio-navy);
+  color: #FFFFFF;
   margin: 16px 0 12px;
 }
 
 .whyCardText {
-  font-size: 15px;
+  font-size: 15.5px;
   line-height: 1.65;
-  color: #4B5563;
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 

@@ -40,7 +40,7 @@
   --radius-sm:      6px;
   --radius:         10px;
   --radius-lg:      16px;
-  --radius-full:    9999px;
+  --radius-full:    8px;
 
   /* Layout Constants */
   --container:      1280px;
@@ -269,7 +269,7 @@ p:last-child {
   justify-content: center;
   gap: 8px;
   padding: 14px 28px;
-  border-radius: var(--radius-full);
+  border-radius: 8px;
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
@@ -336,14 +336,47 @@ p:last-child {
   width: 100%;
 }
 
-/* Universal capsule/pill shape override for ALL buttons site-wide */
+/* Universal cube / rounded rectangular shape override for ALL buttons site-wide */
+button,
+input[type="submit"],
+input[type="button"],
 .btn,
-button[class*="btn"],
-a[class*="btn"],
-[class*="btnGhost"],
-[class*="btnAll"],
-button {
-  border-radius: 9999px !important;
+[class*="btn" i],
+[class*="button" i],
+[class*="cta" i],
+[class*="link" i][class*="btn" i],
+a[class*="btn" i],
+a[class*="button" i],
+a[class*="cta" i] {
+  border-radius: 8px !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.btn:hover,
+[class*="btn" i]:hover,
+[class*="button" i]:hover,
+[class*="cta" i]:hover,
+a[class*="btn" i]:hover,
+a[class*="button" i]:hover,
+a[class*="cta" i]:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+.btn:active,
+[class*="btn" i]:active,
+[class*="button" i]:active,
+[class*="cta" i]:active,
+a[class*="btn" i]:active,
+a[class*="button" i]:active,
+a[class*="cta" i]:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 /* ==========================================================================
@@ -464,4 +497,39 @@ button {
   background: rgba(255, 255, 255, 0.08) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
   box-shadow: var(--shadow-lg) !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL RESPONSIVE BREAKPOINTS (MOBILE & TABLET FLUID SCALING)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+  .section-tight {
+    padding: 48px 0;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 7vw, 2.6rem) !important;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem) !important;
+  }
+  .grid-3-cols,
+  .grid-4-cols {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 48px 0;
+  }
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
 }
