@@ -6,6 +6,7 @@ import { getDictionary } from '@/lib/dictionary';
 import styles from './IndustryLayout.module.css';
 import Partners from '@/components/Partners/Partners';
 import OtherIndustries from '@/components/OtherIndustries/OtherIndustries';
+import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
 
 interface IndustryPageProps {
   params: Promise<{
@@ -311,6 +312,22 @@ export default async function IndustryPage(props: IndustryPageProps) {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* PROCESS TIMELINE SECTION */}
+      <section style={{ background: '#FFF6F6', padding: '80px 20px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <span style={{ color: 'var(--cio-orange)', fontSize: '13px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
+            {dict?.process?.eyebrow || "SIMPLE PROCESS"}
+          </span>
+          <h2 style={{ fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: 800, color: 'var(--cio-navy)', marginBottom: '16px' }}>
+            {dict?.process?.title || "From Request to Delivery — How We Work"}
+          </h2>
+          <p style={{ color: '#4B5563', fontSize: '16px', maxWidth: '600px', margin: '0 auto 40px' }}>
+            {dict?.process?.desc || "Five clear steps from initial inquiry to confirmed delivery, with personal account management at every stage."}
+          </p>
+          <ProcessTimeline dict={dict} />
         </div>
       </section>
 

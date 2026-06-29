@@ -14,8 +14,8 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
       const stepElements = containerRef.current.querySelectorAll('.process-step-row');
       const newActiveSteps: number[] = [];
       
-      // The "trigger line" is roughly the middle of the screen
-      const triggerLine = window.innerHeight * 0.65; 
+      // The "trigger line" is 80% down the screen so items activate smoothly as they enter
+      const triggerLine = window.innerHeight * 0.80; 
       
       stepElements.forEach((el, index) => {
         const rect = el.getBoundingClientRect();
@@ -37,11 +37,11 @@ export default function ProcessTimeline({ dict }: { dict: any }) {
   }, []);
 
   const steps = [
-    { num: '#1', title: dict.process.step1, desc: dict.process.step1Desc, icon: <MessagesSquare size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
-    { num: '#2', title: dict.process.step2, desc: dict.process.step2Desc, icon: <Calculator size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
-    { num: '#3', title: dict.process.step3, desc: dict.process.step3Desc, icon: <FileCheck2 size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
-    { num: '#4', title: dict.process.step4, desc: dict.process.step4Desc, icon: <Truck size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
-    { num: '#5', title: dict.process.step5, desc: dict.process.step5Desc, icon: <PackageCheck size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
+    { num: '#1', title: dict?.process?.step1 || "Submit Request", desc: dict?.process?.step1Desc || "Share cargo details via form, email, or call", icon: <MessagesSquare size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
+    { num: '#2', title: dict?.process?.step2 || "Receive Quote", desc: dict?.process?.step2Desc || "Personalized pricing within 2 hours", icon: <Calculator size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
+    { num: '#3', title: dict?.process?.step3 || "Documentation", desc: dict?.process?.step3Desc || "We prepare all customs & transit docs", icon: <FileCheck2 size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
+    { num: '#4', title: dict?.process?.step4 || "Transit & Track", desc: dict?.process?.step4Desc || "Real-time updates along the corridor", icon: <Truck size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
+    { num: '#5', title: dict?.process?.step5 || "Safe Delivery", desc: dict?.process?.step5Desc || "On-time arrival at final destination", icon: <PackageCheck size={56} strokeWidth={1.5} color="var(--cio-navy)" /> },
   ];
 
   return (

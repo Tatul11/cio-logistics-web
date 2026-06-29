@@ -336,6 +336,16 @@ p:last-child {
   width: 100%;
 }
 
+/* Universal capsule/pill shape override for ALL buttons site-wide */
+.btn,
+button[class*="btn"],
+a[class*="btn"],
+[class*="btnGhost"],
+[class*="btnAll"],
+button {
+  border-radius: 9999px !important;
+}
+
 /* ==========================================================================
    MICRO-ANIMATIONS & INTERACTIVE EFFECTS
    ========================================================================== */
