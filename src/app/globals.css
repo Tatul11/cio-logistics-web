@@ -174,7 +174,7 @@ p:last-child {
 }
 
 .section-tight {
-  padding: 64px 0;
+  padding: 36px 0;
 }
 
 .section-gray {
@@ -267,11 +267,11 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
+  gap: 6px;
+  padding: 9px 18px;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13.5px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: all var(--transition-normal);
@@ -529,7 +529,7 @@ a[class*="cta" i]:active {
     padding: 48px 0;
   }
   .btn {
-    padding: 12px 20px;
-    font-size: 14px;
+    padding: 8px 14px;
+    font-size: 13px;
   }
 }

@@ -197,14 +197,14 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Live rates & Quick Tools strip */}
-      <section className="section-tight" style={{ borderBottom: 'none', background: 'var(--cio-orange)', color: '#fff' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
-          <div>
+      <section style={{ padding: '12px 0', borderBottom: 'none', background: 'var(--cio-orange)', color: '#fff' }}>
+        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ fontSize: '14px' }}>
             <strong style={{ color: '#fff' }}>{dict.quickTools.liveRates}: </strong>
             <span style={{ color: '#fff', fontWeight: 700 }}>{dict.quickTools.ratesValue}</span>
           </div>
           <div>
-            <Link href={`/${lang}/contact`} className="btn" style={{ background: '#fff', color: 'var(--cio-orange)', padding: '8px 16px', fontSize: '13px', border: 'none' }}>
+            <Link href={`/${lang}/contact`} className="btn" style={{ background: '#fff', color: 'var(--cio-orange)', padding: '6px 14px', fontSize: '12.5px', height: '32px', border: 'none', fontWeight: 700 }}>
               {dict.quickTools.talkToExpert}
             </Link>
           </div>
