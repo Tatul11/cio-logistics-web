@@ -1,7 +1,9 @@
-import React from 'react';
+"use client";
+
+import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { 
-  ArrowRight, ShoppingCart, Activity, Car, 
+  ArrowRight, ChevronLeft, ChevronRight, ShoppingCart, Activity, Car, 
   Factory, Coffee, FlaskConical, HardHat, Cpu 
 } from 'lucide-react';
 import styles from './OtherIndustries.module.css';
@@ -13,6 +15,9 @@ interface OtherIndustriesProps {
 }
 
 export default function OtherIndustries({ currentSlug, lang, dict }: OtherIndustriesProps) {
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+
   const sectorsData = [
     {
       slug: 'e-commerce',
@@ -82,15 +87,71 @@ export default function OtherIndustries({ currentSlug, lang, dict }: OtherIndust
 
   const filteredSectors = sectorsData.filter(s => s.slug !== currentSlug);
 
+  const scroll = (direction: 'left' | 'right') => {
+    if (!sliderRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+    const cardWidth = 368; // 340px width + 28px gap
+
+    if (direction === 'right') {
+      if (scrollLeft + clientWidth >= scrollWidth - 20) {
+        sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        sliderRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    } else {
+      if (scrollLeft <= 20) {
+        sliderRef.current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+      } else {
+        sliderRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Auto slide every 3 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      scroll('right');
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
   return (
     <section className={styles.sectionOther}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.eyebrow}>EXPLORE MORE SECTORS</span>
-          <h2 className={styles.title}>Other Specialized Industries We Serve</h2>
+          <div>
+            <span className={styles.eyebrow}>EXPLORE MORE SECTORS</span>
+            <h2 className={styles.title}>Other Specialized Industries We Serve</h2>
+          </div>
+          <div className={styles.navButtons}>
+            <button 
+              onClick={() => scroll('left')} 
+              className={styles.navBtn} 
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={() => scroll('right')} 
+              className={styles.navBtn} 
+              aria-label="Next slide"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
         </div>
 
-        <div className={styles.sliderWrap}>
+        <div 
+          className={styles.sliderWrap} 
+          ref={sliderRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
           {filteredSectors.map((sector) => (
             <div key={sector.slug} className={styles.slideCard}>
               <div className={styles.imageWrap}>

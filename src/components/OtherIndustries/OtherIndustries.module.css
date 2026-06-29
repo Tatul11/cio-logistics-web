@@ -14,8 +14,20 @@
 }
 
 .header {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: left;
+  }
 }
 
 .eyebrow {
@@ -33,6 +45,33 @@
   font-weight: 800;
   color: var(--cio-navy);
   margin: 0;
+}
+
+.navButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.navBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #E5E7EB;
+  background: #ffffff;
+  color: var(--cio-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navBtn:hover {
+  background: var(--cio-red);
+  color: #ffffff;
+  border-color: var(--cio-red);
+  transform: scale(1.05);
 }
 
 /* Scrollable Horizontal Slider */

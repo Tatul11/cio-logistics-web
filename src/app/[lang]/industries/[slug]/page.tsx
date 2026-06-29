@@ -257,6 +257,9 @@ export default async function IndustryPage(props: IndustryPageProps) {
         </div>
       </section>
 
+      {/* OTHER INDUSTRIES SLIDER COMPONENT */}
+      <OtherIndustries currentSlug={params.slug} lang={lang} dict={dict} />
+
       {/* 5. CASE STUDIES STRIP */}
       <section className={styles.sectionCaseStudies}>
         <div className={styles.sectionHeader}>
@@ -362,9 +365,6 @@ export default async function IndustryPage(props: IndustryPageProps) {
           </Link>
         </div>
       </div>
-
-      {/* OTHER INDUSTRIES SLIDER COMPONENT */}
-      <OtherIndustries currentSlug={params.slug} lang={lang} dict={dict} />
 
       {/* 8. BOTTOM CTA BANNER */}
       <section className={styles.bottomCta}>
