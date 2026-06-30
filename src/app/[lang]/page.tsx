@@ -327,44 +327,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.routes.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '56px', alignItems: 'center' }}>
-            {/* Left side Map */}
-            <InteractiveMap lang={lang} dict={dict} />
-
-            {/* Right side Route lists */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', color: 'var(--cio-navy)' }}>
-                  🇨🇳 {dict.routes.china}
-                </h4>
-                <div style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                  {dict.routes.chinaMeta}
-                </div>
-              </div>
-
-              <div style={{ padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', color: 'var(--cio-navy)' }}>
-                  🇷🇺 {dict.routes.russia}
-                </h4>
-                <div style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                  {dict.routes.russiaMeta}
-                </div>
-              </div>
-
-              <div style={{ padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-                <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', color: 'var(--cio-navy)' }}>
-                  🇩🇪 {dict.routes.germany}
-                </h4>
-                <div style={{ fontSize: '14px', color: 'var(--text-muted)' }}>
-                  {dict.routes.germanyMeta}
-                </div>
-              </div>
-
-              <Link href={`/${lang}/routes`} className="btn btn-secondary btn-full">
-                {dict.routes.exploreAll}
-              </Link>
-            </div>
-          </div>
+          <InteractiveMap lang={lang} dict={dict} />
         </div>
       </section>
 

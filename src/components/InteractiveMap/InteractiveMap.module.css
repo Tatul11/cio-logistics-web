@@ -1,145 +1,234 @@
 .wrapper {
   position: relative;
   width: 100%;
-  background: var(--cio-navy-dark);
-  border-radius: var(--radius-lg);
-  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  padding: 36px;
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.mapContainer {
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mapSection {
   position: relative;
-  flex: 1;
   width: 100%;
+  min-height: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #fafcfd;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 168, 232, 0.1);
+  overflow: hidden;
 }
 
 .svgMap {
   width: 100%;
-  height: auto;
-  max-height: 400px;
+  height: 100%;
+  max-height: 460px;
 }
 
-/* Map items */
-.baseCountry {
-  fill: #1E3A5F;
-  stroke: #162E4A;
-  stroke-width: 0.5;
+.dot {
+  fill: #00A8E8;
+  opacity: 0.65;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+.dot:hover {
+  fill: var(--cio-orange);
+  opacity: 1;
+  r: 5px;
+}
+
+.dotActive {
+  fill: var(--cio-orange) !important;
+  opacity: 1 !important;
+  r: 4.5px !important;
+  filter: drop-shadow(0 0 6px rgba(255, 107, 0, 0.6));
+}
+
+.dotLine {
+  stroke: #00A8E8;
+  stroke-width: 1.2;
+  opacity: 0.25;
+  transition: all 0.3s ease;
+}
+
+.dotLineActive {
+  stroke: var(--cio-orange);
+  stroke-width: 2;
+  opacity: 0.8;
 }
 
 .yerevanNode {
   fill: var(--cio-orange);
-  filter: drop-shadow(0 0 6px var(--cio-orange));
-  cursor: pointer;
+  filter: drop-shadow(0 0 8px var(--cio-orange));
 }
 
-.pulse {
-  animation: mapPulse 2s infinite;
-  transform-origin: center;
-}
-
-@keyframes mapPulse {
-  0% {
-    r: 6px;
-    opacity: 1;
-  }
-  100% {
-    r: 16px;
-    opacity: 0;
-  }
-}
-
-.node {
-  fill: var(--bg-white);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.node:hover {
-  fill: var(--cio-orange);
-  filter: drop-shadow(0 0 4px var(--cio-orange));
-}
-
-.lanePath {
-  stroke: rgba(255, 255, 255, 0.2);
-  stroke-width: 1.5;
-  stroke-dasharray: 4, 4;
-  fill: none;
-  transition: all var(--transition-normal);
-}
-
-.activePath {
+.arcLine {
   stroke: var(--cio-orange);
   stroke-width: 2.5;
-  stroke-dasharray: 8, 4;
-  animation: dashFlow 30s linear infinite;
+  stroke-dasharray: 6, 4;
+  fill: none;
+  animation: dashFlow 20s linear infinite;
 }
 
 @keyframes dashFlow {
   to {
-    stroke-dashoffset: -1000;
+    stroke-dashoffset: -500;
   }
 }
 
-.tooltip {
+/* Floating Circular Badges */
+.badgeWrap {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(27, 38, 46, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 16px 20px;
-  border-radius: var(--radius);
-  color: var(--bg-white);
-  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 10;
-  pointer-events: none;
-  transition: opacity var(--transition-normal);
-  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.tooltipTitle {
+.badgeWrap:hover,
+.badgeActive {
+  transform: translateY(-6px) scale(1.12);
+  z-index: 20;
+}
+
+.badgeTitle {
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
+  color: #0F2C59;
+  margin-bottom: 6px;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.badgeActive .badgeTitle,
+.badgeWrap:hover .badgeTitle {
   color: var(--cio-orange);
+}
+
+.badgeCircle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #E0F2FE;
+  border: 2px solid rgba(0, 168, 232, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 168, 232, 0.15);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.badgeActive .badgeCircle,
+.badgeWrap:hover .badgeCircle {
+  background: #ffffff;
+  border-color: var(--cio-orange);
+  box-shadow: 0 12px 28px rgba(255, 107, 0, 0.25);
+}
+
+.badgeNumber {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0F2C59;
+  line-height: 1;
+}
+
+.badgeActive .badgeNumber,
+.badgeWrap:hover .badgeNumber {
+  color: var(--cio-orange);
+}
+
+.badgeSub {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 2px;
+}
+
+/* Right Side Route Cards */
+.routesList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.routeCard {
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.routeCard:hover,
+.routeCardActive {
+  border-color: var(--cio-orange);
+  background: #FFF9F5;
+  transform: translateX(6px);
+  box-shadow: 0 10px 24px rgba(255, 107, 0, 0.12);
+}
+
+.routeCardTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cio-navy);
   margin-bottom: 6px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
-.tooltipDetails {
-  font-size: 12px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.9);
+.routeCardActive .routeCardTitle {
+  color: var(--cio-orange);
 }
 
-/* Legend details */
-.legend {
+.routeCardMeta {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.hqLegend {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 16px;
-  margin-top: 16px;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--cio-navy);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.legendDot {
-  display: inline-block;
+.hqDot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--cio-orange);
-  margin-right: 6px;
+  box-shadow: 0 0 8px var(--cio-orange);
 }
