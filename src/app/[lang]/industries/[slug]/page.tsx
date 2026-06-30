@@ -366,26 +366,70 @@ export default async function IndustryPage(props: IndustryPageProps) {
           <span className={styles.sectionEyebrow}>LOGISTICS SOLUTIONS</span>
           <h2 className={styles.sectionTitle}>A complete fulfillment stack</h2>
         </div>
-        <div className={styles.solutionsGrid}>
-          <div className={styles.solutionCard}>
-            <Truck size={28} style={{ color: 'var(--cio-red)', marginBottom: '8px' }} />
-            <h4>Multimodal Freight</h4>
-            <p>Seamless combination of air, sea, road, and rail transport designed to minimize transit times and costs.</p>
+        
+        <div className={styles.solutionRowsList}>
+          {/* Row 1: Multimodal Freight - Left Image, Right Text */}
+          <div className={styles.solutionRow}>
+            <div className={styles.solutionRowImageWrap}>
+              <img src="/images/barret-ward-5WbtO3NlTJI-unsplash.webp" alt="Multimodal Freight Operations" className={styles.solutionRowImage} />
+            </div>
+            <div className={styles.solutionRowContent}>
+              <div className={styles.solutionRedDash}></div>
+              <h3 className={styles.solutionRowTitle}>
+                <Truck size={26} style={{ color: 'var(--cio-red)' }} /> Multimodal Freight
+              </h3>
+              <p className={styles.solutionRowText}>
+                Seamless combination of air, sea, road, and rail transport designed to minimize transit times and costs across complex Eurasian corridors.
+              </p>
+            </div>
           </div>
-          <div className={styles.solutionCard}>
-            <ShieldCheck size={28} style={{ color: 'var(--cio-red)', marginBottom: '8px' }} />
-            <h4>Customs Brokerage</h4>
-            <p>Fast, error-free customs clearance across Armenia and international border points with full legal support.</p>
+
+          {/* Row 2: Customs Brokerage - Right Image, Left Text (Reversed on desktop) */}
+          <div className={`${styles.solutionRow} ${styles.solutionRowReverse}`}>
+            <div className={styles.solutionRowImageWrap}>
+              <img src="/images/bent-van-aeken-0A7YwYhZhWw-unsplash.webp" alt="Customs Clearance & Brokerage" className={styles.solutionRowImage} />
+            </div>
+            <div className={styles.solutionRowContent}>
+              <div className={styles.solutionRedDash}></div>
+              <h3 className={styles.solutionRowTitle}>
+                <ShieldCheck size={26} style={{ color: 'var(--cio-red)' }} /> Customs Brokerage
+              </h3>
+              <p className={styles.solutionRowText}>
+                Fast, error-free customs clearance across Armenia and international border points with full legal support, duty calculation, and sanitary declarations.
+              </p>
+            </div>
           </div>
-          <div className={styles.solutionCard}>
-            <MapPin size={28} style={{ color: 'var(--cio-red)', marginBottom: '8px' }} />
-            <h4>Warehouse Storage</h4>
-            <p>Secure, bonded, and temperature-controlled consolidation hubs ready for short or long-term storage.</p>
+
+          {/* Row 3: Warehouse Storage - Left Image, Right Text */}
+          <div className={styles.solutionRow}>
+            <div className={styles.solutionRowImageWrap}>
+              <img src="/images/chuttersnap-fN603qcEA7g-unsplash.webp" alt="Bonded & Temperature-Controlled Warehousing" className={styles.solutionRowImage} />
+            </div>
+            <div className={styles.solutionRowContent}>
+              <div className={styles.solutionRedDash}></div>
+              <h3 className={styles.solutionRowTitle}>
+                <MapPin size={26} style={{ color: 'var(--cio-red)' }} /> Warehouse Storage
+              </h3>
+              <p className={styles.solutionRowText}>
+                Secure, bonded, and temperature-controlled consolidation hubs ready for short or long-term storage, inventory management, and cross-docking.
+              </p>
+            </div>
           </div>
-          <div className={styles.solutionCard}>
-            <Clock size={28} style={{ color: 'var(--cio-red)', marginBottom: '8px' }} />
-            <h4>Last-Mile Delivery</h4>
-            <p>Reliable door-to-door distribution straight to your retail stores, warehouses, or end customers.</p>
+
+          {/* Row 4: Last-Mile Delivery - Right Image, Left Text (Reversed on desktop) */}
+          <div className={`${styles.solutionRow} ${styles.solutionRowReverse}`}>
+            <div className={styles.solutionRowImageWrap}>
+              <img src="/images/elevate-dI-aXC7DWpQ-unsplash.webp" alt="Last-Mile Distribution Network" className={styles.solutionRowImage} />
+            </div>
+            <div className={styles.solutionRowContent}>
+              <div className={styles.solutionRedDash}></div>
+              <h3 className={styles.solutionRowTitle}>
+                <Clock size={26} style={{ color: 'var(--cio-red)' }} /> Last-Mile Delivery
+              </h3>
+              <p className={styles.solutionRowText}>
+                Reliable door-to-door distribution straight to your retail stores, pharmaceutical depots, regional warehouses, or commercial end customers.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -445,63 +445,98 @@
   margin: 0;
 }
 
-.solutionsGrid {
-  max-width: 1200px;
+/* Horizontal Alternating Rows for LOGISTICS SOLUTIONS */
+.solutionRowsList {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  max-width: 1100px;
   margin: 0 auto;
+}
+
+.solutionRow {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 640px) {
-  .solutionsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .solutionsGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.solutionCard {
+  gap: 32px;
+  align-items: center;
   background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-  position: relative;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+@media (min-width: 992px) {
+  .solutionRow {
+    grid-template-columns: 1fr 1fr;
+    padding: 36px 44px;
+    gap: 48px;
+  }
+}
+
+@media (min-width: 992px) {
+  .solutionRowReverse .solutionRowImageWrap {
+    order: 2;
+  }
+  .solutionRowReverse .solutionRowContent {
+    order: 1;
+  }
+}
+
+.solutionRow:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--cio-red);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+}
+
+.solutionRowImageWrap {
+  width: 100%;
+  height: 270px;
+  border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-.solutionCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+.solutionRowImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.solutionCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 24px;
-  width: 40px;
-  height: 3px;
+.solutionRow:hover .solutionRowImage {
+  transform: scale(1.08);
+}
+
+.solutionRowContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.solutionRedDash {
+  width: 44px;
+  height: 4px;
   background: var(--cio-red);
+  border-radius: 2px;
+  margin-bottom: 16px;
 }
 
-.solutionCard h4 {
-  font-size: 18px;
-  font-weight: 700;
+.solutionRowTitle {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
   color: var(--cio-navy);
-  margin: 12px 0 8px;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.solutionCard p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
+.solutionRowText {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-body);
   margin: 0;
 }
 
