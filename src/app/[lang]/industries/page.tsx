@@ -10,6 +10,8 @@ import styles from './IndustriesGlobal.module.css';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import Partners from '@/components/Partners/Partners';
 import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
+import AnimatedCounter from '@/components/AnimatedCounter/AnimatedCounter';
+import LiveRatesStrip from '@/components/LiveRatesStrip/LiveRatesStrip';
 
 interface IndustriesGlobalProps {
   params: Promise<{ lang: string }>;
@@ -143,21 +145,23 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
 
           <div className={styles.heroStats}>
             <div>
-              <span className={styles.heroStatNum}>8</span>
+              <span className={styles.heroStatNum}><AnimatedCounter value="8" /></span>
               <span className={styles.heroStatLabel}>Core Specialized Sectors</span>
             </div>
             <div>
-              <span className={styles.heroStatNum}>14+</span>
+              <span className={styles.heroStatNum}><AnimatedCounter value="14+" /></span>
               <span className={styles.heroStatLabel}>Years Industry Experience</span>
             </div>
             <div>
-              <span className={styles.heroStatNum}>150+</span>
+              <span className={styles.heroStatNum}><AnimatedCounter value="150+" /></span>
               <span className={styles.heroStatLabel}>Countries & Trade Corridors</span>
             </div>
           </div>
 
         </div>
       </section>
+
+      <LiveRatesStrip dict={dict} lang={lang} />
 
       {/* 2. INDUSTRIES LISTING GRID SECTION */}
       <section className={styles.sectionSectors}>

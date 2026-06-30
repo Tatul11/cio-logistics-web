@@ -4,6 +4,7 @@ import { getDictionary } from '@/lib/dictionary';
 import { ShieldCheck, Award, Target, ArrowRight } from 'lucide-react';
 import Partners from '@/components/Partners/Partners';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
+import AnimatedCounter from '@/components/AnimatedCounter/AnimatedCounter';
 import styles from './About.module.css';
 
 interface AboutPageProps {
@@ -308,12 +309,12 @@ export default async function AboutPage(props: AboutPageProps) {
             <div className={styles.flatLayoutSectionColLeft}>
               <div className={styles.flatLayoutSectionItem} style={{ backgroundColor: '#F4EEFF' }}>
                 <div className={styles.line1}>{localDict.flatLeft1Line1}</div>
-                <div className={styles.line2}>{localDict.flatLeft1Line2}</div>
+                <div className={styles.line2}><AnimatedCounter value={localDict.flatLeft1Line2} /></div>
                 <div className={styles.line3}>{localDict.flatLeft1Line3}</div>
               </div>
               <div className={styles.flatLayoutSectionItem} style={{ backgroundColor: '#FFF2E9' }}>
                 <div className={styles.line1}>{localDict.flatLeft2Line1}</div>
-                <div className={styles.line2}>{localDict.flatLeft2Line2}</div>
+                <div className={styles.line2}><AnimatedCounter value={localDict.flatLeft2Line2} /></div>
                 <div className={styles.line3}>{localDict.flatLeft2Line3}</div>
               </div>
             </div>
@@ -329,12 +330,12 @@ export default async function AboutPage(props: AboutPageProps) {
             <div className={styles.flatLayoutSectionColRight}>
               <div className={styles.flatLayoutSectionItem} style={{ backgroundColor: '#FFFAE7' }}>
                 <div className={styles.line1}>{localDict.flatRight1Line1}</div>
-                <div className={styles.line2}>{localDict.flatRight1Line2}</div>
+                <div className={styles.line2}><AnimatedCounter value={localDict.flatRight1Line2} /></div>
                 <div className={styles.line3}>{localDict.flatRight1Line3}</div>
               </div>
               <div className={styles.flatLayoutSectionItem} style={{ backgroundColor: '#EAF7ED' }}>
                 <div className={styles.line1}>{localDict.flatRight2Line1}</div>
-                <div className={styles.line2}>{localDict.flatRight2Line2}</div>
+                <div className={styles.line2}><AnimatedCounter value={localDict.flatRight2Line2} /></div>
                 <div className={styles.line3}>{localDict.flatRight2Line3}</div>
               </div>
             </div>

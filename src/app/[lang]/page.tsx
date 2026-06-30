@@ -10,6 +10,8 @@ import Partners from '@/components/Partners/Partners';
 import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import ServicesShowcase from '@/components/ServicesShowcase/ServicesShowcase';
+import AnimatedCounter from '@/components/AnimatedCounter/AnimatedCounter';
+import LiveRatesStrip from '@/components/LiveRatesStrip/LiveRatesStrip';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -197,19 +199,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Live rates & Quick Tools strip */}
-      <section style={{ padding: '12px 0', borderBottom: 'none', background: 'var(--cio-orange)', color: '#fff' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-          <div style={{ fontSize: '14px' }}>
-            <strong style={{ color: '#fff' }}>{dict.quickTools.liveRates}: </strong>
-            <span style={{ color: '#fff', fontWeight: 700 }}>{dict.quickTools.ratesValue}</span>
-          </div>
-          <div>
-            <Link href={`/${lang}/contact`} className="btn" style={{ background: '#fff', color: 'var(--cio-orange)', padding: '6px 14px', fontSize: '12.5px', height: '32px', border: 'none', fontWeight: 700 }}>
-              {dict.quickTools.talkToExpert}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <LiveRatesStrip dict={dict} lang={lang} />
 
       {/* Partners Section (They Trust Us) */}
       <Partners dict={dict} />
@@ -300,7 +290,7 @@ export default async function LocalizedHomePage(props: PageProps) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px', textAlign: 'center' }}>
             <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
               <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
-                {dict.metrics.tons}
+                <AnimatedCounter value={dict.metrics.tons} />
               </div>
               <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
                 {dict.metrics.tonsLabel}
@@ -309,7 +299,7 @@ export default async function LocalizedHomePage(props: PageProps) {
 
             <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
               <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
-                {dict.metrics.years}
+                <AnimatedCounter value={dict.metrics.years} />
               </div>
               <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
                 {dict.metrics.yearsLabel}
@@ -318,7 +308,7 @@ export default async function LocalizedHomePage(props: PageProps) {
 
             <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
               <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
-                {dict.metrics.ontime}
+                <AnimatedCounter value={dict.metrics.ontime} />
               </div>
               <div style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
                 {dict.metrics.ontimeLabel}

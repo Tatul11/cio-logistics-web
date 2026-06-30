@@ -7,6 +7,8 @@ import styles from './IndustryLayout.module.css';
 import Partners from '@/components/Partners/Partners';
 import OtherIndustries from '@/components/OtherIndustries/OtherIndustries';
 import ProcessTimeline from '@/components/ProcessTimeline/ProcessTimeline';
+import AnimatedCounter from '@/components/AnimatedCounter/AnimatedCounter';
+import LiveRatesStrip from '@/components/LiveRatesStrip/LiveRatesStrip';
 
 interface IndustryPageProps {
   params: Promise<{
@@ -85,15 +87,17 @@ export default async function IndustryPage(props: IndustryPageProps) {
         </div>
       </section>
 
+      <LiveRatesStrip dict={dict} lang={lang} />
+
       {/* 2. STATS STRIP BELOW HERO */}
       <div className={styles.statsBar}>
         <div className={styles.statsContainer}>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>150+</span>
+            <span className={styles.statNumber}><AnimatedCounter value="150+" /></span>
             <span className={styles.statLabel}>Countries & Corridors</span>
           </div>
           <div className={styles.statItem}>
-            <span className={`${styles.statNumber} ${styles.statNumberHighlight}`}>-32%</span>
+            <span className={`${styles.statNumber} ${styles.statNumberHighlight}`}><AnimatedCounter value="-32%" /></span>
             <span className={styles.statLabel}>Transit Cost Optimization</span>
           </div>
           <div className={styles.statItem}>
@@ -101,7 +105,7 @@ export default async function IndustryPage(props: IndustryPageProps) {
             <span className={styles.statLabel}>Scheduled Departures</span>
           </div>
           <div className={styles.statItem}>
-            <span className={styles.statNumber}>98.4%</span>
+            <span className={styles.statNumber}><AnimatedCounter value="98.4%" /></span>
             <span className={styles.statLabel}>On-Time Delivery Rate</span>
           </div>
         </div>
