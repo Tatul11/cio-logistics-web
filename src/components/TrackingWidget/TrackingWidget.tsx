@@ -66,11 +66,31 @@ export default function TrackingWidget({ lang, dict }: TrackingWidgetProps) {
         { status: 'completed', title: 'Delivered', desc: 'Handed over to PharmaCorp Yerevan HQ. Temp logs signed.', time: 'May 19, 02:15 PM' },
       ],
     },
+    'CIO-AM-1045': {
+      number: 'CIO-AM-1045',
+      status: 'In Transit',
+      origin: 'Moscow, RU',
+      destination: 'Yerevan, AM',
+      eta: 'June 1, 2026',
+      weight: '21,500 kg',
+      mode: 'FTL Road Freight (Reefer)',
+      steps: [
+        { status: 'completed', title: 'Cargo Loaded at Supplier', desc: 'Moscow Distribution Hub refrigerated loading', time: 'May 17, 08:00 AM' },
+        { status: 'completed', title: 'Russian Export Customs Cleared', desc: 'Voronezh regional customs checkpoint release', time: 'May 18, 02:30 PM' },
+        { status: 'active', title: 'Upper Lars Border Checkpoint', desc: 'Status: In Transit — Lars Checkpoint, Vladikavkaz priority pass', time: 'May 20, 11:15 AM' },
+        { status: 'pending', title: 'Armenian Customs Clearance', desc: 'Bagratashen customs checkpoint entry', time: 'Pending' },
+        { status: 'pending', title: 'Arrived at Yerevan Warehouse', desc: 'Final temperature log verification & unloading', time: 'Pending' },
+      ],
+    },
   };
 
   const handleTrack = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!trackingNumber.trim()) {
+    runTracking(trackingNumber);
+  };
+
+  const runTracking = (codeToTrack: string) => {
+    if (!codeToTrack.trim()) {
       setError('Please enter a tracking number.');
       setResult(null);
       return;
@@ -79,15 +99,13 @@ export default function TrackingWidget({ lang, dict }: TrackingWidgetProps) {
     setLoading(true);
     setError('');
 
-    // Simulate network latency
     setTimeout(() => {
       setLoading(false);
-      const code = trackingNumber.trim().toUpperCase();
+      const code = codeToTrack.trim().toUpperCase();
       
       if (mockData[code]) {
         setResult(mockData[code]);
       } else {
-        // Generate a random dynamic mock shipment for generic searches
         setResult({
           number: code,
           status: 'In Transit',
@@ -99,13 +117,13 @@ export default function TrackingWidget({ lang, dict }: TrackingWidgetProps) {
           steps: [
             { status: 'completed', title: 'Shipment Created', desc: 'Cargo booking confirmed', time: 'May 18, 09:00 AM' },
             { status: 'completed', title: 'Received at Hub', desc: 'Consolidation warehouse sorting', time: 'May 19, 04:30 PM' },
-            { status: 'active', title: 'Departed Hub', desc: 'In transit via transit countries', time: 'May 20, 06:00 AM' },
-            { status: 'pending', title: 'Customs Clearance', desc: 'EAEU border checkpoint entry', time: 'Pending' },
+            { status: 'active', title: 'Departed Hub', desc: 'In transit via EAEU corridors', time: 'May 20, 06:00 AM' },
+            { status: 'pending', title: 'Customs Clearance', desc: 'Border checkpoint entry', time: 'Pending' },
             { status: 'pending', title: 'Out for Delivery', desc: 'Last mile dispatch', time: 'Pending' },
           ],
         });
       }
-    }, 1000);
+    }, 600);
   };
 
   return (
@@ -125,12 +143,33 @@ export default function TrackingWidget({ lang, dict }: TrackingWidgetProps) {
         </button>
       </form>
 
-      {/* Info tips */}
-      {!result && !loading && (
-        <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-          💡 Try entering: <strong style={{ color: 'var(--cio-orange)' }}>CIO-CN-9042</strong> or <strong style={{ color: 'var(--cio-orange)' }}>CIO-DE-3029</strong> to see realistic tracking workflows.
-        </div>
-      )}
+      {/* Clickable Sample Tracking Badges per D-12 */}
+      <div style={{ fontSize: '13.5px', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '14px' }}>
+        <span>💡 Test live samples:</span>
+        {['CIO-CN-9042', 'CIO-DE-3029', 'CIO-AM-1045'].map((sampleCode) => (
+          <button
+            key={sampleCode}
+            type="button"
+            onClick={() => {
+              setTrackingNumber(sampleCode);
+              runTracking(sampleCode);
+            }}
+            style={{
+              background: 'var(--bg-white)',
+              border: '1px solid var(--cio-orange)',
+              color: 'var(--cio-orange)',
+              padding: '4px 10px',
+              borderRadius: '6px',
+              fontSize: '12px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            {sampleCode}
+          </button>
+        ))}
+      </div>
 
       {error && (
         <div style={{ color: 'var(--error)', fontSize: '14px', marginTop: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>

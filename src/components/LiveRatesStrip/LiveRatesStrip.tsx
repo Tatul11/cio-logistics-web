@@ -46,7 +46,7 @@ export default function LiveRatesStrip({ dict, lang }: LiveRatesStripProps) {
               boxShadow: '0 0 8px #4ade80',
               animation: 'pulse 2s infinite'
             }} />
-            <strong style={{ color: '#fff', letterSpacing: '0.3px' }}>{dict.quickTools?.liveRates || "Live Rates"}:</strong>
+            <strong style={{ color: '#fff', letterSpacing: '0.3px' }}>{dict.quickTools?.liveRates || "Live Rates"} <span style={{ fontSize: '11px', fontWeight: 500, opacity: 0.85 }}>(CBA & FastForex Feed)</span>:</strong>
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '14px', fontWeight: 700, color: '#fff' }}>

@@ -81,16 +81,16 @@ export default async function LocalizedLayout(props: LayoutProps) {
                   <strong>🏢 Office:</strong> 22a Nairi Zaryan St, Yerevan 0051
                 </div>
                 <div style={{ fontSize: '15px', color: '#FFFFFF' }}>
-                  <strong>⏰ Hours:</strong> Mon - Sat: 09:00 - 19:00
+                  <strong>⏰ Hours:</strong> Mon–Sat 09:00–19:00 (AMT) · 24/7 Emergency Dispatch
                 </div>
               </div>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginTop: '12px' }}>
-                <a href="tel:+37491123456" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '16px', fontWeight: 700 }}>
-                  📞 Call Dispatch Now
+                <a href="tel:+37495211121" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '16px', fontWeight: 700 }}>
+                  📞 Call Dispatch: +(374) 95 211 121
                 </a>
                 <Link href={`/${lang}/quote`} className="btn btn-white" style={{ padding: '16px 32px', fontSize: '16px', fontWeight: 700 }}>
-                  Get Instant Quote →
+                  Get Quote in 2 Hours →
                 </Link>
               </div>
             </div>

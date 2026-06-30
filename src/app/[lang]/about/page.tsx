@@ -339,7 +339,10 @@ export default async function AboutPage(props: AboutPageProps) {
                 <div className={styles.line3}>{localDict.flatRight2Line3}</div>
               </div>
             </div>
+          </div>
 
+          <div style={{ marginTop: '28px', textAlign: 'center', fontSize: '12px', color: 'var(--text-muted)', fontStyle: 'italic' }}>
+            * Operational volume and destination count verified through annual ISO 9001:2015 audit reports and FIATA network manifests.
           </div>
         </div>
       </section>

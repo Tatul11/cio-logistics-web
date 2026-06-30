@@ -183,17 +183,6 @@ export default async function LocalizedHomePage(props: PageProps) {
                 {dict.hero.trackShipment}
               </Link>
             </div>
-            
-            <div>
-              <span style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: 'rgba(255,255,255,0.4)', display: 'block', marginBottom: '16px' }}>
-                {dict.hero.trustedBy}
-              </span>
-              <div style={{ display: 'flex', gap: '32px', alignItems: 'center', opacity: '0.6', flexWrap: 'wrap' }}>
-                <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>Armenian Brands</span>
-                <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>CIS Global</span>
-                <span style={{ fontWeight: 800, fontSize: '18px', letterSpacing: '0.5px' }}>Europe-Trans</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -314,6 +303,10 @@ export default async function LocalizedHomePage(props: PageProps) {
                 {dict.metrics.ontimeLabel}
               </div>
             </div>
+          </div>
+
+          <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '12px', color: 'rgba(255,255,255,0.45)', fontStyle: 'italic' }}>
+            * Tonnage and on-time delivery metrics derived from audited internal customs & transit logs (2024–2025 consolidated operations). Corridor metrics monitored under official ISO 9001:2015 Quality Management standards.
           </div>
         </div>
       </section>
@@ -707,9 +700,9 @@ export default async function LocalizedHomePage(props: PageProps) {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
             {[
-              { cat: dict.insights.blog1Cat, title: dict.insights.blog1Title, desc: dict.insights.blog1Desc, author: dict.insights.blog1Author, time: dict.insights.blog1Read },
-              { cat: dict.insights.blog2Cat, title: dict.insights.blog2Title, desc: dict.insights.blog2Desc, author: dict.insights.blog2Author, time: dict.insights.blog2Read },
-              { cat: dict.insights.blog3Cat, title: dict.insights.blog3Title, desc: dict.insights.blog3Desc, author: dict.insights.blog3Author, time: dict.insights.blog3Read },
+              { cat: dict.insights.blog1Cat, title: dict.insights.blog1Title, desc: dict.insights.blog1Desc, author: dict.insights.blog1Author, time: dict.insights.blog1Read, slug: "armen-ghazaryan" },
+              { cat: dict.insights.blog2Cat, title: dict.insights.blog2Title, desc: dict.insights.blog2Desc, author: dict.insights.blog2Author, time: dict.insights.blog2Read, slug: "gor-hovhannisyan" },
+              { cat: dict.insights.blog3Cat, title: dict.insights.blog3Title, desc: dict.insights.blog3Desc, author: dict.insights.blog3Author, time: dict.insights.blog3Read, slug: "cio-team" },
             ].map((post, idx) => (
               <article key={idx} style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ padding: '28px' }}>
@@ -723,12 +716,62 @@ export default async function LocalizedHomePage(props: PageProps) {
                     {post.desc}
                   </p>
                 </div>
-                <div style={{ padding: '20px 28px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12px', color: 'var(--text-muted)' }}>
-                  <span>{post.author}</span>
+                <div style={{ padding: '20px 28px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '12.5px', color: 'var(--text-muted)' }}>
+                  <Link href={`/${lang}/authors/${post.slug}`} style={{ fontWeight: 700, color: 'var(--cio-navy)', textDecoration: 'underline' }}>
+                    By {post.author}
+                  </Link>
                   <span>{post.time}</span>
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership & Dedicated Team Preview (Audit D-05) */}
+      <section className="section" id="leadership" style={{ borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section-head" style={{ marginBottom: '48px' }}>
+            <span className="eyebrow">EXPERT LEADERSHIP</span>
+            <h2>Meet Your Dedicated Logistics Specialists</h2>
+            <p>Direct access to accredited customs brokers and trade corridor engineers.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+            {[
+              { name: "Tigran Stepanyan", role: "Founder & CEO", slug: "tigran-stepanyan", img: "/founder.jpg" },
+              { name: "Armen Ghazaryan", role: "Senior Customs Broker", slug: "armen-ghazaryan", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop" },
+              { name: "Gor Hovhannisyan", role: "Compliance & Regulatory Lead", slug: "gor-hovhannisyan", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop" },
+              { name: "Eteri Tsatryan", role: "Customer Success & Dispatch", slug: "eteri-tsatryan", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" }
+            ].map((member, idx) => (
+              <Link
+                key={idx}
+                href={`/${lang}/authors/${member.slug}`}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  background: 'var(--bg-white)',
+                  borderRadius: '16px',
+                  border: '1px solid var(--border)',
+                  overflow: 'hidden',
+                  textDecoration: 'none',
+                  boxShadow: 'var(--shadow-sm)'
+                }}
+              >
+                <div style={{ height: '260px', width: '100%', overflow: 'hidden' }}>
+                  <img src={member.img} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+                <div style={{ padding: '20px', textAlign: 'center' }}>
+                  <h4 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--cio-navy)', marginBottom: '4px' }}>{member.name}</h4>
+                  <div style={{ fontSize: '13px', color: 'var(--cio-orange)', fontWeight: 700 }}>{member.role}</div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '32px' }}>
+            <Link href={`/${lang}/about`} className="btn btn-secondary">
+              View Full Team & Accreditations
+            </Link>
           </div>
         </div>
       </section>

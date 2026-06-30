@@ -320,10 +320,20 @@ export default function InteractiveMap({ lang, dict }: InteractiveMapProps) {
             );
           })}
 
-          {/* Legend indicator */}
-          <div className={styles.hqLegend}>
-            <span className={styles.hqDot} />
-            <span>Yerevan Headquarters</span>
+          {/* Legend indicator per Audit 3.7 */}
+          <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px', fontSize: '11.5px', fontWeight: 600, color: 'var(--cio-navy)', background: 'rgba(255, 255, 255, 0.95)', padding: '8px 14px', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 4px 12px rgba(0,0,0,0.06)', zIndex: 30 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--cio-orange)', boxShadow: '0 0 8px var(--cio-orange)' }} />
+              <span>Yerevan Global HQ</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#00A8E8' }} />
+              <span>Accredited Bases (Customs & Transit Hubs)</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ display: 'inline-block', width: '16px', height: '2px', borderTop: '2px dashed var(--cio-orange)' }} />
+              <span>Active Multimodal Corridors</span>
+            </div>
           </div>
         </div>
 

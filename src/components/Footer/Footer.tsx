@@ -103,18 +103,24 @@ export default function Footer({ lang, dict }: FooterProps) {
                 ✓ Subscribed successfully!
               </div>
             ) : (
-              <form className={styles.newsletterForm} onSubmit={handleSubmit}>
-                <input
-                  type="email"
-                  placeholder={dict.footer.placeholderEmail}
-                  className={styles.emailInput}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button type="submit" className="btn btn-primary">
-                  {dict.footer.subscribe}
-                </button>
+              <form className={styles.newsletterForm} onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <input
+                    type="email"
+                    placeholder={dict.footer.placeholderEmail}
+                    className={styles.emailInput}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  <button type="submit" className="btn btn-primary">
+                    {dict.footer.subscribe}
+                  </button>
+                </div>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '11.5px', color: 'var(--text-muted)', cursor: 'pointer', textAlign: 'left', lineHeight: '1.4' }}>
+                  <input type="checkbox" required style={{ marginTop: '3px' }} />
+                  <span>I consent to the processing of my email per the <Link href={`/${lang}/legal/privacy`} style={{ textDecoration: 'underline', color: 'var(--cio-orange)' }}>Privacy & GDPR Policy</Link>.</span>
+                </label>
               </form>
             )}
           </div>
@@ -137,7 +143,7 @@ export default function Footer({ lang, dict }: FooterProps) {
             <Link href={`/${lang}/legal/privacy`}>{dict.footer.privacy}</Link>
             <Link href={`/${lang}/legal/terms`}>{dict.footer.terms}</Link>
             <Link href={`/${lang}/legal/cookies`}>{dict.footer.cookiePolicy}</Link>
-            <Link href={`/${lang}/about#corruption`}>{dict.footer.antiCorruption}</Link>
+            <Link href={`/${lang}/about#compliance-policy`}>{dict.footer.antiCorruption}</Link>
             <Link href={`/${lang}/sitemap`}>{dict.footer.sitemap}</Link>
           </div>
         </div>
