@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
-  ArrowRight, ChevronLeft, ChevronRight, ShoppingCart, Activity, Car, 
+  ArrowRight, ShoppingCart, Activity, Car, 
   Factory, Coffee, FlaskConical, HardHat, Cpu 
 } from 'lucide-react';
 import styles from './OtherIndustries.module.css';
@@ -15,9 +15,6 @@ interface OtherIndustriesProps {
 }
 
 export default function OtherIndustries({ currentSlug, lang, dict }: OtherIndustriesProps) {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-
   const sectorsData = [
     {
       slug: 'e-commerce',
@@ -87,36 +84,8 @@ export default function OtherIndustries({ currentSlug, lang, dict }: OtherIndust
 
   const filteredSectors = sectorsData.filter(s => s.slug !== currentSlug);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (!sliderRef.current) return;
-    const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
-    const cardWidth = 368; // 340px width + 28px gap
-
-    if (direction === 'right') {
-      if (scrollLeft + clientWidth >= scrollWidth - 20) {
-        sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        sliderRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
-      }
-    } else {
-      if (scrollLeft <= 20) {
-        sliderRef.current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
-      } else {
-        sliderRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-      }
-    }
-  };
-
-  // Auto slide every 3 seconds
-  useEffect(() => {
-    if (isPaused) return;
-
-    const timer = setInterval(() => {
-      scroll('right');
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, [isPaused]);
+  // Default active sector is the first one in the filtered list
+  const [activeSlug, setActiveSlug] = useState<string>(filteredSectors[0]?.slug || '');
 
   return (
     <section className={styles.sectionOther}>
@@ -125,59 +94,50 @@ export default function OtherIndustries({ currentSlug, lang, dict }: OtherIndust
           <div>
             <span className={styles.eyebrow}>EXPLORE MORE SECTORS</span>
             <h2 className={styles.title}>Other Specialized Industries We Serve</h2>
-          </div>
-          <div className={styles.navButtons}>
-            <button 
-              onClick={() => scroll('left')} 
-              className={styles.navBtn} 
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button 
-              onClick={() => scroll('right')} 
-              className={styles.navBtn} 
-              aria-label="Next slide"
-            >
-              <ChevronRight size={24} />
-            </button>
+            <p className={styles.subText}>Hover or tap over any sector card below to expand details and explore specialized capabilities.</p>
           </div>
         </div>
 
-        <div 
-          className={styles.sliderWrap} 
-          ref={sliderRef}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-        >
-          {filteredSectors.map((sector) => (
-            <div key={sector.slug} className={styles.slideCard}>
-              <div className={styles.imageWrap}>
-                <img src={sector.image} alt={sector.title} className={styles.image} />
-              </div>
+        {/* Expanding Cursor Accordion per Request / Screenshot 1 */}
+        <div className={styles.accordionWrap}>
+          {filteredSectors.map((sector) => {
+            const isActive = activeSlug === sector.slug;
 
-              <div className={styles.cardBody}>
-                <div>
-                  <div className={styles.cardTopRow}>
-                    <div className={styles.redDash}></div>
-                    <div className={styles.iconBox}>
-                      {sector.icon}
-                    </div>
+            return (
+              <div
+                key={sector.slug}
+                className={`${styles.accordionCard} ${isActive ? styles.accordionCardActive : ''}`}
+                onMouseEnter={() => setActiveSlug(sector.slug)}
+                onClick={() => setActiveSlug(sector.slug)}
+              >
+                {/* Background Image */}
+                <img src={sector.image} alt={sector.title} className={styles.cardBgImg} />
+                
+                {/* Dark Gradient Overlay */}
+                <div className={styles.overlay}></div>
+
+                {/* Content switching based on active state */}
+                {!isActive ? (
+                  <div className={styles.inactiveContent}>
+                    <div className={styles.inactiveIcon}>{sector.icon}</div>
+                    <h3 className={styles.inactiveTitle}>{sector.title}</h3>
                   </div>
-
-                  <h3 className={styles.cardTitle}>{sector.title}</h3>
-                  <div className={styles.cardSubtitle}>{sector.subtitle}</div>
-                  <p className={styles.cardDesc}>{sector.desc}</p>
-                </div>
-
-                <Link href={`/${lang}/industries/${sector.slug}`} className={styles.cardLink}>
-                  Explore Sector <ArrowRight size={15} />
-                </Link>
+                ) : (
+                  <div className={styles.activeContent}>
+                    <div className={styles.activeTopRow}>
+                      <div className={styles.activeIconWrap}>{sector.icon}</div>
+                      <span className={styles.activeSubtitle}>{sector.subtitle}</span>
+                    </div>
+                    <h3 className={styles.activeTitle}>{sector.title}</h3>
+                    <p className={styles.activeDesc}>{sector.desc}</p>
+                    <Link href={`/${lang}/industries/${sector.slug}`} className={styles.exploreBtn}>
+                      Explore Sector <ArrowRight size={16} />
+                    </Link>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className={styles.bottomRow}>
