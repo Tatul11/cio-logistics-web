@@ -447,14 +447,26 @@ export default async function LocalizedHomePage(props: PageProps) {
                     <path d="M12 10v4M10 12h4" />
                   </svg>
                 )
-              },
+              }
             ].map((ind, idx) => (
-              <Link key={idx} href={ind.href} className="industry-card" style={{ padding: '24px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: 'var(--radius)', border: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center', boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', height: '32px', marginBottom: '16px' }}>{ind.icon}</div>
-                <h4 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '8px', color: '#fff' }}>{ind.label}</h4>
-                <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.7)', margin: 0 }}>{ind.desc}</p>
+              <Link key={idx} href={ind.href} className="industry-card" style={{ padding: '28px 24px', minHeight: '230px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.12)', textAlign: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}>
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'center', height: '40px', marginBottom: '18px', transform: 'scale(1.2)' }}>{ind.icon}</div>
+                  <h4 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '8px', color: '#fff' }}>{ind.label}</h4>
+                  <p style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', margin: 0, lineHeight: '1.5' }}>{ind.desc}</p>
+                </div>
+                <div style={{ marginTop: '22px', paddingTop: '14px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)' }}>
+                  <span>{(dict as any).quickTools?.learnMore || 'Explore Sector Page'}</span>
+                  <span>→</span>
+                </div>
               </Link>
             ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link href={`/${lang}/industries`} className="btn btn-primary" style={{ padding: '14px 36px', fontSize: '15px', fontWeight: 700, boxShadow: '0 8px 24px rgba(236, 28, 40, 0.3)' }}>
+              Explore All Industries & Verticals →
+            </Link>
           </div>
         </div>
       </section>
