@@ -483,6 +483,25 @@ a[class*="cta" i]:active {
   transform: scale(1.1);
 }
 
+.section-navy .cert-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-navy .cert-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--cio-orange);
+}
+
+.section-navy .cert-card h4 {
+  color: #ffffff !important;
+}
+
+.section-navy .cert-card p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
 /* ==========================================================================
    INTERACTIVE CARDS
    ========================================================================== */

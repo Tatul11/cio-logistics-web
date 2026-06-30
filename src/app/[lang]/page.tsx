@@ -586,9 +586,6 @@ export default async function LocalizedHomePage(props: PageProps) {
               { q: dict.faqs.q3, a: dict.faqs.a3 },
               { q: dict.faqs.q4, a: dict.faqs.a4 },
               { q: dict.faqs.q5, a: dict.faqs.a5 },
-              { q: dict.faqs.q6, a: dict.faqs.a6 },
-              { q: dict.faqs.q7, a: dict.faqs.a7 },
-              { q: dict.faqs.q8, a: dict.faqs.a8 },
             ].map((faq, idx) => (
               <details
                 key={idx}
@@ -614,7 +611,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       </section>
 
       {/* Certifications and Compliance */}
-      <section className="section" id="certifications">
+      <section className="section section-navy" id="certifications">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">{dict.certifications.eyebrow}</span>

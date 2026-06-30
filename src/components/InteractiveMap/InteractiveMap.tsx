@@ -210,6 +210,60 @@ export default function InteractiveMap({ lang, dict }: InteractiveMapProps) {
         {/* Left Side: Interactive Dotted World Map */}
         <div className={styles.mapSection}>
           <svg viewBox="0 0 880 440" className={styles.svgMap}>
+            {/* 1. Latitude & Longitude Graticule Grid (Real Map Coordinates) */}
+            <g className={styles.graticule}>
+              {/* Horizontal Parallels */}
+              <line x1="20" y1="80" x2="860" y2="80" stroke="rgba(0, 168, 232, 0.12)" strokeDasharray="3 3" />
+              <text x="25" y="76" fill="rgba(0, 168, 232, 0.4)" fontSize="9" fontWeight="600">60° N</text>
+              
+              <line x1="20" y1="150" x2="860" y2="150" stroke="rgba(0, 168, 232, 0.12)" strokeDasharray="3 3" />
+              <text x="25" y="146" fill="rgba(0, 168, 232, 0.4)" fontSize="9" fontWeight="600">30° N</text>
+              
+              <line x1="20" y1="220" x2="860" y2="220" stroke="rgba(0, 168, 232, 0.22)" strokeDasharray="5 3" />
+              <text x="25" y="216" fill="rgba(0, 168, 232, 0.5)" fontSize="9" fontWeight="700">EQUATOR 0°</text>
+              
+              <line x1="20" y1="290" x2="860" y2="290" stroke="rgba(0, 168, 232, 0.12)" strokeDasharray="3 3" />
+              <text x="25" y="286" fill="rgba(0, 168, 232, 0.4)" fontSize="9" fontWeight="600">30° S</text>
+              
+              <line x1="20" y1="360" x2="860" y2="360" stroke="rgba(0, 168, 232, 0.12)" strokeDasharray="3 3" />
+              <text x="25" y="356" fill="rgba(0, 168, 232, 0.4)" fontSize="9" fontWeight="600">60° S</text>
+
+              {/* Vertical Meridians */}
+              <line x1="140" y1="40" x2="140" y2="400" stroke="rgba(0, 168, 232, 0.08)" strokeDasharray="3 3" />
+              <line x1="295" y1="40" x2="295" y2="400" stroke="rgba(0, 168, 232, 0.15)" strokeDasharray="4 4" />
+              <line x1="440" y1="40" x2="440" y2="400" stroke="rgba(0, 168, 232, 0.08)" strokeDasharray="3 3" />
+              <line x1="680" y1="40" x2="680" y2="400" stroke="rgba(0, 168, 232, 0.08)" strokeDasharray="3 3" />
+            </g>
+
+            {/* 2. Authentic Geographic Continent Silhouettes Underneath */}
+            <g fill="rgba(0, 168, 232, 0.04)" stroke="rgba(0, 168, 232, 0.16)" strokeWidth="1.2">
+              {/* Europe & Africa */}
+              <path d="M 70 130 C 90 95, 170 85, 240 100 C 260 140, 230 180, 210 210 C 180 240, 200 320, 220 360 C 170 380, 130 350, 110 300 C 90 250, 70 200, 70 130 Z" />
+              {/* Eurasia / Russia / Asia */}
+              <path d="M 250 100 C 330 80, 430 90, 480 120 C 490 170, 470 230, 440 250 C 390 260, 310 240, 270 210 Z" />
+              {/* Australia / Oceania */}
+              <path d="M 330 270 C 420 260, 500 280, 510 330 C 480 390, 380 400, 330 350 Z" />
+              {/* North America */}
+              <path d="M 600 110 C 660 85, 760 95, 800 140 C 790 190, 740 220, 680 230 C 620 220, 590 160, 600 110 Z" />
+              {/* South America */}
+              <path d="M 675 240 C 730 235, 775 260, 770 310 C 755 370, 715 400, 685 365 C 665 320, 665 275, 675 240 Z" />
+            </g>
+
+            {/* 3. Real Ocean & Corridor Labels */}
+            <g fill="rgba(0, 168, 232, 0.3)" fontSize="10" fontWeight="700" letterSpacing="1.5">
+              <text x="60" y="270">ATLANTIC OCEAN</text>
+              <text x="240" y="380">INDIAN OCEAN</text>
+              <text x="520" y="270">PACIFIC OCEAN</text>
+            </g>
+
+            {/* 4. Nautical Compass Rose in Bottom Corner */}
+            <g transform="translate(830, 380)" stroke="rgba(0, 168, 232, 0.3)" strokeWidth="1.2" fill="none">
+              <circle r="18" />
+              <circle r="3" fill="rgba(0, 168, 232, 0.4)" />
+              <path d="M 0 -22 L 0 22 M -22 0 L 22 0" />
+              <text x="-3" y="-25" fill="rgba(0, 168, 232, 0.6)" fontSize="9" fontWeight="bold">N</text>
+            </g>
+
             {/* Connecting grid lines */}
             {horizontalLines.map((line, idx) => (
               <line
