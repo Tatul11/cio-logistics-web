@@ -508,7 +508,14 @@
 /* 5. CASE STUDIES SECTION */
 .sectionCaseStudies {
   padding: 100px 20px;
-  background: #ffffff;
+  background: #0F1B24;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionCaseStudies .sectionTitle {
+  color: #ffffff !important;
 }
 
 .caseStudiesGrid {
@@ -526,19 +533,20 @@
 }
 
 .caseStudyCard {
-  background: #ffffff;
-  border: 1px solid var(--border);
+  background: #162633;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .caseStudyCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px);
+  border-color: var(--cio-red);
+  box-shadow: 0 20px 40px rgba(236, 28, 40, 0.2);
 }
 
 .caseStudyImageWrap {
@@ -577,13 +585,13 @@
 .caseStudyTitle {
   font-size: 18px;
   font-weight: 700;
-  color: var(--cio-navy);
+  color: #ffffff;
   margin: 0 0 10px;
 }
 
 .caseStudyDesc {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin: 0 0 20px;
   flex-grow: 1;
@@ -591,7 +599,7 @@
 
 .caseStudyMetric {
   padding-top: 16px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: baseline;
   gap: 8px;
@@ -600,12 +608,12 @@
 .caseStudyMetricVal {
   font-size: 20px;
   font-weight: 800;
-  color: var(--cio-navy);
+  color: #ffffff;
 }
 
 .caseStudyMetricLabel {
   font-size: 12px;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 600;
 }
 

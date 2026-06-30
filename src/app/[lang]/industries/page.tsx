@@ -269,29 +269,47 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
             <h2 className={styles.sectionTitle} style={{ color: '#FFFFFF' }}>Specialized handling, not one-size-fits-all</h2>
           </div>
 
-          <div className={styles.whyGrid}>
-            <div className={styles.whyCard}>
-              <div className={styles.redDash}></div>
-              <h3 className={styles.whyCardTitle}>Compliant by design</h3>
-              <p className={styles.whyCardText}>
-                ADR, IMDG, IATA DGR, GDP cold chain and HACCP — the right international certifications and safety protocols for each cargo type, handled strictly in-house.
-              </p>
+          <div className={styles.whyRowsList}>
+            {/* Row 1: Left Image, Right Text */}
+            <div className={styles.whyRow}>
+              <div className={styles.whyRowImageWrap}>
+                <img src="/images/bent-van-aeken-0A7YwYhZhWw-unsplash.webp" alt="Logistics Compliance" className={styles.whyRowImage} />
+              </div>
+              <div className={styles.whyRowContent}>
+                <div className={styles.redDash}></div>
+                <h3 className={styles.whyRowTitle}>Compliant by design</h3>
+                <p className={styles.whyRowText}>
+                  ADR, IMDG, IATA DGR, GDP cold chain and HACCP — the right international certifications and safety protocols for each cargo type, handled strictly in-house.
+                </p>
+              </div>
             </div>
 
-            <div className={styles.whyCard}>
-              <div className={styles.redDash}></div>
-              <h3 className={styles.whyCardTitle}>Dedicated specialists</h3>
-              <p className={styles.whyCardText}>
-                A dedicated account coordinator who knows your sector&apos;s exact documentation, seasonality fluctuations, and legal routing constraints — not a generic helpdesk.
-              </p>
+            {/* Row 2: Right Image, Left Text (Reversed on desktop) */}
+            <div className={`${styles.whyRow} ${styles.whyRowReverse}`}>
+              <div className={styles.whyRowImageWrap}>
+                <img src="/images/elias--lYi5Qg0xP0-unsplash.webp" alt="Dedicated Specialists" className={styles.whyRowImage} />
+              </div>
+              <div className={styles.whyRowContent}>
+                <div className={styles.redDash}></div>
+                <h3 className={styles.whyRowTitle}>Dedicated specialists</h3>
+                <p className={styles.whyRowText}>
+                  A dedicated account coordinator who knows your sector&apos;s exact documentation, seasonality fluctuations, and legal routing constraints — not a generic helpdesk.
+                </p>
+              </div>
             </div>
 
-            <div className={styles.whyCard}>
-              <div className={styles.redDash}></div>
-              <h3 className={styles.whyCardTitle}>Optimized routes</h3>
-              <p className={styles.whyCardText}>
-                Transport mode and transit corridor selected specifically for your business priorities — whether that is express speed, cost reduction, or strict temperature integrity.
-              </p>
+            {/* Row 3: Left Image, Right Text */}
+            <div className={styles.whyRow}>
+              <div className={styles.whyRowImageWrap}>
+                <img src="/images/elevate-dI-aXC7DWpQ-unsplash.webp" alt="Optimized Routing Corridors" className={styles.whyRowImage} />
+              </div>
+              <div className={styles.whyRowContent}>
+                <div className={styles.redDash}></div>
+                <h3 className={styles.whyRowTitle}>Optimized routes</h3>
+                <p className={styles.whyRowText}>
+                  Transport mode and transit corridor selected specifically for your business priorities — whether that is express speed, cost reduction, or strict temperature integrity.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -324,31 +342,88 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
         </div>
       </section>
 
-      {/* 4. CERTIFICATIONS & MEMBERSHIPS STRIP */}
-      <section className={styles.sectionCerts}>
-        <span className={styles.eyebrow}>OUR COMMITMENT</span>
-        <h2 className={styles.sectionTitle}>Certifications & Industry Memberships</h2>
-        
-        <div className={styles.certsGrid}>
-          <div className={styles.certItem}>
-            <div className={styles.certTitle}>ISO 9001</div>
-            <div className={styles.certDesc}>Quality Management</div>
+      {/* 4. CERTIFICATIONS & MEMBERSHIPS DARK STRIP per Request 4 / Image 5 */}
+      <section className={styles.sectionCertsDark}>
+        <div className={styles.certsContainerDark}>
+          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto' }}>
+            <span style={{ color: 'var(--cio-red)', fontSize: '13px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase', display: 'block', marginBottom: '12px' }}>
+              VERIFIED & COMPLIANT
+            </span>
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, color: '#FFFFFF', margin: '0 0 16px' }}>
+              Certifications & Industry Memberships
+            </h2>
+            <p style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.75)', margin: 0 }}>
+              Every certificate is clickable, verifiable, and current. Compliance you can trust for your supply chain.
+            </p>
           </div>
-          <div className={styles.certItem}>
-            <div className={styles.certTitle}>FIATA</div>
-            <div className={styles.certDesc}>Freight Forwarding</div>
-          </div>
-          <div className={styles.certItem}>
-            <div className={styles.certTitle}>IATA</div>
-            <div className={styles.certDesc}>Air Cargo Agent</div>
-          </div>
-          <div className={styles.certItem}>
-            <div className={styles.certTitle}>IRU</div>
-            <div className={styles.certDesc}>Road Transport Union</div>
-          </div>
-          <div className={styles.certItem}>
-            <div className={styles.certTitle}>AEO</div>
-            <div className={styles.certDesc}>Authorized Operator</div>
+          
+          <div className={styles.certsGridDark}>
+            <div className={styles.certCardDark}>
+              <div className={styles.certIconWrapDark}>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="30" stroke="var(--cio-orange)" strokeWidth="2" strokeDasharray="4 2" />
+                  <circle cx="32" cy="32" r="26" fill="var(--cio-navy)" />
+                  <text x="32" y="30" fill="#fff" fontSize="8" fontWeight="bold" textAnchor="middle">ISO 9001</text>
+                  <text x="32" y="42" fill="var(--cio-orange)" fontSize="6" fontWeight="bold" textAnchor="middle">2015</text>
+                </svg>
+              </div>
+              <h4 className={styles.certTitleDark}>ISO 9001:2015</h4>
+              <p className={styles.certDescDark}>Quality Management</p>
+            </div>
+
+            <div className={styles.certCardDark}>
+              <div className={styles.certIconWrapDark}>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="28" stroke="var(--cio-blue)" strokeWidth="2" />
+                  <path d="M14 32 C 14 18, 50 18, 50 32 C 50 46, 14 46, 14 32 Z" stroke="var(--cio-blue)" strokeWidth="1" strokeDasharray="2 1" />
+                  <line x1="32" y1="4" x2="32" y2="60" stroke="var(--cio-blue)" strokeWidth="1" />
+                  <line x1="4" y1="32" x2="60" y2="32" stroke="var(--cio-blue)" strokeWidth="1" />
+                  <rect x="12" y="24" width="40" height="16" rx="3" fill="var(--cio-navy)" stroke="var(--cio-blue)" strokeWidth="1.5" />
+                  <text x="32" y="35" fill="#fff" fontSize="8" fontWeight="bold" letterSpacing="1" textAnchor="middle">FIATA</text>
+                </svg>
+              </div>
+              <h4 className={styles.certTitleDark}>FIATA Member</h4>
+              <p className={styles.certDescDark}>Freight Forwarders</p>
+            </div>
+
+            <div className={styles.certCardDark}>
+              <div className={styles.certIconWrapDark}>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 4 C 16.5 4, 4 16.5, 4 32 C 4 47.5, 16.5 60, 32 60 C 47.5 60, 60 47.5, 60 32" stroke="var(--cio-blue)" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M10 24 L54 24 M6 32 L58 32 M10 40 L54 40" stroke="var(--cio-blue)" strokeWidth="1" strokeOpacity="0.4" />
+                  <path d="M24 10 C24 10, 18 20, 18 32 C18 44, 24 54, 24 54 M40 10 C40 10, 46 20, 46 32 C46 44, 40 54, 40 54" stroke="var(--cio-blue)" strokeWidth="1" strokeOpacity="0.4" />
+                  <rect x="14" y="24" width="36" height="16" rx="4" fill="var(--cio-navy)" stroke="var(--cio-orange)" strokeWidth="1.5" />
+                  <text x="32" y="35" fill="#fff" fontSize="9" fontWeight="bold" letterSpacing="0.5" textAnchor="middle">IATA</text>
+                </svg>
+              </div>
+              <h4 className={styles.certTitleDark}>IATA Certified</h4>
+              <p className={styles.certDescDark}>Air Cargo Agent</p>
+            </div>
+
+            <div className={styles.certCardDark}>
+              <div className={styles.certIconWrapDark}>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="16" width="56" height="32" rx="6" fill="var(--cio-navy)" stroke="var(--cio-blue)" strokeWidth="2" />
+                  <text x="32" y="36" fill="#fff" fontSize="16" fontWeight="bold" fontStyle="italic" letterSpacing="0.5" textAnchor="middle">IRU</text>
+                  <path d="M12 44 L52 44" stroke="var(--cio-orange)" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </div>
+              <h4 className={styles.certTitleDark}>IRU Member</h4>
+              <p className={styles.certDescDark}>Road Transport</p>
+            </div>
+
+            <div className={styles.certCardDark}>
+              <div className={styles.certIconWrapDark}>
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 4 L52 14 L52 38 C52 50, 42 57, 32 60 C22 57, 12 50, 12 38 L12 14 Z" fill="var(--cio-navy)" stroke="var(--cio-blue)" strokeWidth="2" />
+                  <circle cx="32" cy="32" r="12" stroke="var(--cio-orange)" strokeWidth="1" strokeDasharray="3 2" />
+                  <text x="32" y="35" fill="#fff" fontSize="9" fontWeight="extrabold" textAnchor="middle">AEO</text>
+                  <path d="M32 10 L32.5 12 L34.5 12 L33 13 L33.5 15 L32 14 L30.5 15 L31 13 L29.5 12 L31.5 12 Z" fill="var(--cio-orange)" />
+                </svg>
+              </div>
+              <h4 className={styles.certTitleDark}>AEO Status</h4>
+              <p className={styles.certDescDark}>Customs Trusted</p>
+            </div>
           </div>
         </div>
       </section>
