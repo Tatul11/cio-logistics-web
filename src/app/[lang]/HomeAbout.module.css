@@ -8,8 +8,8 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  gap: 60px;
+  align-items: flex-start;
 }
 
 @media (max-width: 991px) {
@@ -105,27 +105,34 @@
 .missionBlock {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin-top: 32px;
+  gap: 16px;
+  margin-top: 36px;
+  padding: 28px;
+  background: #f8fafc;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--cio-red);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
 }
 
 .missionSquare {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: var(--cio-red);
   margin-top: 6px;
+  border-radius: 2px;
   flex-shrink: 0;
 }
 
 .missionTitle {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--cio-navy);
   margin: 0 0 8px 0;
 }
 
 .missionDesc {
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.6;
   color: var(--text-muted);
   margin: 0;

@@ -13,6 +13,8 @@ import ServicesShowcase from '@/components/ServicesShowcase/ServicesShowcase';
 import AnimatedCounter from '@/components/AnimatedCounter/AnimatedCounter';
 import LiveRatesStrip from '@/components/LiveRatesStrip/LiveRatesStrip';
 import HomeIndustriesAccordion from '@/components/HomeIndustriesAccordion/HomeIndustriesAccordion';
+import HomeHeroSlider from '@/components/HomeHeroSlider/HomeHeroSlider';
+import ScrollAirplane from '@/components/ScrollAirplane/ScrollAirplane';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -126,67 +128,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       />
 
       {/* Hero Section */}
-      <section 
-        className="section section-navy" 
-        style={{ 
-          overflow: 'hidden', 
-          padding: '90px 0 72px',
-          backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.88), rgba(15, 27, 36, 0.82)), url("/images/william-william-NndKt2kF1L4-unsplash.webp")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          position: 'relative'
-        }}
-      >
-        {/* Background glow overlay */}
-        <div style={{
-          position: 'absolute',
-          top: '-10%',
-          right: '-10%',
-          width: '50vw',
-          height: '50vw',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(236, 28, 40, 0.08) 0%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
-        
-        <div className="container" style={{ display: 'flex', justifyContent: 'flex-start' }}>
-          {/* Hero Content aligned to far left corner */}
-          <div className="animate-fade-in-up" style={{ maxWidth: '820px', textAlign: 'left', width: '100%' }}>
-            <div style={{ display: 'flex', gap: '10px', marginBottom: '24px', flexWrap: 'wrap' }}>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
-                {dict.hero.badgeIso}
-              </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
-                {dict.hero.badgeFiata}
-              </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
-                {dict.hero.badgeIata}
-              </span>
-              <span className="badge" style={{ background: 'rgba(255,255,255,0.08)', color: '#fff', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', display: 'inline-flex', alignItems: 'center' }}>
-                {dict.hero.badgeIru}
-              </span>
-            </div>
-            
-            <h1 style={{ color: '#ffffff', marginBottom: '16px', fontSize: 'clamp(2.1rem, 4.2vw, 3.4rem)', lineHeight: '1.15', fontWeight: 800, letterSpacing: '-0.025em' }}>
-              {dict.hero.title} <span style={{ color: 'var(--cio-orange)' }}>{dict.hero.titleAccent}</span>
-            </h1>
-            
-            <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.75)', marginBottom: '24px', lineHeight: '1.6', maxWidth: '600px' }}>
-              {dict.hero.description}
-            </p>
-            
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
-              <Link href={`/${lang}/quote`} className="btn btn-primary">
-                {dict.hero.getQuote}
-              </Link>
-              <Link href={`/${lang}/#track`} className="btn btn-ghost" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                <MapPin size={18} />
-                {dict.hero.trackShipment}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHeroSlider dict={dict} lang={lang} />
 
       {/* Live rates & Quick Tools strip */}
       <LiveRatesStrip dict={dict} lang={lang} />
@@ -207,12 +149,21 @@ export default async function LocalizedHomePage(props: PageProps) {
               className={styles.worldMapBg} 
               aria-hidden="true"
             />
-            {/* Real container image (using placeholder from their uploads) */}
+            {/* Real container image */}
             <img 
               src="/images/chuttersnap-fN603qcEA7g-unsplash.webp" 
               alt="Cargo Containers" 
               className={styles.mainImage} 
             />
+
+            {/* Our Mission Box placed under image for symmetry per Request 1 */}
+            <div className={styles.missionBlock}>
+              <div className={styles.missionSquare}></div>
+              <div>
+                <h3 className={styles.missionTitle}>{homeAbout.missionTitle}</h3>
+                <p className={styles.missionDesc}>{homeAbout.missionDesc}</p>
+              </div>
+            </div>
           </div>
 
           {/* Right Side: Content */}
@@ -237,16 +188,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             </div>
 
             <p className={styles.paragraph}>{homeAbout.p1}</p>
-            <p className={styles.paragraph}>{homeAbout.p2}</p>
-
-            <div className={styles.missionBlock}>
-              <div className={styles.missionSquare}></div>
-              <div>
-                <h3 className={styles.missionTitle}>{homeAbout.missionTitle}</h3>
-                <p className={styles.missionDesc}>{homeAbout.missionDesc}</p>
-              </div>
-            </div>
-
+            <p className={styles.paragraph} style={{ margin: 0 }}>{homeAbout.p2}</p>
           </div>
         </div>
       </section>
@@ -315,6 +257,7 @@ export default async function LocalizedHomePage(props: PageProps) {
       {/* Interactive Map & Routes showcase */}
       <section className="section section-gray" id="routes">
         <div className="container">
+          <ScrollAirplane />
           <div className="section-head">
             <span className="eyebrow">{dict.routes.eyebrow}</span>
             <h2>{dict.routes.title}</h2>
