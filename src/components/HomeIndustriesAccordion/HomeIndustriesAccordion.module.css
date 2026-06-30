@@ -1,0 +1,231 @@
+/* ==========================================================================
+   HOMEPAGE EXPANDING CURSOR ACCORDION STYLES
+   ========================================================================== */
+
+/* Expanding Accordion Container */
+.accordionWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .accordionWrap {
+    flex-direction: row;
+    height: 480px;
+    gap: 16px;
+  }
+}
+
+/* Individual Accordion Card */
+.accordionCard {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #162633;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: flex 0.6s cubic-bezier(0.16, 1, 0.3, 1), height 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Mobile & Tablet Heights */
+@media (max-width: 1023px) {
+  .accordionCard {
+    height: 84px;
+  }
+  .accordionCardActive {
+    height: 400px;
+  }
+}
+
+/* Desktop Flex Widths */
+@media (min-width: 1024px) {
+  .accordionCard {
+    flex: 1;
+    min-width: 85px;
+  }
+  .accordionCardActive {
+    flex: 4;
+    min-width: 420px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+    border-color: var(--cio-red);
+  }
+}
+
+.cardBgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.accordionCard:hover .cardBgImg {
+  transform: scale(1.08);
+}
+
+.accordionCard:not(.accordionCardActive) .cardBgImg {
+  filter: brightness(0.55) saturate(0.8);
+}
+
+/* Gradient Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15, 27, 36, 0.25) 0%, rgba(15, 27, 36, 0.9) 100%);
+  transition: background 0.6s ease;
+}
+
+.accordionCardActive .overlay {
+  background: linear-gradient(180deg, rgba(15, 27, 36, 0.1) 0%, rgba(15, 27, 36, 0.7) 50%, rgba(15, 27, 36, 0.96) 100%);
+}
+
+/* Inactive Card Content (Collapsed state) */
+.inactiveContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .inactiveContent {
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 14px;
+    gap: 20px;
+  }
+}
+
+.inactiveIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(236, 28, 40, 0.85);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.inactiveTitle {
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 1024px) {
+  .inactiveTitle {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Active Card Content (Expanded state) */
+.activeContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 28px;
+  color: #ffffff;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.activeTopRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.activeIconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--cio-red);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(236, 28, 40, 0.4);
+}
+
+.activeSubtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FF8085;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.activeTitle {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.activeDesc {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0 0 24px;
+  max-width: 520px;
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--cio-red);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 16px rgba(236, 28, 40, 0.35);
+}
+
+.exploreBtn:hover {
+  background: #d1141e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(236, 28, 40, 0.45);
+}

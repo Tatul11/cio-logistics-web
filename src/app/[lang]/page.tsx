@@ -12,6 +12,7 @@ import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import ServicesShowcase from '@/components/ServicesShowcase/ServicesShowcase';
 import AnimatedCounter from '@/components/AnimatedCounter/AnimatedCounter';
 import LiveRatesStrip from '@/components/LiveRatesStrip/LiveRatesStrip';
+import HomeIndustriesAccordion from '@/components/HomeIndustriesAccordion/HomeIndustriesAccordion';
 import { 
   AlertTriangle, HelpCircle, ShieldCheck, Star, Users, Phone, 
   ArrowUpRight, FileText, CheckCircle2, ChevronRight,
@@ -333,141 +334,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.industries.desc}</p>
           </div>
 
-          <div className="grid-4-cols">
-            {[
-              { 
-                label: dict.industries.ecommerce, 
-                desc: dict.industries.ecommerceDesc, 
-                href: `/${lang}/industries/e-commerce`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8z" />
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                    <line x1="12" y1="22.08" x2="12" y2="12" />
-                    <path d="M12 5.5l5 2.5-5 2.5-5-2.5 5-2.5z" opacity="0.3" fill="var(--cio-orange)" />
-                    <path d="M2 10h4" opacity="0.7" />
-                    <path d="M1 13h3" opacity="0.7" />
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.pharma, 
-                desc: dict.industries.pharmaDesc, 
-                href: `/${lang}/industries/pharmaceutical`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <rect x="5" y="11" width="14" height="6" rx="3" transform="rotate(-45 12 14)" />
-                    <line x1="9" y1="15" x2="15" y2="9" />
-                    <path d="M12 2a9 9 0 0 0 9 9c0 5-9 11-9 11S3 16 3 11a9 9 0 0 0 9-9z" opacity="0.2" fill="var(--cio-orange)" />
-                    <path d="M12 6v6M9 9h6" />
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.auto, 
-                desc: dict.industries.autoDesc, 
-                href: `/${lang}/industries/automotive`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <path d="M2 15h3.5l1.5-3h10l1.5 3H22v3H2v-3z" />
-                    <path d="M7 12l1-4h8l1 4" />
-                    <circle cx="7" cy="18" r="2.5" />
-                    <circle cx="17" cy="18" r="2.5" />
-                    <circle cx="7" cy="18" r="1" fill="currentColor" />
-                    <circle cx="17" cy="18" r="1" fill="currentColor" />
-                    <path d="M12 12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.heavy, 
-                desc: dict.industries.heavyDesc, 
-                href: `/${lang}/industries/heavy-machinery`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <path d="M12 2v8M12 10a2 2 0 0 0 2 2" />
-                    <path d="M12 12a2 2 0 0 1-2-2" />
-                    <path d="M6 14h12l2 6H4l2-6z" />
-                    <rect x="9" y="12" width="6" height="2" rx="0.5" />
-                    <text x="12" y="19" fontSize="6.5" fontWeight="bold" fill="var(--cio-orange)" textAnchor="middle" style={{ stroke: 'none' }}>KG</text>
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.food, 
-                desc: dict.industries.foodDesc, 
-                href: `/${lang}/industries/food-perishables`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <path d="M3 17a9 9 0 0 1 18 0v1H3v-1z" />
-                    <circle cx="12" cy="7" r="1.5" />
-                    <line x1="2" y1="20" x2="22" y2="20" />
-                    <path d="M12 13c1.5 0 2.5 1 2.5 2s-1 2-2.5 2-2.5-1-2.5-2 1-2.5 2.5-2z" opacity="0.3" fill="var(--cio-orange)" />
-                    <path d="M12 13c-1.5-1.5-1.5-3.5 0-5 1.5 1.5 1.5 3.5 0 5z" />
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.chemical, 
-                desc: dict.industries.chemicalDesc, 
-                href: `/${lang}/industries/chemical`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <path d="M6 20h12L13 7V3h-2v4L6 20z" />
-                    <line x1="9" y1="3" x2="15" y2="3" />
-                    <line x1="7.5" y1="16" x2="16.5" y2="16" strokeDasharray="2 1" />
-                    <path d="M10 13l4 4M12 12l4 4" strokeWidth="1" opacity="0.8" />
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.construction, 
-                desc: dict.industries.constructionDesc, 
-                href: `/${lang}/industries/construction`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <rect x="4" y="10" width="6" height="11" rx="0.5" />
-                    <rect x="12" y="6" width="8" height="15" rx="0.5" />
-                    <line x1="7" y1="13" x2="7" y2="18" strokeDasharray="2 2" />
-                    <line x1="15" y1="9" x2="15" y2="18" strokeDasharray="2 2" />
-                    <line x1="17" y1="9" x2="17" y2="18" strokeDasharray="2 2" />
-                    <path d="M3 3h16M7 3v4M19 3v8l-4-4" opacity="0.6" />
-                  </svg>
-                )
-              },
-              { 
-                label: dict.industries.electronics, 
-                desc: dict.industries.electronicsDesc, 
-                href: `/${lang}/industries/electronics`,
-                icon: (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--cio-orange)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto' }}>
-                    <rect x="6" y="6" width="12" height="12" rx="1.5" />
-                    <path d="M9 3v3M12 3v3M15 3v3M9 18v3M12 18v3M15 18v3M3 9h3M3 12h3M3 15h3M18 9h3M18 12h3M18 15h3" />
-                    <rect x="10" y="10" width="4" height="4" rx="0.5" opacity="0.3" fill="var(--cio-orange)" />
-                    <path d="M12 10v4M10 12h4" />
-                  </svg>
-                )
-              }
-            ].map((ind, idx) => (
-              <Link key={idx} href={ind.href} className="industry-card" style={{ padding: '28px 24px', minHeight: '230px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.12)', textAlign: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}>
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'center', height: '40px', marginBottom: '18px', transform: 'scale(1.2)' }}>{ind.icon}</div>
-                  <h4 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '8px', color: '#fff' }}>{ind.label}</h4>
-                  <p style={{ fontSize: '13.5px', color: 'rgba(255, 255, 255, 0.75)', margin: 0, lineHeight: '1.5' }}>{ind.desc}</p>
-                </div>
-                <div style={{ marginTop: '22px', paddingTop: '14px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '13px', fontWeight: 700, color: 'var(--cio-orange)' }}>
-                  <span>{(dict as any).quickTools?.learnMore || 'Explore Sector Page'}</span>
-                  <span>→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link href={`/${lang}/industries`} className="btn btn-primary" style={{ padding: '14px 36px', fontSize: '15px', fontWeight: 700, boxShadow: '0 8px 24px rgba(236, 28, 40, 0.3)' }}>
-              Explore All Industries & Verticals →
-            </Link>
-          </div>
+          <HomeIndustriesAccordion lang={lang} dict={dict} />
         </div>
       </section>
 
