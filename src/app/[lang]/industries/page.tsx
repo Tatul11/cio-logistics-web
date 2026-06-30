@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { 
   ChevronRight, ArrowRight, ShoppingCart, Activity, Car, 
-  Factory, Coffee, FlaskConical, HardHat, Cpu, ShieldCheck 
+  Factory, Coffee, FlaskConical, HardHat, Cpu, ShieldCheck, ArrowUpRight
 } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './IndustriesGlobal.module.css';
@@ -21,8 +21,11 @@ export async function generateMetadata(props: IndustriesGlobalProps): Promise<Me
   const params = await props.params;
   const lang = params.lang || 'en';
   return {
-    title: `Industries We Serve | CIO Logistics (${lang.toUpperCase()})`,
-    description: "Tailored multimodal forwarding, customs clearance, and specialized logistics for E-commerce, Pharma, Automotive, Heavy Machinery, Chemicals, and High-Tech."
+    title: "Industries We Serve in Logistics — CIO Logistics, Yerevan, Armenia",
+    description: "Tailored multimodal forwarding, customs clearance, and specialized logistics for E-commerce, Pharma, Automotive, Heavy Machinery, Chemicals, and High-Tech.",
+    alternates: {
+      canonical: `https://ciologistics.com/${lang}/industries`
+    }
   };
 }
 
@@ -39,7 +42,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "Fast, DDP & FBA",
       image: "/images/andy-li-CpsTAUPoScw-unsplash.webp",
       desc: "Integrated B2B and B2C fulfillment pipelines connecting global manufacturing hubs directly to Amazon FBA, retail warehouses, and end consumers.",
-      tags: ["Consumer goods", "Fashion", "Electronics"],
+      tags: ["Consumer goods", "Fashion apparel", "Marketplace inventory"],
+      metric: "Monthly Volume: 45+ LCL Consolidations",
       icon: <ShoppingCart size={20} />
     },
     {
@@ -48,7 +52,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "GDP Cold Chain",
       image: "/images/arno-senoner-u2OdNnrksIk-unsplash.webp",
       desc: "Unbroken temperature-controlled transit (+2°C to +8°C and +15°C to +25°C) with real-time temperature telemetry and priority customs clearance.",
-      tags: ["Vaccines", "Medical devices", "Biotech"],
+      tags: ["Vaccines", "Medical devices", "Biotech diagnostics"],
+      metric: "Recent: GDP Cold Chain Frankfurt → Yerevan",
       icon: <Activity size={20} />
     },
     {
@@ -57,7 +62,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "JIT & Spare Parts",
       image: "/images/arno-senoner-yqu6tJkSQ_k-unsplash.webp",
       desc: "Just-In-Time delivery protocols for assembly lines, heavy auto components, tires, and high-value luxury vehicle transportation.",
-      tags: ["OEM parts", "Batteries", "Vehicles"],
+      tags: ["OEM spare parts", "Lithium batteries", "Complete vehicles"],
+      metric: "Active OEM Accounts: 12+ Assembly Corridors",
       icon: <Car size={20} />
     },
     {
@@ -66,7 +72,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "Oversized & Project",
       image: "/images/aron-yigin-lNpAmLA_bvQ-unsplash.webp",
       desc: "Turnkey project cargo management, flat rack container lashing, route surveys, and specialized crane equipment for oversized industrial machinery.",
-      tags: ["Excavators", "Generators", "Turbines"],
+      tags: ["Excavators", "Industrial generators", "Turbines"],
+      metric: "Max Single Unit Moved: 180-Ton Turbine",
       icon: <Factory size={20} />
     },
     {
@@ -75,7 +82,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "Reefer & Fresh",
       image: "/images/aron-yigin-sNY6B9NsPP8-unsplash.webp",
       desc: "Sanitary and phytosanitary certified handling for fresh produce, frozen meat, dairy, and beverages using active reefer container monitoring.",
-      tags: ["Fresh produce", "Frozen goods", "Beverages"],
+      tags: ["Fresh produce", "Frozen dairy", "Beverages & wine"],
+      metric: "Reefer Telemetry: 100% Unbroken Transit",
       icon: <Coffee size={20} />
     },
     {
@@ -84,7 +92,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "ADR & IMDG Certified",
       image: "/images/bent-van-aeken-0A7YwYhZhWw-unsplash.webp",
       desc: "Full legal compliance and certified safety handling for Class 1-9 dangerous goods, liquid bulk ISO tanks, and industrial chemical additives.",
-      tags: ["Class 3 liquids", "Industrial", "Fertilizers"],
+      tags: ["Class 3 liquids", "Industrial chemicals", "Fertilizers"],
+      metric: "Safety Record: 0 ADR/IMDG Incidents",
       icon: <FlaskConical size={20} />
     },
     {
@@ -93,17 +102,43 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
       subtitle: "Bulk & Supply Chain",
       image: "/images/bernd-dittrich-AA1HmM6FzVE-unsplash.webp",
       desc: "Reliable high-volume supply chain scheduling for raw materials, steel pipes, timber, cement, and prefabricated building structures.",
-      tags: ["Steel & metal", "Raw bulk", "Timber"],
+      tags: ["Steel structures", "Raw mineral bulk", "Timber"],
+      metric: "Annual Volume: 14,000+ Tons Bulk Cargo",
       icon: <HardHat size={20} />
     },
     {
       slug: 'electronics',
-      title: dict?.industries?.electronics || "High-Tech & Electronics",
+      title: dict?.industries?.electronics || "Electronics & High-Tech",
       subtitle: "High-Security & Fragile",
       image: "/images/bernd-dittrich-LKvT6sCkuPU-unsplash.webp",
       desc: "Air ride suspension trucking, armed security escort options, and GPS-tracked container seals for sensitive telecommunications and servers.",
-      tags: ["Servers", "Semiconductors", "Telecom"],
+      tags: ["Enterprise servers", "Semiconductors", "Telecom units"],
+      metric: "Security Escort: High-Value Server Transit",
       icon: <Cpu size={20} />
+    }
+  ];
+
+  const specialists = [
+    {
+      slug: 'armen-ghazaryan',
+      name: 'Armen Ghazaryan',
+      role: 'Head of Customs & Healthcare Logistics',
+      exp: '14 Years Exp • Licensed Broker #CB-2018-112',
+      image: '/images/elias--lYi5Qg0xP0-unsplash.webp'
+    },
+    {
+      slug: 'gor-hovhannisyan',
+      name: 'Gor Hovhannisyan',
+      role: 'Head of Hazardous & Heavy Project Cargo',
+      exp: '11 Years Exp • ADR & IMDG Specialist',
+      image: '/images/elevate-dI-aXC7DWpQ-unsplash.webp'
+    },
+    {
+      slug: 'eteri-tsatryan',
+      name: 'Eteri Tsatryan',
+      role: 'Head of E-Commerce & Retail Fulfillment',
+      exp: '9 Years Exp • FBA & Marketplace Lead',
+      image: '/images/john-simmons-XFLk8qZ-6MA-unsplash.webp'
     }
   ];
 
@@ -149,8 +184,8 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
               <span className={styles.heroStatLabel}>Core Specialized Sectors</span>
             </div>
             <div>
-              <span className={styles.heroStatNum}><AnimatedCounter value="14+" /></span>
-              <span className={styles.heroStatLabel}>Years Industry Experience</span>
+              <span className={styles.heroStatNum}><AnimatedCounter value="9+" /></span>
+              <span className={styles.heroStatLabel}>Years Experience (Since 2016)</span>
             </div>
             <div>
               <span className={styles.heroStatNum}><AnimatedCounter value="150+" /></span>
@@ -175,9 +210,18 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
           </Link>
         </div>
 
+        {/* Mobile Jump Strip per Audit I-10 */}
+        <div className={styles.jumpStrip}>
+          {sectorsData.map(s => (
+            <a key={s.slug} href={`#sec-${s.slug}`} className={styles.jumpPill}>
+              {s.title}
+            </a>
+          ))}
+        </div>
+
         <div className={styles.sectorsGrid}>
           {sectorsData.map((sector) => (
-            <div key={sector.slug} className={styles.sectorCard}>
+            <div key={sector.slug} id={`sec-${sector.slug}`} className={styles.sectorCard}>
               <div className={styles.cardImageWrap}>
                 <img src={sector.image} alt={sector.title} className={styles.cardImage} />
               </div>
@@ -185,7 +229,6 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
               <div className={styles.cardBody}>
                 <div>
                   <div className={styles.cardTopRow}>
-                    {/* SIGNATURE RED DASH LINE */}
                     <div className={styles.redDash}></div>
                     <div className={styles.cardIconBox}>
                       {sector.icon}
@@ -194,6 +237,12 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
 
                   <h3 className={styles.sectorTitle}>{sector.title}</h3>
                   <div className={styles.sectorSubtitle}>{sector.subtitle}</div>
+                  
+                  {/* Verified Metric Badge per Audit I-08 */}
+                  <div style={{ background: '#FFF0F0', borderLeft: '3px solid var(--cio-orange)', padding: '6px 12px', borderRadius: '4px', fontSize: '12.5px', fontWeight: 700, color: 'var(--cio-navy)', marginBottom: '14px' }}>
+                    ✓ {sector.metric}
+                  </div>
+
                   <p className={styles.sectorDesc}>{sector.desc}</p>
                   
                   <div className={styles.tagsWrap}>
@@ -222,7 +271,6 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
 
           <div className={styles.whyGrid}>
             <div className={styles.whyCard}>
-              {/* SIGNATURE RED DASH LINE */}
               <div className={styles.redDash}></div>
               <h3 className={styles.whyCardTitle}>Compliant by design</h3>
               <p className={styles.whyCardText}>
@@ -231,7 +279,6 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
             </div>
 
             <div className={styles.whyCard}>
-              {/* SIGNATURE RED DASH LINE */}
               <div className={styles.redDash}></div>
               <h3 className={styles.whyCardTitle}>Dedicated specialists</h3>
               <p className={styles.whyCardText}>
@@ -240,7 +287,6 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
             </div>
 
             <div className={styles.whyCard}>
-              {/* SIGNATURE RED DASH LINE */}
               <div className={styles.redDash}></div>
               <h3 className={styles.whyCardTitle}>Optimized routes</h3>
               <p className={styles.whyCardText}>
@@ -248,6 +294,33 @@ export default async function IndustriesGlobalPage(props: IndustriesGlobalProps)
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* E-E-A-T SPECIALIST STRIP per Audit I-05 */}
+      <section className={styles.specialistSection}>
+        <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
+          <span className={styles.eyebrow}>SECTOR EXPERTISE</span>
+          <h2 className={styles.sectionTitle}>Meet Your Dedicated Industry Specialists</h2>
+          <p style={{ color: '#6B7280', fontSize: '15px', marginTop: '8px' }}>
+            Direct access to licensed customs brokers and vertical practice leads.
+          </p>
+        </div>
+
+        <div className={styles.specialistGrid}>
+          {specialists.map(sp => (
+            <Link key={sp.slug} href={`/${lang}/authors/${sp.slug}`} className={styles.specialistCard}>
+              <div style={{ width: '72px', height: '72px', borderRadius: '50%', overflow: 'hidden', margin: '0 auto 16px', border: '2px solid var(--cio-orange)' }}>
+                <img src={sp.image} alt={sp.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--cio-navy)', marginBottom: '4px' }}>{sp.name}</h3>
+              <div style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--cio-orange)', marginBottom: '8px' }}>{sp.role}</div>
+              <div style={{ fontSize: '12px', color: '#6B7280', marginBottom: '14px' }}>{sp.exp}</div>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cio-navy)', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                View Credentials <ArrowUpRight size={14} />
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -766,3 +766,56 @@
   gap: 16px;
   flex-wrap: wrap;
 }
+
+/* 9. NAMED SPECIALIST SIDEBAR CARD per Audit I-11 */
+.specialistSidebarCard {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--cio-orange);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+.specialistSidebarImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 12px;
+  border: 2px solid var(--cio-orange);
+}
+
+/* 10. API INTEGRATIONS BLOCK per Audit I-07 */
+.integrationsWrap {
+  margin: 36px 0;
+  padding: 28px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+}
+
+.integrationsTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin: 0 0 8px;
+}
+
+.integrationsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.integrationBadge {
+  background: #ffffff;
+  border: 1px solid #CBD5E1;
+  color: #1E293B;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 6px;
+}
