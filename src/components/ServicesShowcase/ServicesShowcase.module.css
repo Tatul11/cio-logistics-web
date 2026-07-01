@@ -1,0 +1,75 @@
+/* ==========================================================================
+   SERVICES SHOWCASE STYLES (RESPONSIVE STICKY -> HORIZONTAL SCROLL)
+   ========================================================================== */
+
+.showcaseSection {
+  position: relative;
+  height: 360vh;
+  background: var(--bg-gray);
+}
+
+.stickyWrap {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: 32px;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.card {
+  width: 480px;
+  flex-shrink: 0;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile & Tablet Overrides - Eliminates any empty vertical gap */
+@media (max-width: 768px) {
+  .showcaseSection {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 50px 0 24px !important;
+  }
+
+  .stickyWrap {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .track {
+    display: flex !important;
+    gap: 20px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding-bottom: 20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    transform: none !important;
+  }
+
+  .card {
+    width: 85vw !important;
+    max-width: 360px !important;
+    height: auto !important;
+    min-height: 440px !important;
+    scroll-snap-align: center !important;
+  }
+}

@@ -219,7 +219,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.metrics.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px', textAlign: 'center' }}>
+          <div className="grid-3-cols" style={{ gap: '40px', textAlign: 'center' }}>
             <div style={{ padding: '40px', background: 'rgba(255,255,255,0.03)', borderRadius: 'var(--radius)', border: '1px solid rgba(255,255,255,0.06)' }}>
               <div style={{ fontSize: '56px', fontWeight: 800, color: 'var(--cio-orange)', lineHeight: 1, marginBottom: '12px' }}>
                 <AnimatedCounter value={dict.metrics.tons} />
@@ -303,7 +303,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.cases.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+          <div className="grid-3-cols">
             {/* Case 1 */}
             <div style={{ background: 'var(--bg-white)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
               <div style={{ padding: '24px' }}>
@@ -520,7 +520,7 @@ export default async function LocalizedHomePage(props: PageProps) {
             <p>{dict.insights.desc}</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+          <div className="grid-3-cols">
             {[
               { cat: dict.insights.blog1Cat, title: dict.insights.blog1Title, desc: dict.insights.blog1Desc, author: dict.insights.blog1Author, time: dict.insights.blog1Read, slug: "armen-ghazaryan" },
               { cat: dict.insights.blog2Cat, title: dict.insights.blog2Title, desc: dict.insights.blog2Desc, author: dict.insights.blog2Author, time: dict.insights.blog2Read, slug: "gor-hovhannisyan" },

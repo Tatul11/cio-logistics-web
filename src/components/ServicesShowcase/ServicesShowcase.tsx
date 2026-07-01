@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Plane, Ship, Truck, Train, Package, Weight, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import styles from './ServicesShowcase.module.css';
 
 interface ServicesShowcaseProps {
   dict: any;
@@ -91,12 +92,10 @@ export default function ServicesShowcase({ dict, lang }: ServicesShowcaseProps) 
     };
 
     const updateAnimation = () => {
-      // Smooth linear interpolation for buttery fluid motion
       currentP += (targetP - currentP) * 0.12;
       
       if (Math.abs(targetP - currentP) > 0.0001 || targetP === 0 || targetP === 1) {
         setProgress(currentP);
-        // Calculate active card index (0 to services.length - 1)
         const idx = Math.min(
           services.length - 1,
           Math.floor(currentP * services.length)
@@ -117,26 +116,8 @@ export default function ServicesShowcase({ dict, lang }: ServicesShowcaseProps) 
   }, [isMobile, services.length]);
 
   return (
-    <div 
-      ref={containerRef} 
-      style={{ 
-        height: isMobile ? 'auto' : '360vh', 
-        position: 'relative',
-        background: 'var(--bg-gray)'
-      }}
-    >
-      <div 
-        style={{ 
-          position: isMobile ? 'relative' : 'sticky', 
-          top: 0, 
-          height: isMobile ? 'auto' : '100vh', 
-          display: 'flex', 
-          flexDirection: 'column', 
-          justifyContent: 'center', 
-          padding: isMobile ? '64px 0' : '0',
-          overflow: 'hidden'
-        }}
-      >
+    <div ref={containerRef} className={styles.showcaseSection}>
+      <div className={styles.stickyWrap}>
         <div className="container">
           {/* Section Header */}
           <div className="section-head" style={{ marginBottom: '40px' }}>
@@ -159,42 +140,25 @@ export default function ServicesShowcase({ dict, lang }: ServicesShowcaseProps) 
           {/* Horizontal Track */}
           <div 
             ref={trackRef}
-            style={isMobile ? {
-              display: 'flex',
-              gap: '24px',
-              overflowX: 'auto',
-              scrollSnapType: 'x mandatory',
-              paddingBottom: '24px',
-              WebkitOverflowScrolling: 'touch'
-            } : {
-              display: 'flex',
-              gap: '32px',
-              transform: `translate3d(-${progress * 52}%, 0, 0)`,
-              willChange: 'transform',
-              transition: 'transform 0.05s linear'
-            }}
+            className={styles.track}
+            style={!isMobile ? {
+              transform: `translate3d(-${progress * 52}%, 0, 0)`
+            } : undefined}
           >
             {services.map((srv, idx) => {
               const isCardActive = isMobile || idx === activeIdx;
               return (
                 <div 
                   key={idx}
+                  className={styles.card}
                   style={{ 
-                    flex: isMobile ? '0 0 88%' : '0 0 380px',
-                    scrollSnapAlign: 'center',
-                    display: 'flex', 
-                    flexDirection: 'column', 
-                    borderRadius: '24px', 
                     border: isCardActive ? '2px solid var(--cio-orange)' : '1px solid var(--border)', 
-                    background: 'var(--bg-white)', 
                     boxShadow: isCardActive ? '0 16px 40px rgba(236, 28, 40, 0.15)' : '0 8px 24px rgba(0,0,0,0.06)', 
-                    overflow: 'hidden',
                     transform: (!isMobile && isCardActive) ? 'scale(1.03) translateY(-4px)' : 'scale(1)',
-                    opacity: (!isMobile && !isCardActive && Math.abs(idx - activeIdx) > 1) ? 0.65 : 1,
-                    transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                    opacity: (!isMobile && !isCardActive && Math.abs(idx - activeIdx) > 1) ? 0.65 : 1
                   }}
                 >
-                  <div style={{ height: '240px', width: '100%', position: 'relative', overflow: 'hidden' }}>
+                  <div style={{ height: '240px', width: '100%', position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
                     <img 
                       src={srv.image} 
                       alt={srv.title} 
