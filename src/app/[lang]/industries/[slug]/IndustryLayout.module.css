@@ -862,3 +862,44 @@
   padding: 6px 14px;
   border-radius: 6px;
 }
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 60px 16px 50px !important;
+  }
+  .heroTitle {
+    font-size: 26px !important;
+  }
+  .heroSub {
+    font-size: 15px !important;
+  }
+  .solutionRow {
+    padding: 20px !important;
+    gap: 20px !important;
+    border-radius: 16px !important;
+  }
+  .solutionRowImageWrap {
+    height: 200px !important;
+  }
+  .sectionSolutions {
+    padding: 60px 16px !important;
+  }
+  .casesSection {
+    padding: 60px 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsContainer {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .bottomCtaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .bottomCtaButtons :global(.btn) {
+    width: 100%;
+    justify-content: center;
+  }
+}

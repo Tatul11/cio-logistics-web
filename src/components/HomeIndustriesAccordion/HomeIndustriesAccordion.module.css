@@ -229,3 +229,41 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(236, 28, 40, 0.45);
 }
+
+@media (max-width: 640px) {
+  .accordionCardActive {
+    height: auto;
+    min-height: 380px;
+  }
+  .activeContent {
+    padding: 24px 20px;
+  }
+  .inactiveContent {
+    padding: 0 18px;
+  }
+  .inactiveTitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordionCardActive {
+    min-height: 390px;
+  }
+  .activeContent {
+    padding: 20px 16px;
+  }
+  .activeTitle {
+    font-size: 20px;
+  }
+  .activeDesc {
+    font-size: 13.5px;
+    margin-bottom: 18px;
+  }
+  .exploreBtn {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+}

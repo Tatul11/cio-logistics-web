@@ -81,3 +81,19 @@
   background: linear-gradient(to left, rgba(236, 28, 40, 0.8), transparent);
   border-radius: 2px;
 }
+
+@media (max-width: 640px) {
+  .airwayBanner {
+    height: 56px;
+    margin: 0 auto 24px;
+  }
+
+  .airplaneBody {
+    padding: 7px 11px;
+    gap: 6px;
+  }
+
+  .airplaneBody span {
+    font-size: 10.5px !important;
+  }
+}

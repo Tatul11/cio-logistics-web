@@ -675,3 +675,27 @@
   background: var(--cio-orange);
   color: #ffffff;
 }
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 60px 16px 50px !important;
+  }
+  .heroTitle {
+    font-size: 28px !important;
+  }
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .heroActions :global(.btn) {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .specialistGrid {
+    grid-template-columns: 1fr !important;
+  }
+  .bottomCta {
+    padding: 50px 16px !important;
+  }
+}

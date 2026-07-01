@@ -137,3 +137,22 @@
   color: var(--text-muted);
   margin: 0;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 60px 16px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .missionBlock {
+    padding: 20px 16px;
+    margin-top: 24px;
+  }
+  .missionTitle {
+    font-size: 16px;
+  }
+  .missionDesc {
+    font-size: 13.5px;
+  }
+}

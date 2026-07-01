@@ -117,3 +117,49 @@
   gap: 16px;
   flex-wrap: wrap;
 }
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 70px 0 60px;
+    min-height: 520px;
+  }
+  
+  .badgesRow {
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .isoBadge {
+    font-size: 11.5px;
+    padding: 6px 12px;
+  }
+
+  .heroTitle {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    margin-bottom: 14px;
+  }
+
+  .heroDesc {
+    font-size: 15.5px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 50px 0 45px;
+    min-height: auto;
+  }
+
+  .btnGroup {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btnGroup :global(.btn) {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
