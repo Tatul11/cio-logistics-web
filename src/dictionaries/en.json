@@ -594,6 +594,8 @@
     "certTitle": "Certifications and Industry Memberships",
     "certDesc": "All certifications are valid, verified, and reliable, proving that our logistics services strictly comply with the highest international standards.",
     "servicesTitle": "Our Services",
+    "servicesSubtitle": "Here's what our logistics network offers.",
+    "exploreBtn": "Explore Service →",
     "services": [
       {
         "slug": "heavy-oversized",

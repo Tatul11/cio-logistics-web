@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './ServicesPage.module.css';
-import { ArrowUpRight, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 interface ServicesPageProps {
   params: Promise<{
@@ -119,19 +119,34 @@ export default async function ServicesPage(props: ServicesPageProps) {
         </div>
       </section>
 
-      {/* 3. Services Grid */}
-      <section className={styles.servicesSection}>
+      {/* 3. Services Showcase */}
+      <section className={styles.showcaseSection}>
         <div className="container">
-          <h2 className={styles.servicesTitle}>{hubData.servicesTitle}</h2>
-          <div className={styles.servicesGrid}>
+          <div className={styles.showcaseHeader}>
+            <h2 className={styles.showcaseTitle}>{hubData.servicesTitle}</h2>
+            <p className={styles.showcaseSubtitle}>{hubData.servicesSubtitle}</p>
+          </div>
+
+          <div className={styles.showcaseList}>
             {hubData.services.map((srv: any, idx: number) => (
-              <div key={idx} className={styles.serviceCard}>
-                <img src={srv.image} alt={srv.title} className={styles.serviceImg} />
-                <div className={styles.serviceContent}>
+              <div
+                key={idx}
+                className={`${styles.showcaseCard} ${idx % 2 === 1 ? styles.showcaseCardReverse : ''}`}
+              >
+                <div className={styles.showcaseMockup}>
+                  <div className={styles.showcaseMockupDots}>
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <img src={srv.image} alt={srv.title} className={styles.showcaseMockupImg} />
+                </div>
+
+                <div className={styles.showcaseContent}>
                   <h3>{srv.title}</h3>
                   <p>{srv.desc}</p>
-                  <Link href={`/${lang}/services/${srv.slug}`} className={styles.serviceLink}>
-                    Learn More <ArrowUpRight size={18} />
+                  <Link href={`/${lang}/services/${srv.slug}`} className={styles.showcaseBtn}>
+                    {hubData.exploreBtn}
                   </Link>
                 </div>
               </div>
