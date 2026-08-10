@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './ServicesPage.module.css';
-import { ArrowUpRight, Users, Star } from 'lucide-react';
+import { ArrowUpRight, Star } from 'lucide-react';
 
 interface ServicesPageProps {
   params: Promise<{
@@ -57,8 +57,10 @@ export default async function ServicesPage(props: ServicesPageProps) {
 
             <div className={styles.heroOverlayRow}>
               <div className={styles.heroBadge}>
-                <span className={styles.heroBadgeIcon}>
-                  <Users size={16} />
+                <span className={styles.avatarStack}>
+                  <span className={styles.avatarDot} style={{ background: '#0199F8' }} />
+                  <span className={styles.avatarDot} style={{ background: '#EC1C28' }} />
+                  <span className={styles.avatarDot} style={{ background: '#0F1B24' }} />
                 </span>
                 <span className={styles.heroBadgeText}>
                   <strong>{hubData.stat2Val}</strong>

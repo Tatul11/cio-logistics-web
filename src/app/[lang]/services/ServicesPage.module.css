@@ -61,13 +61,13 @@
 
 .heroOverlayRow {
   position: absolute;
-  top: 24px;
+  top: 28px;
   left: 24px;
   right: 24px;
   z-index: 3;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+  align-items: start;
   gap: 16px;
 }
 
@@ -79,7 +79,7 @@
   background: rgba(15, 27, 36, 0.55);
   backdrop-filter: blur(6px);
   color: #fff;
-  padding: 10px 18px 10px 10px;
+  padding: 8px 18px 8px 8px;
   border-radius: 999px;
 }
 
@@ -91,15 +91,22 @@
   padding: 10px 18px;
 }
 
-.heroBadgeIcon {
+.avatarStack {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.15);
   flex-shrink: 0;
+}
+
+.avatarDot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #16232c;
+  margin-left: -10px;
+}
+
+.avatarDot:first-child {
+  margin-left: 0;
 }
 
 .heroBadgeIconStar {
@@ -124,9 +131,15 @@
 }
 
 .heroCtaGroup {
+  justify-self: center;
+  transform: translateY(-52%);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 999px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.18);
 }
 
 .heroCtaPrimary,
@@ -135,7 +148,7 @@
   align-items: center;
   white-space: nowrap;
   padding: 12px 22px;
-  border-radius: 30px;
+  border-radius: 999px;
   font-weight: 600;
   font-size: 14px;
   transition: opacity 0.3s ease;
@@ -147,8 +160,10 @@
 }
 
 .heroCtaSecondary {
-  background-color: rgba(255, 255, 255, 0.9);
-  color: var(--cio-navy);
+  background-color: transparent;
+  color: var(--cio-orange);
+  border: 1.5px solid var(--cio-orange);
+  padding: 10.5px 20.5px;
 }
 
 .heroCtaPrimary:hover,
@@ -396,6 +411,8 @@
     width: 100%;
   }
   .heroCtaGroup {
+    justify-self: stretch;
     justify-content: center;
+    transform: none;
   }
 }
