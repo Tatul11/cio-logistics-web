@@ -576,6 +576,102 @@
       ]
     }
   },
+  "newServicesHub": {
+    "heroTitle": "Fast. Reliable.\nGlobal Logistics Solutions",
+    "contactBtn": "Contact Us →",
+    "stat1Val": "10%",
+    "stat1Label": "First Nations Employment",
+    "stat2Val": "26+",
+    "stat2Label": "Clients Nationally",
+    "stat3Val": "100k+",
+    "stat3Label": "Tonnes of material transported yearly",
+    "worldEyebrow": "We Spread Around",
+    "worldTitle": "The World",
+    "worldDesc": "CIO Logistics is a modern logistics and supply chain partner built for businesses that value speed, transparency, and reliability. From local deliveries to global freight, we handle every shipment with precision and care.",
+    "certEyebrow": "YOUR TRUSTED FREIGHT FORWARDER",
+    "certTitle": "Certifications and Industry Memberships",
+    "certDesc": "All certifications are valid, verified, and reliable, proving that our logistics services strictly comply with the highest international standards.",
+    "servicesTitle": "Our Services",
+    "services": [
+      {
+        "slug": "heavy-oversized",
+        "title": "Heavy & oversized",
+        "desc": "Specialized project cargo and oversized machinery transport.",
+        "image": "/images/marcin-jozwiak-kGoPcmpPT7c-unsplash.webp"
+      },
+      {
+        "slug": "groupage-lcl",
+        "title": "Groupage / LCL",
+        "desc": "Consolidated shipments with weekly scheduled departures.",
+        "image": "/images/john-simmons-XFLk8qZ-6MA-unsplash.webp"
+      },
+      {
+        "slug": "rail-freight",
+        "title": "Rail Freight",
+        "desc": "Reliable container block trains along the Silk Road.",
+        "image": "/images/frank-mckenna-tjX_sniNzgQ-unsplash.webp"
+      },
+      {
+        "slug": "road-freight",
+        "title": "Land / Road Freight",
+        "desc": "FTL & LTL trucking across Eurasia and CIS corridors.",
+        "image": "/images/elias--lYi5Qg0xP0-unsplash.webp"
+      },
+      {
+        "slug": "sea-freight",
+        "title": "Sea Freight",
+        "desc": "FCL, LCL & reefer container shipping via major ports.",
+        "image": "/images/elevate-dI-aXC7DWpQ-unsplash.webp"
+      },
+      {
+        "slug": "air-freight",
+        "title": "Air Freight",
+        "desc": "Express, standard & charter air cargo worldwide.",
+        "image": "/images/chuttersnap-kyCNGGKCvyw-unsplash.webp"
+      }
+    ]
+  },
+  "newServiceSingle": {
+    "progressTitle": "Let's See Our Progress",
+    "progressDesc": "Charting Our Course: Taking Stock of Our Journey, Embracing Growth, and Paving the Way Forward. Let's Pause, Reflect, and Renew Our Commitment to Progress.",
+    "moreInfo": "More Info ↗",
+    "stats": [
+      { "val": "323K", "label": "Delivered Items" },
+      { "val": "210K", "label": "Reviews" },
+      { "val": "1247", "label": "Happy Clients" },
+      { "val": "64127", "label": "Total Stores" }
+    ],
+    "tapeText": "LogiCart Shipping Delivery",
+    "howWeWorkTitle": "How We Work",
+    "howWeWorkDesc": "Discover our streamlined process that ensures efficiency and excellence every step of the way.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Order Placement",
+        "desc": "Customers submit orders online or through phone, specifying pickup, delivery details, and cargo type, initiating the process."
+      },
+      {
+        "num": "02",
+        "title": "Route Planning",
+        "desc": "Utilizing advanced software, optimal routes are determined considering factors like distance, traffic, and delivery priorities."
+      },
+      {
+        "num": "03",
+        "title": "Transportation",
+        "desc": "Goods are loaded onto appropriate vehicles and dispatched, ensuring proper handling, safety, and adherence to delivery schedules."
+      },
+      {
+        "num": "04",
+        "title": "Tracking and Monitoring",
+        "desc": "Real-time tracking systems monitor shipments, providing updates to customers and enabling proactive management of any issues."
+      },
+      {
+        "num": "05",
+        "title": "Delivery and Confirmation",
+        "desc": "Upon arrival, goods are unloaded, verified against order details, and confirmation of successful delivery is obtained from recipients."
+      }
+    ]
+  },
   "homeAbout": {
     "eyebrow": "- More about us -",
     "title": "CIO Logistics Company Will Deliver Your Goods!",

@@ -1,0 +1,304 @@
+/* ==========================================================================
+   SINGLE SERVICE PAGE STYLES
+   ========================================================================== */
+
+.wrapper {
+  background-color: var(--bg-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 1. Hero Section */
+.hero {
+  position: relative;
+  padding: 180px 0 120px;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  text-align: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(15, 27, 36, 0.7), rgba(15, 27, 36, 0.9));
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroEyebrow {
+  color: var(--cio-orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.heroDesc {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* 2. Progress Section */
+.progressSection {
+  padding: 100px 0 140px;
+  position: relative;
+  background: var(--bg-white);
+}
+
+.progressGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .progressGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.progressHeader h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin-bottom: 20px;
+}
+
+.progressHeader p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 450px;
+}
+
+.moreInfoBtn {
+  background-color: var(--cio-blue);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.moreInfoBtn:hover {
+  background-color: var(--cio-navy);
+}
+
+.statsContainer {
+  position: relative;
+}
+
+.statsMap {
+  width: 100%;
+  opacity: 0.1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNum {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  display: block;
+}
+
+.statText {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* 3. Tape Divider Animation */
+.tapeDivider {
+  position: relative;
+  height: 60px;
+  background-color: var(--cio-blue);
+  transform: rotate(-3deg) scale(1.05);
+  margin: -30px 0 100px;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(1, 153, 248, 0.3);
+}
+
+.tapeTrack {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollTape 20s linear infinite;
+}
+
+.tapeText {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  padding: 0 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@keyframes scrollTape {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 4. How We Work */
+.workSection {
+  padding: 0 0 100px;
+}
+
+.workGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+}
+
+@media (min-width: 992px) {
+  .workGrid {
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+  }
+}
+
+.workHeader h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--cio-navy);
+  margin-bottom: 20px;
+}
+
+.workHeader p {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 60px;
+  max-width: 400px;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+}
+
+.stepsList::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 2px;
+  border-left: 2px dashed rgba(1, 153, 248, 0.3);
+  z-index: 1;
+}
+
+.stepItem {
+  position: relative;
+  z-index: 2;
+  padding-left: 60px;
+}
+
+.stepNum {
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--bg-gray);
+  -webkit-text-stroke: 1px rgba(0,0,0,0.15);
+  background: var(--bg-white);
+  padding: 4px 0;
+}
+
+.stepItem h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cio-navy);
+  margin-bottom: 10px;
+}
+
+.stepItem p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.workVisuals {
+  position: relative;
+  height: 600px;
+}
+
+.craneContainer {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  animation: floatContainer 6s ease-in-out infinite;
+}
+
+@keyframes floatContainer {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.boxesImage {
+  position: absolute;
+  bottom: 0;
+  left: -40px;
+  width: 200px;
+}
+
+.phoneImage {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  width: 180px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 992px) {
+  .tapeDivider {
+    transform: rotate(0);
+    margin: 40px 0;
+  }
+  .workVisuals {
+    height: 400px;
+  }
+}

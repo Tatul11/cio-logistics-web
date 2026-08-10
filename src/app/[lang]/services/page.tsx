@@ -2,13 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './ServicesPage.module.css';
-import { 
-  MapPin, 
-  CreditCard, 
-  ShieldCheck, 
-  Scale, 
-  FileText 
-} from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 interface ServicesPageProps {
   params: Promise<{
@@ -23,173 +17,144 @@ export default async function ServicesPage(props: ServicesPageProps) {
   const dict = await getDictionary(lang);
   const enDict = await getDictionary('en');
 
-  // Fallback to English dictionary if current language doesn't have the new landing sections
-  const servicesLanding = (dict as any).servicesLanding || (enDict as any).servicesLanding;
-  const serviceDetails = (dict as any).serviceDetails || (enDict as any).serviceDetails;
-
-  const allSlugs = Object.keys(serviceDetails || {});
+  const hubData = (dict as any).newServicesHub || (enDict as any).newServicesHub;
 
   return (
     <div className={styles.wrapper}>
       
       {/* 1. Hero Section */}
-      <section 
-        className={styles.hero}
-        style={{ backgroundImage: 'linear-gradient(rgba(15, 27, 36, 0.8), rgba(15, 27, 36, 0.8)), url("/images/caleb-ruiter-EmEQ6kK_5P0-unsplash.webp")' }}
-      >
-        <div className={styles.heroEyebrow}>{servicesLanding.heroEyebrow}</div>
-        <h1 className={styles.heroTitle}>{servicesLanding.heroTitle}</h1>
-        <p className={styles.heroSubtitle}>{servicesLanding.heroSubtitle}</p>
+      <section className={styles.hero}>
+        <div className="container" style={{ position: 'relative' }}>
+          <h1 className={styles.heroTitle}>
+            {hubData.heroTitle.split('\n').map((line: string, i: number) => (
+              <React.Fragment key={i}>
+                {i === 1 ? <span>{line}</span> : line}
+                {i === 0 && <br />}
+              </React.Fragment>
+            ))}
+          </h1>
+          
+          <Link href={`/${lang}/contact`} className={styles.heroContactBtn}>
+            {hubData.contactBtn}
+          </Link>
+
+          <div className={styles.heroImageWrap}>
+            <img 
+              src="/images/chuttersnap-kyCNGGKCvyw-unsplash.webp" 
+              alt="Container Ship" 
+              className={styles.heroImage}
+              style={{ objectPosition: 'center 30%', height: '400px' }}
+            />
+            
+            <div className={styles.heroStatsCard}>
+              <div className={styles.heroStat}>
+                <span className={styles.statVal}>{hubData.stat1Val}</span>
+                <span className={styles.statLabel}>{hubData.stat1Label}</span>
+              </div>
+              <div className={styles.heroStat}>
+                <span className={styles.statVal}>{hubData.stat2Val}</span>
+                <span className={styles.statLabel}>{hubData.stat2Label}</span>
+              </div>
+              <div className={styles.heroStat}>
+                <span className={styles.statVal}>{hubData.stat3Val}</span>
+                <span className={styles.statLabel}>{hubData.stat3Label}</span>
+              </div>
+              <button className={styles.scrollDownBtn}>
+                <ArrowDown size={24} />
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* 2. Alternating Service Cards */}
-      <section className={styles.servicesList}>
-        {allSlugs.map((slug) => {
-          const service = serviceDetails[slug];
-          if (!service) return null;
+      {/* 2. World Map Section */}
+      <section className={styles.worldSection}>
+        <div className="container">
+          <div className={styles.worldGrid}>
+            <div>
+              <img src="/images/map-dots.png" alt="World Map" className={styles.worldMap} style={{ opacity: 0.1 }} />
+            </div>
+            <div className={styles.worldContent}>
+              <h3>{hubData.worldEyebrow}</h3>
+              <h2>{hubData.worldTitle}</h2>
+              <p>{hubData.worldDesc}</p>
+              
+              <div className={styles.worldImages}>
+                <div className={styles.worldImgCard}>
+                  <img src="/images/elevate-dI-aXC7DWpQ-unsplash.webp" alt="Ship" />
+                </div>
+                <div className={styles.worldImgCard}>
+                  <img src="/images/frank-mckenna-tjX_sniNzgQ-unsplash.webp" alt="Port" />
+                </div>
+                <div className={styles.worldImgCard}>
+                  <img src="/images/john-simmons-XFLk8qZ-6MA-unsplash.webp" alt="Cranes" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          return (
-            <div key={slug} className={styles.serviceCard}>
-              <div 
-                className={styles.cardImage} 
-                style={{ backgroundImage: `url(${service.image})` }}
-              />
-              <div className={styles.cardContent}>
-                <div>
-                  <h2 className={styles.cardTitle}>{service.title}</h2>
-                  <p className={styles.cardDesc}>{service.intro1}</p>
-                  
-                  <ul className={styles.cardBenefits}>
-                    {service.benefits?.slice(0, 3).map((benefit: string, idx: number) => {
-                      const parts = benefit.split(':');
-                      return (
-                        <li key={idx}>
-                          <div className={styles.bulletSquare}></div>
-                          <div>
-                            {parts.length > 1 ? (
-                              <>
-                                {parts[0]}: {parts.slice(1).join(':')}
-                              </>
-                            ) : (
-                              benefit
-                            )}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                  <Link href={`/${lang}/services/${slug}`} className="btn btn-primary">
-                    {servicesLanding.requestService}
+      {/* 3. Services Grid */}
+      <section className={styles.servicesSection}>
+        <div className="container">
+          <h2 className={styles.servicesTitle}>{hubData.servicesTitle}</h2>
+          <div className={styles.servicesGrid}>
+            {hubData.services.map((srv: any, idx: number) => (
+              <div key={idx} className={styles.serviceCard}>
+                <img src={srv.image} alt={srv.title} className={styles.serviceImg} />
+                <div className={styles.serviceContent}>
+                  <h3>{srv.title}</h3>
+                  <p>{srv.desc}</p>
+                  <Link href={`/${lang}/services/${srv.slug}`} className={styles.serviceLink}>
+                    Learn More <ArrowUpRight size={18} />
                   </Link>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </section>
-
-      {/* 3. What Do We Offer Section */}
-      <section className={styles.offerSection}>
-        <div className={styles.offerHeader}>
-          <div className={styles.offerEyebrow}>{servicesLanding.whatWeOffer.eyebrow}</div>
-          <h2 className={styles.offerTitle}>{servicesLanding.whatWeOffer.title}</h2>
-          <div className={styles.offerIntroCols}>
-            <p>{servicesLanding.whatWeOffer.intro1}</p>
-            <p>{servicesLanding.whatWeOffer.intro2}</p>
+            ))}
           </div>
-        </div>
-
-        <div className={styles.featuresGrid}>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIconWrap}>
-              <MapPin size={28} />
-            </div>
-            <h3 className={styles.featureTitle}>{servicesLanding.whatWeOffer.trackingTitle}</h3>
-            <p className={styles.featureDesc}>{servicesLanding.whatWeOffer.trackingDesc}</p>
-          </div>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIconWrap}>
-              <CreditCard size={28} />
-            </div>
-            <h3 className={styles.featureTitle}>{servicesLanding.whatWeOffer.installmentTitle}</h3>
-            <p className={styles.featureDesc}>{servicesLanding.whatWeOffer.installmentDesc}</p>
-          </div>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIconWrap}>
-              <ShieldCheck size={28} />
-            </div>
-            <h3 className={styles.featureTitle}>{servicesLanding.whatWeOffer.insuranceTitle}</h3>
-            <p className={styles.featureDesc}>{servicesLanding.whatWeOffer.insuranceDesc}</p>
-          </div>
-          <div className={styles.featureCard}>
-            <div className={styles.featureIconWrap}>
-              <Scale size={28} />
-            </div>
-            <h3 className={styles.featureTitle}>{servicesLanding.whatWeOffer.legalTitle}</h3>
-            <p className={styles.featureDesc}>{servicesLanding.whatWeOffer.legalDesc}</p>
-          </div>
-        </div>
-
-        <div className={styles.offerBottom}>
-          <p>{servicesLanding.whatWeOffer.intro3}</p>
-          <p>{servicesLanding.whatWeOffer.bottomText1}</p>
-          <p>{servicesLanding.whatWeOffer.bottomText2}</p>
-          <p>{servicesLanding.whatWeOffer.bottomText3}</p>
         </div>
       </section>
 
-      {/* 4. Types of Cargo Section */}
-      <section className={styles.cargoSection}>
-        <div className={styles.cargoContainer}>
+      {/* 4. Certifications */}
+      <section className={styles.certSection}>
+        <div className="container">
+          <div className={styles.certHeader}>
+            <div className={styles.certEyebrow}>{hubData.certEyebrow}</div>
+            <h2 className={styles.certTitle}>{hubData.certTitle}</h2>
+            <p className={styles.certDesc}>{hubData.certDesc}</p>
+          </div>
           
-          {/* Left Side: Accordion */}
-          <div className={styles.cargoLeft}>
-            <div className={styles.cargoEyebrow}>{servicesLanding.typesOfCargo.eyebrow}</div>
-            <h2 className={styles.cargoTitle}>{servicesLanding.typesOfCargo.title}</h2>
-            <p className={styles.cargoSubtitle}>{servicesLanding.typesOfCargo.subtitle}</p>
-
-            <div className={styles.accordionList}>
-              {servicesLanding.typesOfCargo.cargoTypes.map((type: string, idx: number) => (
-                <div key={idx} className={styles.accordionItem}>
-                  <span>{type}</span>
-                  <span>+</span>
-                </div>
-              ))}
+          <div className={styles.certGrid}>
+            <div className={styles.certCard}>
+              <div className={styles.certIcon}>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/ISO_9001-2015.svg" style={{ width: '100%', opacity: 0.8 }} alt="ISO" />
+              </div>
+              <h4>ISO 9001:2015</h4>
+              <p>Quality Management</p>
+            </div>
+            <div className={styles.certCard}>
+              <div className={styles.certIcon}>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Fiata_logo.svg" style={{ width: '100%', opacity: 0.8 }} alt="FIATA" />
+              </div>
+              <h4>FIATA Member</h4>
+              <p>Freight Forwarders</p>
+            </div>
+            <div className={styles.certCard}>
+              <div className={styles.certIcon}>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IATA_logo.svg" style={{ width: '100%', opacity: 0.8 }} alt="IATA" />
+              </div>
+              <h4>IATA Certified</h4>
+              <p>Air Cargo Agent</p>
+            </div>
+            <div className={styles.certCard}>
+              <div className={styles.certIcon}>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/IRU_logo.svg" style={{ width: '100%', opacity: 0.8 }} alt="IRU" />
+              </div>
+              <h4>IRU Member</h4>
+              <p>Road Transport</p>
             </div>
           </div>
-
-          {/* Right Side: Text & Bullets */}
-          <div className={styles.cargoRight}>
-            <p className={styles.cargoIntro}>{servicesLanding.typesOfCargo.intro}</p>
-            
-            <div className={styles.docsList}>
-              <div className={styles.docLink}>
-                <FileText size={16} />
-                {servicesLanding.typesOfCargo.doc1}
-              </div>
-              <div className={styles.docLink}>
-                <FileText size={16} />
-                {servicesLanding.typesOfCargo.doc2}
-              </div>
-              <div className={styles.docLink}>
-                <FileText size={16} />
-                {servicesLanding.typesOfCargo.doc3}
-              </div>
-            </div>
-
-            <p className={styles.cargoBulletsIntro}>{servicesLanding.typesOfCargo.bulletsIntro}</p>
-
-            <ul className={styles.cargoBullets}>
-              {servicesLanding.typesOfCargo.bullets.map((bullet: string, idx: number) => (
-                <li key={idx}>
-                  <div className={styles.cargoBulletSquare}></div>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
         </div>
       </section>
 
