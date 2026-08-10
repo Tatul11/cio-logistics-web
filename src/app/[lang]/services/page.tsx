@@ -25,18 +25,30 @@ export default async function ServicesPage(props: ServicesPageProps) {
       {/* 1. Hero Section */}
       <section className={styles.hero}>
         <div className="container" style={{ position: 'relative' }}>
-          <h1 className={styles.heroTitle}>
-            {hubData.heroTitle.split('\n').map((line: string, i: number) => (
-              <React.Fragment key={i}>
-                {i === 1 ? <span>{line}</span> : line}
-                {i === 0 && <br />}
-              </React.Fragment>
-            ))}
-          </h1>
-          
-          <Link href={`/${lang}/contact`} className={styles.heroContactBtn}>
-            {hubData.contactBtn}
-          </Link>
+          <div className={styles.heroTop}>
+            <div className={styles.heroTopLeft}>
+              <h1 className={styles.heroTitle}>
+                {hubData.heroTitle.split('\n').map((line: string, i: number) => (
+                  <React.Fragment key={i}>
+                    {i === 1 ? <span>{line}</span> : line}
+                    {i === 0 && <br />}
+                  </React.Fragment>
+                ))}
+              </h1>
+
+              <Link href={`/${lang}/contact`} className={styles.heroContactBtn}>
+                {hubData.contactBtn}
+              </Link>
+            </div>
+
+            <div className={styles.heroTopRight}>
+              <img
+                src="/images/taro-ohtani-5T5zmIqs0AM-unsplash.webp"
+                alt="Container crane"
+                className={styles.heroSecondaryImage}
+              />
+            </div>
+          </div>
 
           <div className={styles.heroImageWrap}>
             <img 

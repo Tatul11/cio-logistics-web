@@ -12,18 +12,49 @@
   position: relative;
   padding: 120px 0 200px;
   background-color: #F8F9FA;
-  text-align: center;
   overflow: hidden;
 }
 
+.heroTop {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 992px) {
+  .heroTop {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+  }
+}
+
+.heroTopLeft {
+  text-align: left;
+}
+
+.heroTopRight {
+  width: 100%;
+}
+
+.heroSecondaryImage {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  display: block;
+}
+
 .heroTitle {
-  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   color: var(--cio-navy);
   line-height: 1.1;
   margin-bottom: 30px;
-  max-width: 1000px;
-  margin-inline: auto;
   white-space: pre-wrap;
 }
 
@@ -41,7 +72,6 @@
   font-weight: 600;
   font-size: 16px;
   transition: opacity 0.3s ease;
-  margin-bottom: 60px;
 }
 
 .heroContactBtn:hover {
