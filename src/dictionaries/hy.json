@@ -316,6 +316,7 @@
     "servicesTitle": "Մեր Ծառայությունները",
     "servicesSubtitle": "Ահա թե ինչ է առաջարկում մեր լոգիստիկ ցանցը։",
     "exploreBtn": "Ուսումնասիրել ծառայությունը →",
+    "tapeText": "CIO Logistics Shipping Delivery",
     "services": [
       {
         "slug": "heavy-oversized",
@@ -365,7 +366,7 @@
       { "val": "1247", "label": "Գոհ հաճախորդներ" },
       { "val": "64127", "label": "Ընդհանուր պահեստներ" }
     ],
-    "tapeText": "LogiCart Shipping Delivery",
+    "tapeText": "CIO Logistics Shipping Delivery",
     "howWeWorkTitle": "Ինչպես ենք աշխատում",
     "howWeWorkDesc": "Բացահայտեք մեր օպտիմիզացված գործընթացը, որն ապահովում է արդյունավետություն և գերազանցություն յուրաքանչյուր փուլում:",
     "steps": [

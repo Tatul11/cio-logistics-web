@@ -316,6 +316,7 @@
     "servicesTitle": "Наши услуги",
     "servicesSubtitle": "Вот что предлагает наша логистическая сеть.",
     "exploreBtn": "Подробнее об услуге →",
+    "tapeText": "CIO Logistics Shipping Delivery",
     "services": [
       {
         "slug": "heavy-oversized",
@@ -365,7 +366,7 @@
       { "val": "1247", "label": "Довольных клиентов" },
       { "val": "64127", "label": "Всего складов" }
     ],
-    "tapeText": "LogiCart Shipping Delivery",
+    "tapeText": "CIO Logistics Shipping Delivery",
     "howWeWorkTitle": "Как мы работаем",
     "howWeWorkDesc": "Ознакомьтесь с нашим оптимизированным процессом, который обеспечивает эффективность и превосходство на каждом этапе.",
     "steps": [

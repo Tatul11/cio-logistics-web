@@ -596,6 +596,7 @@
     "servicesTitle": "Our Services",
     "servicesSubtitle": "Here's what our logistics network offers.",
     "exploreBtn": "Explore Service →",
+    "tapeText": "CIO Logistics Shipping Delivery",
     "services": [
       {
         "slug": "heavy-oversized",
@@ -645,7 +646,7 @@
       { "val": "1247", "label": "Happy Clients" },
       { "val": "64127", "label": "Total Stores" }
     ],
-    "tapeText": "LogiCart Shipping Delivery",
+    "tapeText": "CIO Logistics Shipping Delivery",
     "howWeWorkTitle": "How We Work",
     "howWeWorkDesc": "Discover our streamlined process that ensures efficiency and excellence every step of the way.",
     "steps": [

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './ServicesPage.module.css';
+import ServicesShowcaseList from './ServicesShowcaseList';
 import { Star } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -119,6 +120,15 @@ export default async function ServicesPage(props: ServicesPageProps) {
         </div>
       </section>
 
+      {/* Tape Divider */}
+      <div className={styles.tapeDivider}>
+        <div className={styles.tapeTrack}>
+          {[...Array(10)].map((_, i) => (
+            <span key={i} className={styles.tapeText}>{hubData.tapeText}</span>
+          ))}
+        </div>
+      </div>
+
       {/* 3. Services Showcase */}
       <section className={styles.showcaseSection}>
         <div className="container">
@@ -127,31 +137,7 @@ export default async function ServicesPage(props: ServicesPageProps) {
             <p className={styles.showcaseSubtitle}>{hubData.servicesSubtitle}</p>
           </div>
 
-          <div className={styles.showcaseList}>
-            {hubData.services.map((srv: any, idx: number) => (
-              <div
-                key={idx}
-                className={`${styles.showcaseCard} ${idx % 2 === 1 ? styles.showcaseCardReverse : ''}`}
-              >
-                <div className={styles.showcaseMockup}>
-                  <div className={styles.showcaseMockupDots}>
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <img src={srv.image} alt={srv.title} className={styles.showcaseMockupImg} />
-                </div>
-
-                <div className={styles.showcaseContent}>
-                  <h3>{srv.title}</h3>
-                  <p>{srv.desc}</p>
-                  <Link href={`/${lang}/services/${srv.slug}`} className={styles.showcaseBtn}>
-                    {hubData.exploreBtn}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ServicesShowcaseList services={hubData.services} lang={lang} exploreBtn={hubData.exploreBtn} />
         </div>
       </section>
 

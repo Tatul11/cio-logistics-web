@@ -7,6 +7,47 @@
   min-height: 100vh;
 }
 
+/* Tape Divider */
+.tapeDivider {
+  position: relative;
+  height: 60px;
+  background-color: var(--cio-blue);
+  transform: rotate(-3deg) scale(1.05);
+  margin: 20px 0 60px;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(1, 153, 248, 0.3);
+}
+
+.tapeTrack {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollTape 20s linear infinite;
+}
+
+.tapeText {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  padding: 0 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+@keyframes scrollTape {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 992px) {
+  .tapeDivider {
+    transform: rotate(0);
+    margin: 16px 0 40px;
+  }
+}
+
 /* 1. Hero Section */
 .hero {
   position: relative;
@@ -274,11 +315,39 @@
   margin-right: auto;
   padding: 40px;
   border-radius: 28px;
-  transition: transform 0.3s ease;
+  opacity: 0;
+  transition: transform 0.7s ease, opacity 0.7s ease;
 }
 
 .showcaseCard:hover {
   transform: translateY(-4px);
+}
+
+.showcaseFromLeft {
+  transform: translateX(-70px);
+}
+
+.showcaseFromRight {
+  transform: translateX(70px);
+}
+
+.showcaseFromLeft.showcaseVisible,
+.showcaseFromRight.showcaseVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.showcaseFromLeft.showcaseVisible:hover,
+.showcaseFromRight.showcaseVisible:hover {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcaseCard {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .showcaseCardReverse {
