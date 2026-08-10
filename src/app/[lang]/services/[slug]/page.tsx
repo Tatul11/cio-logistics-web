@@ -33,18 +33,26 @@ export default async function SingleServicePage(props: SingleServicePageProps) {
   return (
     <div className={styles.wrapper}>
       {/* 1. Hero Section */}
-      <section 
-        className={styles.hero}
-        style={{ backgroundImage: `url(${service.image})` }}
-      >
-        <div className={styles.heroOverlay}></div>
-        <div className={styles.heroContent}>
-          <div className={styles.heroEyebrow}>CIO LOGISTICS</div>
-          <h1 className={styles.heroTitle}>{service.title}</h1>
-          <p className={styles.heroDesc}>{service.desc}</p>
-          <Link href={`/${lang}/contact`} className="btn btn-primary">
-            {hubData.contactBtn}
-          </Link>
+      <section className={styles.hero}>
+        <div className="container">
+          <div className={styles.heroTop}>
+            <div className={styles.heroTopLeft}>
+              <div className={styles.heroEyebrow}>CIO LOGISTICS</div>
+              <h1 className={styles.heroTitle}>{service.title}</h1>
+              <p className={styles.heroDesc}>{service.desc}</p>
+              <Link href={`/${lang}/contact`} className={styles.heroContactBtn}>
+                {hubData.contactBtn}
+              </Link>
+            </div>
+
+            <div className={styles.heroTopRight}>
+              <img
+                src={service.image}
+                alt={service.title}
+                className={styles.heroSecondaryImage}
+              />
+            </div>
+          </div>
         </div>
       </section>
 

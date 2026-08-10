@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionary';
 import styles from './ServicesPage.module.css';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Users, Star } from 'lucide-react';
 
 interface ServicesPageProps {
   params: Promise<{
@@ -24,56 +24,66 @@ export default async function ServicesPage(props: ServicesPageProps) {
       
       {/* 1. Hero Section */}
       <section className={styles.hero}>
-        <div className="container" style={{ position: 'relative' }}>
-          <div className={styles.heroTop}>
-            <div className={styles.heroTopLeft}>
-              <h1 className={styles.heroTitle}>
-                {hubData.heroTitle.split('\n').map((line: string, i: number) => (
+        <div className="container">
+          <div className={styles.heroTextWrap}>
+            <h1 className={styles.heroTitle}>
+              {hubData.heroTitle.split('\n').map((line: string, i: number) => {
+                if (i === 0) {
+                  return (
+                    <React.Fragment key={i}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  );
+                }
+                const words = line.split(' ');
+                const accent = words.pop();
+                return (
                   <React.Fragment key={i}>
-                    {i === 1 ? <span>{line}</span> : line}
-                    {i === 0 && <br />}
+                    {words.join(' ')} <span className={styles.heroTitleAccent}>{accent}</span>
                   </React.Fragment>
-                ))}
-              </h1>
-
-              <Link href={`/${lang}/contact`} className={styles.heroContactBtn}>
-                {hubData.contactBtn}
-              </Link>
-            </div>
-
-            <div className={styles.heroTopRight}>
-              <img
-                src="/images/taro-ohtani-5T5zmIqs0AM-unsplash.webp"
-                alt="Container crane"
-                className={styles.heroSecondaryImage}
-              />
-            </div>
+                );
+              })}
+            </h1>
+            <p className={styles.heroSubtitle}>{hubData.heroSubtitle}</p>
           </div>
 
           <div className={styles.heroImageWrap}>
-            <img 
-              src="/images/chuttersnap-kyCNGGKCvyw-unsplash.webp" 
-              alt="Container Ship" 
+            <img
+              src="/images/rinson-chory-2vPGGOU-wLA-unsplash.webp"
+              alt="Container ship at sea"
               className={styles.heroImage}
-              style={{ objectPosition: 'center 30%', height: '400px' }}
             />
-            
-            <div className={styles.heroStatsCard}>
-              <div className={styles.heroStat}>
-                <span className={styles.statVal}>{hubData.stat1Val}</span>
-                <span className={styles.statLabel}>{hubData.stat1Label}</span>
+
+            <div className={styles.heroOverlayRow}>
+              <div className={styles.heroBadge}>
+                <span className={styles.heroBadgeIcon}>
+                  <Users size={16} />
+                </span>
+                <span className={styles.heroBadgeText}>
+                  <strong>{hubData.stat2Val}</strong>
+                  {hubData.stat2Label}
+                </span>
               </div>
-              <div className={styles.heroStat}>
-                <span className={styles.statVal}>{hubData.stat2Val}</span>
-                <span className={styles.statLabel}>{hubData.stat2Label}</span>
+
+              <div className={styles.heroCtaGroup}>
+                <Link href={`/${lang}/contact`} className={styles.heroCtaPrimary}>
+                  {hubData.heroCta}
+                </Link>
+                <Link href={`/${lang}/contact`} className={styles.heroCtaSecondary}>
+                  {hubData.contactBtn}
+                </Link>
               </div>
-              <div className={styles.heroStat}>
-                <span className={styles.statVal}>{hubData.stat3Val}</span>
-                <span className={styles.statLabel}>{hubData.stat3Label}</span>
+
+              <div className={`${styles.heroBadge} ${styles.heroBadgeLight}`}>
+                <span className={styles.heroBadgeIconStar}>
+                  <Star size={16} fill="currentColor" />
+                </span>
+                <span className={styles.heroBadgeText}>
+                  <strong>{hubData.stat3Val}</strong>
+                  {hubData.stat3Label}
+                </span>
               </div>
-              <button className={styles.scrollDownBtn}>
-                <ArrowDown size={24} />
-              </button>
             </div>
           </div>
         </div>

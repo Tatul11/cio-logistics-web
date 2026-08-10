@@ -578,6 +578,8 @@
   },
   "newServicesHub": {
     "heroTitle": "Fast. Reliable.\nGlobal Logistics Solutions",
+    "heroSubtitle": "Streamlined freight management with real-time tracking, moving your cargo further and faster.",
+    "heroCta": "Get Quote →",
     "contactBtn": "Contact Us →",
     "stat1Val": "10%",
     "stat1Label": "First Nations Employment",
